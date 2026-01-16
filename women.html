@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خواتین کا سیکشن | کھانا پکانا، بیوٹی ٹپس، گھریلو کام</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #fef6f6;
+            color: #333;
+            line-height: 1.6;
+            direction: rtl;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #F8BBD0;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #C2185B;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #C2185B;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #C2185B;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #E91E63;
+        }
+        
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img {
+            height: 200px;
+            background: linear-gradient(135deg, #F8BBD0, #F48FB1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
+        .card-content h3 {
+            color: #C2185B;
+            margin-bottom: 1rem;
+        }
+        
+        .card-content ul {
+            list-style: none;
+            padding-right: 1rem;
+        }
+        
+        .card-content li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .card-content li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #E91E63;
+            font-weight: bold;
+        }
+        
+        /* Recipes Section */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .recipe-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .recipe-img {
+            height: 150px;
+            background: #F8BBD0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #C2185B;
+            font-size: 3rem;
+        }
+        
+        .recipe-info {
+            padding: 1.5rem;
+        }
+        
+        .recipe-info h4 {
+            color: #C2185B;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #E91E63;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #C2185B;
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background: #C2185B;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-home"></i> خواتین کا سیکشن</a>
+        </div>
+        <p>کھانا پکانا، بیوٹی ٹپس، گھریلو کام، خواتین کا بزنس</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#cooking"><i class="fas fa-utensils"></i> کھانا پکانا</a>
+            <a href="#beauty"><i class="fas fa-spa"></i> بیوٹی ٹپس</a>
+            <a href="#home"><i class="fas fa-home"></i> گھریلو کام</a>
+            <a href="#business"><i class="fas fa-business-time"></i> خواتین کا بزنس</a>
+            <a href="#sewing"><i class="fas fa-sewing"></i> سلائی کڑھائی</a>
+            <a href="#kids"><i class="fas fa-child"></i> بچوں کی پرورش</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Cooking Section -->
+        <section id="cooking">
+            <h2 class="section-header"><i class="fas fa-utensils"></i> کھانا پکانا</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>مرغی کے کھانے</h3>
+                        <ul>
+                            <li>مرغی بریانی</li>
+                            <li>چکن تکہ</li>
+                            <li>چکن کریمی</li>
+                            <li>مرغی کڑاہی</li>
+                            <li>چکن چاؤ مین</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-carrot"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>سبزی کے کھانے</h3>
+                        <ul>
+                            <li>آلو گوشت</li>
+                            <li>سبزی پلاؤ</li>
+                            <li>دال ماش</li>
+                            <li>مٹر پلاؤ</li>
+                            <li>سبزی کڑاہی</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>ناشتہ</h3>
+                        <ul>
+                            <li>پرانا</li>
+                            <li>حلیم</li>
+                            <li>انڈے کے پراٹھے</li>
+                            <li>دلیہ</li>
+                            <li>فرنچ ٹوسٹ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Recipes -->
+            <h3 style="color: #C2185B; margin: 2rem 0 1rem;">فوری ترکیبیں</h3>
+            <div class="recipes-grid">
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <i class="fas fa-egg"></i>
+                    </div>
+                    <div class="recipe-info">
+                        <h4>انڈا کریمی</h4>
+                        <p>وقت: 15 منٹ | مشکل: آسان</p>
+                    </div>
+                </div>
+                
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <div class="recipe-info">
+                        <h4>چکن چیز پاستا</h4>
+                        <p>وقت: 20 منٹ | مشکل: درمیانی</p>
+                    </div>
+                </div>
+                
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="recipe-info">
+                        <h4>پھل کی چاٹ</h4>
+                        <p>وقت: 10 منٹ | مشکل: آسان</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beauty Tips Section -->
+        <section id="beauty">
+            <h2 class="section-header"><i class="fas fa-spa"></i> بیوٹی ٹپس</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-face-smile"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>چہرے کی دیکھ بھال</h3>
+                        <ul>
+                            <li>گھریلو فیشل</li>
+                            <li>جلد صاف کرنا</li>
+                            <li>رنگت نکھارنا</li>
+                            <li>مہاسوں کا علاج</li>
+                            <li>جھریوں سے بچاؤ</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-spray-can-sparkles"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>بالوں کی دیکھ بھال</h3>
+                        <ul>
+                            <li>بال لمبے کرنا</li>
+                            <li>روشنی لانا</li>
+                            <li>خشکی کا علاج</li>
+                            <li>گرمی سے بچاؤ</li>
+                            <li>بال گرنے کا علاج</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>ہاتھ پاؤں کی دیکھ بھال</h3>
+                        <ul>
+                            <li>ناخن مضبوط کرنا</li>
+                            <li>ہاتھوں کی جلد نرم</li>
+                            <li>پاؤں کی دیکھ بھال</li>
+                            <li>کھردری کہنی کا علاج</li>
+                            <li>میں کیئر ٹپس</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home Management Section -->
+        <section id="home">
+            <h2 class="section-header"><i class="fas fa-home"></i> گھریلو کام</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>صفائی ستھرائی</h3>
+                        <ul>
+                            <li>گھر کی صفائی</li>
+                            <li>کپڑے دھونا</li>
+                            <li>برتن صاف کرنا</li>
+                            <li>فرنیچر کی دیکھ بھال</li>
+                            <li>بیت الخلاء صاف کرنا</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>گھر کا انتظام</h3>
+                        <ul>
+                            <li>سامان ترتیب</li>
+                            <li>گھر ڈیکوریٹ کرنا</li>
+                            <li>بجٹ بنانا</li>
+                            <li>خریدیاری</li>
+                            <li>وقت کا انتظام</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>گھر میں باغبانی</h3>
+                        <ul>
+                            <li>پودے لگانا</li>
+                            <li>پودوں کی دیکھ بھال</li>
+                            <li>کیاری بنانا</li>
+                            <li>ہربل پلانٹس</li>
+                            <li>گملوں کا انتخاب</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Women's Business Section -->
+        <section id="business">
+            <h2 class="section-header"><i class="fas fa-business-time"></i> خواتین کا بزنس</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>کھانا بیچنا</h3>
+                        <ul>
+                            <li>بیکری آئٹمز</li>
+                            <li>مصالحہ جات</li>
+                            <li>پکوڑے سموسے</li>
+                            <li>مٹھائیاں</li>
+                            <li>تیار کھانے</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>سلائی کڑھائی</h3>
+                        <ul>
+                            <li>لباس سلائی</li>
+                            <li>ایمبروئڈری</li>
+                            <li>کپڑوں کی مرمت</li>
+                            <li>ڈیزائننگ</li>
+                            <li>آرڈر پر کام</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="card-img">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>آن لائن بزنس</h3>
+                        <ul>
+                            <li>ای کامرس</li>
+                            <li>فری لانس</li>
+                            <li>آن لائن کوچنگ</li>
+                            <li>کونٹینٹ رائٹنگ</li>
+                            <li>سوشل میڈیا</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Home -->
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 خواتین کا سیکشن | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            یہ مواد محض مثال کے طور پر ہے۔ حقیقی مواد جلد شامل کیا جائے گا۔
+        </p>
+    </footer>
+
+    <script>
+        // Simple JavaScript for active navigation
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if(pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#C2185B';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        // Smooth scroll
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        console.log('خواتین کا سیکشن صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
