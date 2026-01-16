@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلباء | تعلیم اور مستقبل</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #BBDEFB;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #1976D2;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #1976D2;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #1976D2;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #2196F3;
+        }
+        
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .student-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .student-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .student-card i {
+            font-size: 3rem;
+            color: #2196F3;
+            margin-bottom: 1.5rem;
+        }
+        
+        .student-card h3 {
+            color: #1976D2;
+            margin-bottom: 1rem;
+        }
+        
+        .student-card ul {
+            list-style: none;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .student-card li {
+            margin-bottom: 0.5rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .student-card li::before {
+            content: '🎓';
+            position: absolute;
+            right: 0;
+        }
+        
+        .action-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: #1976D2;
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #1976D2;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #1976D2;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .student-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-user-graduate"></i> طلباء</a>
+        </div>
+        <p>تعلیم، کیریئر اور مستقبل کی تیاری</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#exams"><i class="fas fa-file-alt"></i> امتحانات</a>
+            <a href="#career"><i class="fas fa-briefcase"></i> کیریئر</a>
+            <a href="#skills"><i class="fas fa-tools"></i> مہارتیں</a>
+            <a href="#study"><i class="fas fa-book"></i> مطالعہ</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Exams Section -->
+        <section id="exams">
+            <h2 class="section-header"><i class="fas fa-file-alt"></i> امتحانات</h2>
+            
+            <div class="student-grid">
+                <div class="student-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>ٹائم مینجمنٹ</h3>
+                    <ul>
+                        <li>مطالعہ کا شیڈول</li>
+                        <li>بریک کا مناسب وقت</li>
+                        <li>نوٹس بنانا</li>
+                        <li>مرور کا وقت</li>
+                        <li>نیند کا خیال</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="student-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>امتحانی تیاری</h3>
+                    <ul>
+                        <li>گزشتہ پرچے</li>
+                        <li>ماڈل پیپرز</li>
+                        <li>مشقی سوالات</li>
+                        <li>ٹیسٹ سیریز</li>
+                        <li>گروپ اسٹڈی</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="student-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>دماغی تیاری</h3>
+                    <ul>
+                        <li>تناؤ کا انتظام</li>
+                        <li>پرامید رہنا</li>
+                        <li>توجہ مرکوز</li>
+                        <li>یادداشت بڑھانا</li>
+                        <li>اعتماد</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Career Section -->
+        <section id="career">
+            <h2 class="section-header"><i class="fas fa-briefcase"></i> کیریئر</h2>
+            
+            <div class="student-grid">
+                <div class="student-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>میڈیکل</h3>
+                    <ul>
+                        <li>MBBS/BDS</li>
+                        <li>نرسنگ</li>
+                        <li>فارمیسی</li>
+                        <li>فزیو تھراپسٹ</li>
+                        <li>ڈینٹسٹری</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="student-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>انجینئرنگ</h3>
+                    <ul>
+                        <li>سول انجینئرنگ</li>
+                        <li>الیکٹریکل</li>
+                        <li>میکینکل</li>
+                        <li>کمپیوٹر</li>
+                        <li>سافٹ ویئر</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="student-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>کامرس</h3>
+                    <ul>
+                        <li>چارٹرڈ اکاؤنٹنٹ</li>
+                        <li>بزنس ایڈمن</li>
+                        <li>بینکنگ</li>
+                        <li>فنانس</li>
+                        <li>مارکیٹنگ</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-header"><i class="fas fa-tools"></i> مہارتیں</h2>
+            
+            <div class="student-grid">
+                <div class="student-card">
+                    <i class="fas fa-code"></i>
+                    <h3>ٹیکنیکل مہارتیں</h3>
+                    <ul>
+                        <li>پروگرامنگ</li>
+                        <li>ویب ڈویلپمنٹ</li>
+                        <li>گرافکس ڈیزائن</li>
+                        <li>ڈیٹا اینالسٹ</li>
+                        <li>سیبر سیکورٹی</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="student-card">
+                    <i class="fas fa-language"></i>
+                    <h3>زبانیں</h3>
+                    <ul>
+                        <li>انگریزی</li>
+                        <li>چینی زبان</li>
+                        <li>عربی</li>
+                        <li>فرنچ</li>
+                        <li>جرمن</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="student-card">
+                    <i class="fas fa-users"></i>
+                    <h3>نرم مہارتیں</h3>
+                    <ul>
+                        <li>مواصلت</li>
+                        <li>قیادت</li>
+                        <li>ٹیم ورک</li>
+                        <li>مسئلہ حل</li>
+                        <li>تخلیقی صلاحیت</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Study Tips -->
+        <section id="study">
+            <h2 class="section-header"><i class="fas fa-book"></i> مطالعہ کے طریقے</h2>
+            
+            <div class="student-grid">
+                <div class="student-card">
+                    <i class="fas fa-highlighter"></i>
+                    <h3>مؤثر مطالعہ</h3>
+                    <ul>
+                        <li>ایکٹو لرننگ</li>
+                        <li>نوٹس بنانا</li>
+                        <li>پومیڈورو ٹیکنیک</li>
+                        <li>ٹیچنگ طریقہ</li>
+                        <li>ویژولائزیشن</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="student-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>آن لائن وسائل</h3>
+                    <ul>
+                        <li>آن لائن کورسز</li>
+                        <li>ایجوکیشنل ویڈیوز</li>
+                        <li>ای بکس</li>
+                        <li>اسٹڈی ایپس</li>
+                        <li>آن لائن کمیونٹی</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="student-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>زندگی کا توازن</h3>
+                    <ul>
+                        <li>تعلیم اور تفریح</li>
+                        <li>صحت کا خیال</li>
+                        <li>خاندانی وقت</li>
+                        <li>سماجی زندگی</li>
+                        <li>ذاتی ترقی</li>
+                    </ul>
+                    <a href="#" class="action-btn">مزید جانیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 طلباء | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            طلباء کی ہر ضرورت کے لیے مکمل گائیڈ
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#1976D2';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        console.log('طلباء صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
