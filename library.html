@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ڈیجیٹل لائبریری | ہزاروں کتب مفت</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #E1BEE7;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #7B1FA2;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #7B1FA2;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #7B1FA2;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #9C27B0;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .book-card i {
+            font-size: 3rem;
+            color: #9C27B0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .book-card h3 {
+            color: #7B1FA2;
+            margin-bottom: 1rem;
+        }
+        
+        .book-card ul {
+            list-style: none;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .book-card li {
+            margin-bottom: 0.5rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .book-card li::before {
+            content: '📚';
+            position: absolute;
+            right: 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #9C27B0;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: #7B1FA2;
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #9C27B0;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #7B1FA2;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #7B1FA2;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-book"></i> ڈیجیٹل لائبریری</a>
+        </div>
+        <p>ہزاروں کتب مفت ڈاؤن لوڈ | تمام موضوعات</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#religious"><i class="fas fa-quran"></i> مذہبی کتب</a>
+            <a href="#urdu"><i class="fas fa-book-reader"></i> اردو ادب</a>
+            <a href="#english"><i class="fas fa-globe"></i> انگریزی کتب</a>
+            <a href="#academic"><i class="fas fa-graduation-cap"></i> درسی کتب</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Religious Books -->
+        <section id="religious">
+            <h2 class="section-header"><i class="fas fa-quran"></i> مذہبی کتب</h2>
+            
+            <div class="books-grid">
+                <div class="book-card">
+                    <i class="fas fa-star-and-crescent"></i>
+                    <h3>قرآن و حدیث</h3>
+                    <ul>
+                        <li>قرآن مجید ترجمہ</li>
+                        <li>تفاسیر قرآن</li>
+                        <li>صحاح ستہ</li>
+                        <li>حدیث کی کتب</li>
+                        <li>سیرت نبوی</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="book-card">
+                    <i class="fas fa-pray"></i>
+                    <h3>فقہ و عقائد</h3>
+                    <ul>
+                        <li>فقہ اسلامی</li>
+                        <li>عقائد اسلامی</li>
+                        <li>تاریخ اسلام</li>
+                        <li>سوانح عمریاں</li>
+                        <li>اخلاقیات</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="book-card">
+                    <i class="fas fa-hands-praying"></i>
+                    <h3>دعاؤں کی کتب</h3>
+                    <ul>
+                        <li>مسنون دعائیں</li>
+                        <li>اذکار و وظائف</li>
+                        <li>تسبیحات</li>
+                        <li>نماز کے مسائل</li>
+                        <li>روزہ و زکوٰۃ</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Urdu Literature -->
+        <section id="urdu">
+            <h2 class="section-header"><i class="fas fa-book-reader"></i> اردو ادب</h2>
+            
+            <div class="books-grid">
+                <div class="book-card">
+                    <i class="fas fa-pen-nib"></i>
+                    <h3>شاعری</h3>
+                    <ul>
+                        <li>میر، غالب، اقبال</li>
+                        <li>جدید شاعری</li>
+                        <li>نظمیں</li>
+                        <li>غزلیں</li>
+                        <li>رباعیاں</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="book-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>ناول اور افسانے</h3>
+                    <ul>
+                        <li>کلاسک ناول</li>
+                        <li>جدید افسانے</li>
+                        <li>مختصر کہانیاں</li>
+                        <li>سفرنامے</li>
+                        <li>آپ بیتیاں</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="book-card">
+                    <i class="fas fa-users"></i>
+                    <h3>تنقید و تحقیق</h3>
+                    <ul>
+                        <li>ادبی تنقید</li>
+                        <li>تحقیقی مقالات</li>
+                        <li>تاریخ ادب</li>
+                        <li>لسانیات</li>
+                        <li>تراجم</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- English Books -->
+        <section id="english">
+            <h2 class="section-header"><i class="fas fa-globe"></i> انگریزی کتب</h2>
+            
+            <div class="books-grid">
+                <div class="book-card">
+                    <i class="fas fa-language"></i>
+                    <h3>زبان سیکھیں</h3>
+                    <ul>
+                        <li>گرامر بکس</li>
+                        <li>ووکیبلری</li>
+                        <li>بول چال کے فقرے</li>
+                        <li>تحریری مہارت</li>
+                        <li>تلفظ کی کتابیں</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="book-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>تعلیمی کتب</h3>
+                    <ul>
+                        <li>IELTS/TOEFL</li>
+                        <li>GRE/GMAT</li>
+                        <li>پروفیشنل کورسز</li>
+                        <li>ریسرچ پیپرز</li>
+                        <li>اکیڈمک رائٹنگ</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="book-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>انگریزی ادب</h3>
+                    <ul>
+                        <li>کلاسک ناول</li>
+                        <li>شاعری</li>
+                        <li>ڈرامے</li>
+                        <li>مختصر کہانیاں</li>
+                        <li>سوانح عمریاں</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Academic Books -->
+        <section id="academic">
+            <h2 class="section-header"><i class="fas fa-graduation-cap"></i> درسی کتب</h2>
+            
+            <div class="books-grid">
+                <div class="book-card">
+                    <i class="fas fa-school"></i>
+                    <h3>اسکول کی کتب</h3>
+                    <ul>
+                        <li>کلاس 1-5</li>
+                        <li>کلاس 6-8</li>
+                        <li>کلاس 9-10</li>
+                        <li>تمام مضامین</li>
+                        <li>گائیڈ بکس</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="book-card">
+                    <i class="fas fa-university"></i>
+                    <h3>کالج کی کتب</h3>
+                    <ul>
+                        <li>ایف ایس سی پری میڈیکل</li>
+                        <li>ایف ایس سی پری انجینئرنگ</li>
+                        <li>آئی سی ایس</li>
+                        <li>ایف اے</li>
+                        <li>آئی کام</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="book-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>یونیورسٹی کی کتب</h3>
+                    <ul>
+                        <li>انجینئرنگ</li>
+                        <li>میڈیکل</li>
+                        <li>کامرس</li>
+                        <li>آرٹس</li>
+                        <li>لا اینڈ ایڈمن</li>
+                    </ul>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 ڈیجیٹل لائبریری | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            5000+ کتب مفت دستیاب | روزانہ اضافہ
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#7B1FA2';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        console.log('ڈیجیٹل لائبریری صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
