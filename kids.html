@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بچوں کا کونہ | کارٹونز، نظمیں، کھیل</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #F8BBD0;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #C2185B;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #C2185B;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #C2185B;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #E91E63;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .content-card i {
+            font-size: 3rem;
+            color: #E91E63;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-card h3 {
+            color: #C2185B;
+            margin-bottom: 1rem;
+        }
+        
+        .content-card ul {
+            list-style: none;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .content-card li {
+            margin-bottom: 0.5rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .content-card li::before {
+            content: '🎯';
+            position: absolute;
+            right: 0;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #E91E63;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #C2185B;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #C2185B;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-child"></i> بچوں کا کونہ</a>
+        </div>
+        <p>کارٹونز، نظمیں، کھیل، کہانیاں - بچوں کی تفریح اور تعلیم</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#cartoons"><i class="fas fa-film"></i> کارٹونز</a>
+            <a href="#poems"><i class="fas fa-music"></i> نظمیں</a>
+            <a href="#games"><i class="fas fa-gamepad"></i> کھیل</a>
+            <a href="#stories"><i class="fas fa-book-open"></i> کہانیاں</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Cartoons Section -->
+        <section id="cartoons">
+            <h2 class="section-header"><i class="fas fa-film"></i> کارٹونز</h2>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>تعلیمی کارٹونز</h3>
+                    <ul>
+                        <li>انگریزی سیکھیں</li>
+                        <li>ریاضی سیکھیں</li>
+                        <li>سائنس کی دنیا</li>
+                        <li>اخلاقی کہانیاں</li>
+                        <li>تاریخ کے واقعات</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-laugh-beam"></i>
+                    <h3>تفریحی کارٹونز</h3>
+                    <ul>
+                        <li>مزاحیہ کارٹونز</li>
+                        <li>ایڈونچر سیریز</li>
+                        <li>سپر ہیرو</li>
+                        <li>جانوروں کی کہانیاں</li>
+                        <li>جادوئی دنیا</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-users"></i>
+                    <h3>معاشرتی تعلیم</h3>
+                    <ul>
+                        <li>دوستی کی اہمیت</li>
+                        <li>سچ بولنا</li>
+                        <li>والدین کا احترام</li>
+                        <li>تعاون کی اہمیت</li>
+                        <li>صاف ستھرائی</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Poems Section -->
+        <section id="poems">
+            <h2 class="section-header"><i class="fas fa-music"></i> نظمیں اور ترانے</h2>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <i class="fas fa-star"></i>
+                    <h3>اخلاقی نظمیں</h3>
+                    <ul>
+                        <li>سچائی کی نظم</li>
+                        <li>محنت کی اہمیت</li>
+                        <li>ہمدردی</li>
+                        <li>صبر کی فضیلت</li>
+                        <li>انصاف</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-book"></i>
+                    <h3>تعلیمی نظمیں</h3>
+                    <ul>
+                        <li>حروف تہجی</li>
+                        <li>اعداد کی نظم</li>
+                        <li>رنگوں کی پہچان</li>
+                        <li>جانوروں کی آوازیں</li>
+                        <li>پھلوں کی پہچان</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-flag"></i>
+                    <h3>قومی ترانے</h3>
+                    <ul>
+                        <li>قومی ترانہ</li>
+                        <li>ملی نغمے</li>
+                        <li>وطن کی محبت</li>
+                        <li>شہیدوں کی قصیدہ</li>
+                        <li>آزادی کی کہانی</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Games Section -->
+        <section id="games">
+            <h2 class="section-header"><i class="fas fa-gamepad"></i> تعلیمی کھیل</h2>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>ذہنی کھیل</h3>
+                    <ul>
+                        <li>پہیلیاں</li>
+                        <li>کراس ورڈ</li>
+                        <li>میمری گیم</li>
+                        <li>پزل گیمز</li>
+                        <li>منطقی کھیل</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>ریاضی کے کھیل</h3>
+                    <ul>
+                        <li>جمع تفریق</li>
+                        <li>ضرب تقسیم</li>
+                        <li>جیومیٹری</li>
+                        <li>تھیمز گیم</li>
+                        <li>میری گیم</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-language"></i>
+                    <h3>زبان کے کھیل</h3>
+                    <ul>
+                        <li>الفاظ بنانا</li>
+                        <li>ہجے کرنا</li>
+                        <li>مخالف الفاظ</li>
+                        <li>متعلقہ الفاظ</li>
+                        <li>جملہ بنانا</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stories Section -->
+        <section id="stories">
+            <h2 class="section-header"><i class="fas fa-book-open"></i> کہانیاں</h2>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <i class="fas fa-crown"></i>
+                    <h3>شہزادوں کی کہانیاں</h3>
+                    <ul>
+                        <li>شہزادہ اور شہزادی</li>
+                        <li>جادوئی مخلوق</li>
+                        <li>خزانے کی تلاش</li>
+                        <li>ڈریگن کی کہانی</li>
+                        <li>جادوئی بادشاہت</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-dove"></i>
+                    <h3>اخلاقی کہانیاں</h3>
+                    <ul>
+                        <li>لالچی کتا</li>
+                        <li>چالاک لومڑی</li>
+                        <li>ایماندار لکڑہارا</li>
+                        <li>میر اور فقیر</li>
+                        <li>دو دوست</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>تاریخی کہانیاں</h3>
+                    <ul>
+                        <li>عظیم ہیرو</li>
+                        <li>قدیم تہذیبیں</li>
+                        <li>سائنسی ایجادات</li>
+                        <li>کھوجیوں کی کہانیاں</li>
+                        <li>مشہور شخصیات</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 بچوں کا کونہ | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            بچوں کی تعلیم اور تفریح دونوں کا خیال رکھا گیا ہے
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#C2185B';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        // Smooth scroll
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        console.log('بچوں کا کونہ صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
