@@ -1222,6 +1222,109 @@
         // Initialize
         console.log('جامع آن لائن پورٹل (خواتین سیکشن کے ساتھ) لوڈ ہو گیا!');
         console.log('سیکشنز کی تعداد: 18+');
+        // Category Cards Click Handler - Updated with links
+document.querySelectorAll('.category-card').forEach(card => {
+    const button = card.querySelector('.category-btn');
+    if(button) {
+        const categoryTitle = card.querySelector('h3').textContent.toLowerCase();
+        
+        // Map categories to pages
+        const pageMap = {
+            'خواتین': 'women.html',
+            'کھانا پکانا': 'women.html#cooking',
+            'بیوٹی اینڈ سکن کئیر': 'women.html#beauty',
+            'خواتین کا بزنس': 'women.html#business',
+            'سلائی کڑھائی': 'women.html#sewing',
+            'بچوں کی پرورش': 'women.html#kids',
+            
+            'آن لائن بزنس': 'business.html',
+            'چھوٹا کاروبار': 'business.html',
+            'فرنچائز': 'business.html',
+            
+            'فی ٹائم نوکریاں': 'jobs.html',
+            'پارٹ ٹائم کام': 'jobs.html',
+            'فری لانس کام': 'jobs.html',
+            
+            'درسی کتب': 'education.html',
+            'لکچرز': 'education.html',
+            'نوٹس': 'education.html',
+            
+            'ٹیکنیکل ہنر': 'skills.html',
+            'بزنس ہنر': 'skills.html',
+            'تخلیقی ہنر': 'skills.html',
+            
+            'ai/ml کورسز': 'ai.html',
+            'ai ٹولز': 'ai.html',
+            'ai پروجیکٹس': 'ai.html',
+            
+            'کارٹونز': 'kids.html',
+            'نظمیں اور ترانے': 'kids.html',
+            'تعلیمی کھیل': 'kids.html',
+            
+            'مذہبی کتب': 'library.html',
+            'اردو ادب': 'library.html',
+            'انگریزی کتب': 'library.html',
+            
+            'تعلیمی لیکچرز': 'videos.html',
+            'ہنر سیکھیں': 'videos.html',
+            'صحت و تندرستی': 'videos.html',
+            
+            'بین الاقوامی اسکالرشپس': 'scholarships.html',
+            'ماسٹرز/پی ایچ ڈی': 'scholarships.html',
+            'انڈرگریجویٹ': 'scholarships.html',
+            
+            'طالب علم ویزہ': 'visa.html',
+            'کام کا ویزہ': 'visa.html',
+            'سیاحتی ویزہ': 'visa.html',
+            
+            'ممالک کا تعارف': 'travel.html',
+            'سیاحتی مقامات': 'travel.html',
+            'سفر کی تیاری': 'travel.html'
+        };
+        
+        // Find matching page
+        let targetPage = 'coming-soon.html';
+        for(const [key, value] of Object.entries(pageMap)) {
+            if(categoryTitle.includes(key.toLowerCase()) || card.querySelector('h3').textContent.includes(key)) {
+                targetPage = value;
+                break;
+            }
+        }
+        
+        // Update button link
+        button.href = targetPage;
+    }
+});
+
+// Also update navigation links in header
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.main-nav a');
+    navLinks.forEach(link => {
+        const linkText = link.textContent.toLowerCase();
+        
+        const navMap = {
+            'خواتین': 'women.html',
+            'بزنس': 'business.html',
+            'نوکری': 'jobs.html',
+            'تعلیم': 'education.html',
+            'ہنر': 'skills.html',
+            'ai': 'ai.html',
+            'بچوں': 'kids.html',
+            'کتاب': 'library.html',
+            'ویڈیو': 'videos.html',
+            'اسکالرشپ': 'scholarships.html',
+            'ویزہ': 'visa.html',
+            'سفر': 'travel.html'
+        };
+        
+        for(const [key, value] of Object.entries(navMap)) {
+            if(linkText.includes(key.toLowerCase())) {
+                link.href = value;
+                break;
+            }
+        }
+    });
+});
     </script>
 </body>
 </html>
