@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مکمل آن لائن پورٹل | بچوں سے لے کر بڑوں تک سب کے لیے</title>
+    <style>
+        /* Complete CSS with all sections */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', 'Nafees', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            direction: rtl;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .logo span {
+            color: #FFD700;
+            background: rgba(0,0,0,0.2);
+            padding: 0 10px;
+            border-radius: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Navigation */
+        nav {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Search Box */
+        .search-box {
+            max-width: 700px;
+            margin: 2.5rem auto 3rem;
+            display: flex;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 1.2rem;
+            border: none;
+            font-size: 1.1rem;
+            background: white;
+        }
+        
+        .search-box button {
+            background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+            color: white;
+            border: none;
+            padding: 0 2.5rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box button:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, transparent, #1a2980, transparent) 1;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: #1a2980;
+            display: inline-block;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color), transparent);
+        }
+        
+        .category-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .category-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .category-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color);
+        }
+        
+        .category-btn:hover {
+            background: white;
+            color: var(--color);
+            transform: scale(1.05);
+        }
+        
+        /* Color Classes for Categories */
+        .business { --color: #4CAF50; }
+        .jobs { --color: #2196F3; }
+        .education { --color: #FF9800; }
+        .kids { --color: #E91E63; }
+        .library { --color: #9C27B0; }
+        .videos { --color: #00BCD4; }
+        .relationships { --color: #FF5722; }
+        .health { --color: #8BC34A; }
+        
+        /* Featured Content */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .featured-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .featured-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
+            color: white;
+            padding: 3rem 1rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #26d0ce;
+        }
+        
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-icons a:hover {
+            background: #26d0ce;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo { font-size: 2.2rem; }
+            nav { flex-direction: column; align-items: center; }
+            nav a { width: 90%; margin-bottom: 0.5rem; }
+            .categories-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 1.8rem; }
+            .search-box { flex-direction: column; border-radius: 20px; }
+            .search-box input, .search-box button { width: 100%; border-radius: 0; }
+        }
+        
+        /* Coming Soon Badge */
+        .coming-soon {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #FF9800;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-compass"></i> جامع <span>آن لائن پورٹل</span>
+        </div>
+        <p class="tagline">بچوں سے لے کر بڑوں تک - تعلیم، تفریح، مواقع سب کچھ ایک جگہ</p>
+        
+        <nav>
+            <a href="#home"><i class="fas fa-home"></i> ہوم پیج</a>
+            <a href="#business"><i class="fas fa-lightbulb"></i> بزنس آئیڈیاز</a>
+            <a href="#jobs"><i class="fas fa-briefcase"></i> جاب بینک</a>
+            <a href="#kids"><i class="fas fa-child"></i> بچوں کا کونہ</a>
+            <a href="#library"><i class="fas fa-book"></i> ڈیجیٹل لائبریری</a>
+            <a href="#videos"><i class="fas fa-video"></i> ویڈیو لائبریری</a>
+            <a href="#relationships"><i class="fas fa-heart"></i> رشتوں کا سیکشن</a>
+            <a href="#more"><i class="fas fa-plus-circle"></i> مزید</a>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container" id="home">
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" placeholder="کیا تلاش کر رہے ہیں؟ مثال: بچوں کے کارٹون، نوکری، بزنس آئیڈیا">
+            <button><i class="fas fa-search"></i> تلاش کریں</button>
+        </div>
+
+        <!-- Business Ideas Section -->
+        <div class="section-header" id="business">
+            <h2><i class="fas fa-chart-line"></i> بزنس آئیڈیاز سیکشن</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card business">
+                <div class="category-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>آن لائن بزنس</h3>
+                <p>500+ آن لائن کاروبار کے آئیڈیاز، کم سرمایہ، زیادہ منافع</p>
+                <a href="#" class="category-btn">آئیڈیاز دیکھیں</a>
+            </div>
+            
+            <div class="category-card business">
+                <div class="category-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h3>چھوٹا کاروبار</h3>
+                <p>گھر بیٹھے شروع کیے جانے والے کاروبار</p>
+                <a href="#" class="category-btn">آئیڈیاز دیکھیں</a>
+            </div>
+            
+            <div class="category-card business">
+                <div class="category-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>فرنچائز</h3>
+                <p>مشہور برانڈز کے ساتھ کام کرنے کے مواقع</p>
+                <a href="#" class="category-btn">آئیڈیاز دیکھیں</a>
+            </div>
+        </div>
+
+        <!-- Job Bank Section -->
+        <div class="section-header" id="jobs">
+            <h2><i class="fas fa-briefcase"></i> جاب بینک سیکشن</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card jobs">
+                <div class="category-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>فی ٹائم نوکریاں</h3>
+                <p>تمام شہروں میں فی ٹائم ملازمت کے مواقع</p>
+                <a href="#" class="category-btn">نوکریاں دیکھیں</a>
+            </div>
+            
+            <div class="category-card jobs">
+                <div class="category-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>پارٹ ٹائم کام</h3>
+                <p>طلباء اور گھریلو خواتین کے لیے مواقع</p>
+                <a href="#" class="category-btn">کام دیکھیں</a>
+            </div>
+            
+            <div class="category-card jobs">
+                <div class="category-icon">
+                    <i class="fas fa-laptop-house"></i>
+                </div>
+                <h3>فری لانس / ریموٹ</h3>
+                <p>گھر بیٹھے آن لائن کام کے مواقع</p>
+                <a href="#" class="category-btn">موقع دیکھیں</a>
+            </div>
+        </div>
+
+        <!-- Kids Section -->
+        <div class="section-header" id="kids">
+            <h2><i class="fas fa-child"></i> بچوں کا کونہ</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card kids">
+                <div class="category-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>کارٹونز</h3>
+                <p>تعلیمی اور تفریحی کارٹونز</p>
+                <a href="#" class="category-btn">دیکھیں</a>
+            </div>
+            
+            <div class="category-card kids">
+                <div class="category-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>نظمیں اور ترانے</h3>
+                <p>اخلاقی اقدار سکھانے والی نظمیں</p>
+                <a href="#" class="category-btn">سنیں</a>
+            </div>
+            
+            <div class="category-card kids">
+                <div class="category-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>تعلیمی کھیل</h3>
+                <p>ذہن تیز کرنے والے کھیل</p>
+                <a href="#" class="category-btn">کھیلیں</a>
+            </div>
+            
+            <div class="category-card kids">
+                <div class="category-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>کہانیاں</h3>
+                <p>اخلاقی کہانیاں اور لطیفے</p>
+                <a href="#" class="category-btn">پڑھیں</a>
+            </div>
+        </div>
+
+        <!-- Digital Library Section -->
+        <div class="section-header" id="library">
+            <h2><i class="fas fa-book"></i> ڈیجیٹل لائبریری</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card library">
+                <div class="category-icon">
+                    <i class="fas fa-quran"></i>
+                </div>
+                <h3>مذہبی کتب</h3>
+                <p>قرآن، حدیث، سیرت اور دینی کتب</p>
+                <a href="#" class="category-btn">مطالعہ</a>
+            </div>
+            
+            <div class="category-card library">
+                <div class="category-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>درسی کتب</h3>
+                <p>تمام جماعتوں کی نصابی کتب</p>
+                <a href="#" class="category-btn">ڈاؤنلوڈ</a>
+            </div>
+            
+            <div class="category-card library">
+                <div class="category-icon">
+                    <i class="fas fa-book-reader"></i>
+                </div>
+                <h3>اردو ادب</h3>
+                <p>ناول، افسانے، شاعری</p>
+                <a href="#" class="category-btn">پڑھیں</a>
+            </div>
+            
+            <div class="category-card library">
+                <div class="category-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>انگریزی کتب</h3>
+                <p>انگریزی سیکھنے کی کتب</p>
+                <a href="#" class="category-btn">سیکھیں</a>
+            </div>
+        </div>
+
+        <!-- Video Library Section -->
+        <div class="section-header" id="videos">
+            <h2><i class="fas fa-video"></i> ویڈیو لائبریری</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card videos">
+                <div class="category-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>تعلیمی لیکچرز</h3>
+                <p>اسکول، کالج، یونیورسٹی لیکچرز</p>
+                <a href="#" class="category-btn">دیکھیں</a>
+            </div>
+            
+            <div class="category-card videos">
+                <div class="category-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>ہنر سیکھیں</h3>
+                <p>ککنگ، سلائی، کرافٹ وغیرہ</p>
+                <a href="#" class="category-btn">سیکھیں</a>
+            </div>
+            
+            <div class="category-card videos">
+                <div class="category-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>صحت و تندرستی</h3>
+                <p>ورزش، یوگا، صحت مند زندگی</p>
+                <a href="#" class="category-btn">دیکھیں</a>
+            </div>
+            
+            <div class="category-card videos">
+                <div class="category-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>ٹیکنالوجی</h3>
+                <p>پروگرامنگ، ڈیزائن، آن لائن مہارتیں</p>
+                <a href="#" class="category-btn">سیکھیں</a>
+            </div>
+        </div>
+
+        <!-- Relationships Section -->
+        <div class="section-header" id="relationships">
+            <h2><i class="fas fa-heart"></i> رشتوں کا سیکشن</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card relationships">
+                <div class="category-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <h3>شادی بیاہ</h3>
+                <p>رشتوں کے لیے پلیٹ فارم</p>
+                <a href="#" class="category-btn">ملاحظہ کریں</a>
+            </div>
+            
+            <div class="category-card relationships">
+                <div class="category-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>مشاورت</h3>
+                <p>خاندانی اور ازدواجی مشاورت</p>
+                <a href="#" class="category-btn">رابطہ کریں</a>
+            </div>
+            
+            <div class="category-card relationships">
+                <div class="category-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3>رابطہ نیٹ ورک</h3>
+                <p>پیشہ ور افراد سے رابطہ</p>
+                <a href="#" class="category-btn">شامل ہوں</a>
+            </div>
+        </div>
+
+        <!-- Coming Soon Section -->
+        <div class="section-header" id="more">
+            <h2><i class="fas fa-plus-circle"></i> جلد آنے والے سیکشنز</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card health">
+                <span class="coming-soon">جلد آرہا ہے</span>
+                <div class="category-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>صحت کا سیکشن</h3>
+                <p>صحت، علاج، ڈاکٹرز سے رابطہ</p>
+                <a href="#" class="category-btn">تیار ہو رہا ہے</a>
+            </div>
+            
+            <div class="category-card">
+                <span class="coming-soon">جلد آرہا ہے</span>
+                <div class="category-icon" style="color: #FF9800;">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>مارکیٹ پلیس</h3>
+                <p>مصنوعات کی خرید و فروخت</p>
+                <a href="#" class="category-btn" style="background: #FF9800;">تیار ہو رہا ہے</a>
+            </div>
+            
+            <div class="category-card">
+                <span class="coming-soon">جلد آرہا ہے</span>
+                <div class="category-icon" style="color: #795548;">
+                    <i class="fas fa-hands"></i>
+                </div>
+                <h3>رضاکارانہ خدمات</h3>
+                <p>معاشرتی خدمت کے مواقع</p>
+                <a href="#" class="category-btn" style="background: #795548;">تیار ہو رہا ہے</a>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div style="background: white; padding: 2.5rem; border-radius: 20px; margin: 4rem 0; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <h2 style="color: #1a2980; margin-bottom: 2rem; font-size: 2rem;">ہمارے پورٹل کے اعداد و شمار</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                <div>
+                    <h3 style="color: #4CAF50; font-size: 2.5rem;">500+</h3>
+                    <p style="color: #666; font-size: 1.1rem;">بزنس آئیڈیاز</p>
+                </div>
+                <div>
+                    <h3 style="color: #2196F3; font-size: 2.5rem;">1000+</h3>
+                    <p style="color: #666; font-size: 1.1rem;">نوکریاں</p>
+                </div>
+                <div>
+                    <h3 style="color: #E91E63; font-size: 2.5rem;">200+</h3>
+                    <p style="color: #666; font-size: 1.1rem;">بچوں کے کارٹونز</p>
+                </div>
+                <div>
+                    <h3 style="color: #9C27B0; font-size: 2.5rem;">5000+</h3>
+                    <p style="color: #666; font-size: 1.1rem;">کتب</p>
+                </div>
+                <div>
+                    <h3 style="color: #00BCD4; font-size: 2.5rem;">1000+</h3>
+                    <p style="color: #666; font-size: 1.1rem;">ویڈیوز</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 style="color: #26d0ce; margin-bottom: 1.5rem; font-size: 1.8rem;">جامع آن لائن پورٹل</h3>
+            <p>ہمارا مقصد: ہر عمر اور ہر شعبے کے لوگوں کو ایک پلیٹ فارم پر مفید مواد فراہم کرنا</p>
+            
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-info-circle"></i> ہمارے بارے میں</a>
+                <a href="#"><i class="fas fa-envelope"></i> رابطہ کریں</a>
+                <a href="#"><i class="fas fa-shield-alt"></i> پرائیویسی پالیسی</a>
+                <a href="#"><i class="fas fa-file-contract"></i> شرائط و ضوابط</a>
+                <a href="#"><i class="fas fa-question-circle"></i> مدد</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+            </div>
+            
+            <p style="margin-top: 2rem; color: #aaa; font-size: 0.9rem;">
+                © 2024 جامع آن لائن پورٹل. تمام حقوق محفوظ ہیں۔<br>
+                یہ پورٹل مکمل طور پر مفت وسائل سے بنایا گیا ہے۔
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Search Functionality
+        document.querySelector('.search-box button').addEventListener('click', function() {
+            let searchTerm = document.querySelector('.search-box input').value;
+            if(searchTerm.trim()) {
+                alert('تلاش: "' + searchTerm + '"\n\nتلاش کا نتیجہ جلد دکھایا جائے گا۔\nفی الحاظ آپ مطلوبہ سیکشن میں جائیں۔');
+            } else {
+                alert('براہ کرم تلاش کے لیے کچھ لکھیں۔');
+            }
+        });
+        
+        // Category Cards Click
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if(!e.target.classList.contains('category-btn')) {
+                    let categoryTitle = this.querySelector('h3').textContent;
+                    alert('سیکشن: ' + categoryTitle + '\n\nیہ سیکشن جلد مکمل طور پر فعال ہو جائے گا۔\nتمام مواد موضوع وار ترتیب دیا جائے گا۔');
+                }
+            });
+        });
+        
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Initialize
+        console.log('جامع آن لائن پورٹل لوڈ ہو گیا ہے!');
+        console.log('ویب سائٹ: ' + window.location.href);
+    </script>
+</body>
+</html>
