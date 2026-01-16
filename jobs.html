@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جاب بینک | نوکریوں کے موقع</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #e3f2fd;
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #BBDEFB;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #1976D2;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #1976D2;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #1976D2;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #2196F3;
+        }
+        
+        .job-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-card h3 {
+            color: #1976D2;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .job-listings {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .job-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+        
+        .job-item:last-child {
+            border-bottom: none;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #1976D2;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #1976D2;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .job-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-briefcase"></i> جاب بینک</a>
+        </div>
+        <p>1000+ نوکریوں کے موقع | ہر شعبے میں ملازمت</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#fulltime"><i class="fas fa-user-tie"></i> فی ٹائم نوکریاں</a>
+            <a href="#parttime"><i class="fas fa-clock"></i> پارٹ ٹائم کام</a>
+            <a href="#freelance"><i class="fas fa-laptop-house"></i> فری لانس</a>
+            <a href="#internship"><i class="fas fa-user-graduate"></i> انٹرن شپس</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Job Categories -->
+        <section id="fulltime">
+            <h2 class="section-header"><i class="fas fa-user-tie"></i> فی ٹائم نوکریاں</h2>
+            
+            <div class="job-categories">
+                <div class="category-card">
+                    <h3><i class="fas fa-code"></i> IT سیکٹر</h3>
+                    <p>• سوفٹ ویئر انجینئر</p>
+                    <p>• ویب ڈویلپر</p>
+                    <p>• ڈیٹا اینالسٹ</p>
+                    <p>• سائبر سیکورٹی</p>
+                    <p>• AI سپیشلسٹ</p>
+                </div>
+                
+                <div class="category-card">
+                    <h3><i class="fas fa-chart-line"></i> بزنس</h3>
+                    <p>• سیلز مینیجر</p>
+                    <p>• مارکیٹنگ</p>
+                    <p>• اکاؤنٹنٹ</p>
+                    <p>• HR مینیجر</p>
+                    <p>• ایڈمن آفیسر</p>
+                </div>
+                
+                <div class="category-card">
+                    <h3><i class="fas fa-graduation-cap"></i> تعلیم</h3>
+                    <p>• استاد/استانی</p>
+                    <p>• پرنسپل</p>
+                    <p>• لیبارٹری اسسٹنٹ</p>
+                    <p>• کوچ/ٹرینر</p>
+                    <p>• ایجوکیشن کنسلٹنٹ</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Latest Jobs -->
+        <section id="latest">
+            <h2 class="section-header"><i class="fas fa-bolt"></i> تازہ ترین نوکریاں</h2>
+            
+            <div class="job-listings">
+                <div class="job-item">
+                    <h3>سوفٹ ویئر انجینئر</h3>
+                    <p><strong>کمپنی:</strong> ٹیک سولوشنز</p>
+                    <p><strong>مقام:</strong> کراچی</p>
+                    <p><strong>تنخواہ:</strong> 100,000 - 150,000 روپے</p>
+                    <p><strong>آخری تاریخ:</strong> 30 مارچ 2024</p>
+                </div>
+                
+                <div class="job-item">
+                    <h3>مارکیٹنگ مینیجر</h3>
+                    <p><strong>کمپنی:</strong> گروتھ مارکیٹرز</p>
+                    <p><strong>مقام:</strong> لاہور</p>
+                    <p><strong>تنخواہ:</strong> 80,000 - 120,000 روپے</p>
+                    <p><strong>آخری تاریخ:</strong> 25 مارچ 2024</p>
+                </div>
+                
+                <div class="job-item">
+                    <h3>ویب ڈویلپر</h3>
+                    <p><strong>کمپنی:</strong> ڈیجیٹل ہب</p>
+                    <p><strong>مقام:</strong> ریموٹ</p>
+                    <p><strong>تنخواہ:</strong> $800 - $1200</p>
+                    <p><strong>آخری تاریخ:</strong> 15 اپریل 2024</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Part Time Jobs -->
+        <section id="parttime">
+            <h2 class="section-header"><i class="fas fa-clock"></i> پارٹ ٹائم کام</h2>
+            
+            <div class="job-categories">
+                <div class="category-card">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> ٹیوشن</h3>
+                    <p>• ریاضی</p>
+                    <p>• انگلش</p>
+                    <p>• سائنس</p>
+                    <p>• کمپیوٹر</p>
+                    <p>• موسیقی</p>
+                </div>
+                
+                <div class="category-card">
+                    <h3><i class="fas fa-store"></i> ریٹیل</h3>
+                    <p>• سیلز پرسن</p>
+                    <p>• کیشیئر</p>
+                    <p>• انوینٹری مینجمنٹ</p>
+                    <p>• گاہک سروس</p>
+                    <p>• ڈیلیوری بوائے</p>
+                </div>
+                
+                <div class="category-card">
+                    <h3><i class="fas fa-pen-fancy"></i> تخلیقی کام</h3>
+                    <p>• کونٹینٹ رائٹنگ</p>
+                    <p>• گرافکس ڈیزائن</p>
+                    <p>• ویڈیو ایڈیٹنگ</p>
+                    <p>• فوٹوگرافی</p>
+                    <p>• سوشل میڈیا</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 جاب بینک | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            روزانہ نئی نوکریاں اپ ڈیٹ کی جاتی ہیں
+        </p>
+    </footer>
+    
+    <script>
+        // Active navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#1976D2';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        // Smooth scroll
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        console.log('جاب بینک صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
