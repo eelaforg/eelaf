@@ -494,6 +494,7 @@
             <a href="#students"><i class="fas fa-user-graduate"></i> طلباء کیلئے</a>
             <a href="#finance"><i class="fas fa-money-bill-wave"></i> مالیات</a>
             <a href="#health"><i class="fas fa-heartbeat"></i> صحت</a>
+            <a href="#relationships"><i class="fas fa-heart"></i> رشتے</a>
             <a href="#more"><i class="fas fa-ellipsis-h"></i> مزید</a>
         </nav>
         
@@ -504,6 +505,8 @@
                 <span class="tag">گھریلو کام</span>
                 <span class="tag">بیوٹی ٹپس</span>
                 <span class="tag">خواتین کا بزنس</span>
+                <span class="tag">شادی بیاہ</span>
+                <span class="tag">مشاورت</span>
                 <span class="tag">اسکالرشپ</span>
                 <span class="tag">ویزہ</span>
                 <span class="tag">سفر</span>
@@ -991,8 +994,39 @@
                 </div>
             </div>
         </div>
-
-        <!-- 7. Coming Soon Section -->
+<!-- 7. Relationships Section -->
+<div class="section-header" id="relationships">
+    <h2><i class="fas fa-heart"></i> رشتوں کا سیکشن</h2>
+</div>
+<div class="categories-grid">
+    <div class="category-card relationships">
+        <div class="category-icon">
+            <i class="fas fa-ring"></i>
+        </div>
+        <h3>شادی بیاہ</h3>
+        <p>نیک اور مناسب رشتوں کے لیے پلیٹ فارم، خاندانی رابطہ</p>
+        <a href="coming-soon.html" class="category-btn">رابطہ کریں</a>
+    </div>
+    
+    <div class="category-card relationships">
+        <div class="category-icon">
+            <i class="fas fa-comments"></i>
+        </div>
+        <h3>خاندانی مشاورت</h3>
+        <p>ازدواجی مسائل، بچوں کی تربیت، خاندانی تعلقات</p>
+        <a href="coming-soon.html" class="category-btn">مشورہ حاصل کریں</a>
+    </div>
+    
+    <div class="category-card relationships">
+        <div class="category-icon">
+            <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3>رابطہ نیٹ ورک</h3>
+        <p>پیشہ ور افراد سے رابطہ، کاروباری شراکت داریاں</p>
+        <a href="coming-soon.html" class="category-btn">شامل ہوں</a>
+    </div>
+</div>
+        <!-- 8. Coming Soon Section -->
         <div class="section-header" id="more">
             <h2><i class="fas fa-plus-circle"></i> جلد آنے والے سیکشنز</h2>
         </div>
@@ -1311,6 +1345,38 @@
     console.log('جامع آن لائن پورٹل (فکسڈ لنکس کے ساتھ) لوڈ ہو گیا!');
     console.log('صفحات کی تعداد: 15');
     console.log('فکس شدہ لنکس: خواتین, بزنس, جاب, تعلیم, وغیرہ');
+    // Relationships section to search map
+const searchMap = {
+    // ... موجودہ لنکس ...
+    'رشتہ': '#relationships',
+    'شادی': '#relationships',
+    'بیاہ': '#relationships',
+    'مشاورت': '#relationships',
+    'خاندان': '#relationships',
+    // ... باقی لنکس ...
+};
+
+// Navigation links for relationships
+if(linkText.includes('رشتے') || linkText.includes('شادی') || linkText.includes('بیاہ')) {
+    link.href = '#relationships';
+}
+
+// Category cards for relationships
+if(cardText.includes('رشتہ') || cardText.includes('شادی') || 
+   cardText.includes('بیاہ') || cardText.includes('مشاورت') ||
+   cardText.includes('خاندان') || cardText.includes('نیٹ ورک')) {
+    button.onclick = function(e) {
+        e.preventDefault();
+        // Smooth scroll to relationships section
+        const relationshipsSection = document.querySelector('#relationships');
+        if(relationshipsSection) {
+            window.scrollTo({
+                top: relationshipsSection.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+    };
+}
 </script>
 </body>
 </html>
