@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلیمی مواد | درسی کتب، نوٹس، لیکچرز</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #fff8e1;
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #FFE0B2;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #F57C00;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #F57C00;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #F57C00;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #FF9800;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .education-card h3 {
+            color: #F57C00;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: #FF9800;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: #F57C00;
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #FF9800;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #F57C00;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #F57C00;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-graduation-cap"></i> تعلیمی مواد</a>
+        </div>
+        <p>درسی کتب، نوٹس، لیکچرز، آن لائن کورسز</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#books"><i class="fas fa-book"></i> درسی کتب</a>
+            <a href="#notes"><i class="fas fa-file-pdf"></i> نوٹس</a>
+            <a href="#lectures"><i class="fas fa-chalkboard-teacher"></i> لیکچرز</a>
+            <a href="#courses"><i class="fas fa-laptop-code"></i> آن لائن کورسز</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Textbooks Section -->
+        <section id="books">
+            <h2 class="section-header"><i class="fas fa-book"></i> درسی کتب</h2>
+            
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3><i class="fas fa-school"></i> اسکول کی کتب</h3>
+                    <p>• کلاس 1 سے 10 تک</p>
+                    <p>• تمام مضامین</p>
+                    <p>• پی ڈی ایف فارمیٹ</p>
+                    <p>• اردو اور انگلش</p>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="education-card">
+                    <h3><i class="fas fa-university"></i> کالج کی کتب</h3>
+                    <p>• ایف ایس سی / ایف اے</p>
+                    <p>• انجینئرنگ</p>
+                    <p>• میڈیکل</p>
+                    <p>• کامرس</p>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+                
+                <div class="education-card">
+                    <h3><i class="fas fa-graduation-cap"></i> یونیورسٹی کی کتب</h3>
+                    <p>• بیچلر ڈگری</p>
+                    <p>• ماسٹرز</p>
+                    <p>• پی ایچ ڈی ریسرچ</p>
+                    <p>• ریفرنس بکس</p>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Notes Section -->
+        <section id="notes">
+            <h2 class="section-header"><i class="fas fa-file-pdf"></i> نوٹس</h2>
+            
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3><i class="fas fa-calculator"></i> ریاضی</h3>
+                    <p>• الجبرا</p>
+                    <p>• جیومیٹری</p>
+                    <p>• کیلکولس</p>
+                    <p>• اسٹیٹسٹکس</p>
+                    <a href="#" class="download-btn">نوٹس حاصل کریں</a>
+                </div>
+                
+                <div class="education-card">
+                    <h3><i class="fas fa-flask"></i> سائنس</h3>
+                    <p>• فزکس</p>
+                    <p>• کیمسٹری</p>
+                    <p>• بائیولوجی</p>
+                    <p>• کمپیوٹر سائنس</p>
+                    <a href="#" class="download-btn">نوٹس حاصل کریں</a>
+                </div>
+                
+                <div class="education-card">
+                    <h3><i class="fas fa-globe"></i> لینگویجز</h3>
+                    <p>• اردو گرائمر</p>
+                    <p>• انگلش گرائمر</p>
+                    <p>• عربی زبان</p>
+                    <p>• چینی زبان</p>
+                    <a href="#" class="download-btn">نوٹس حاصل کریں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Lectures Section -->
+        <section id="lectures">
+            <h2 class="section-header"><i class="fas fa-chalkboard-teacher"></i> ویڈیو لیکچرز</h2>
+            
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3><i class="fas fa-video"></i> YouTube لیکچرز</h3>
+                    <p>• مکمل کورسز</p>
+                    <p>• شارٹ لیکچرز</p>
+                    <p>• حل شدہ مشقیں</p>
+                    <p>• امتحانی ٹپس</p>
+                    <a href="#" class="download-btn">دیکھیں</a>
+                </div>
+                
+                <div class="education-card">
+                    <h3><i class="fas fa-microphone"></i> آڈیو لیکچرز</h3>
+                    <p>• پوڈ کاسٹس</p>
+                    <p>• لیکچر سیریز</p>
+                    <p>• انٹرویوز</p>
+                    <p>• ڈسکشنز</p>
+                    <a href="#" class="download-btn">سنیں</a>
+                </div>
+                
+                <div class="education-card">
+                    <h3><i class="fas fa-download"></i> ڈاؤن لوڈ ایبل</h3>
+                    <p>• MP4 لیکچرز</p>
+                    <p>• پاورپوائنٹ</p>
+                    <p>• سلائیڈز</p>
+                    <p>• ہینڈ آؤٹس</p>
+                    <a href="#" class="download-btn">ڈاؤنلوڈ کریں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 تعلیمی مواد | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            روزانہ نئے مواد کا اضافہ کیا جاتا ہے
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#F57C00';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        console.log('تعلیمی مواد صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
