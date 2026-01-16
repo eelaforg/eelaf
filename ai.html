@@ -5,30 +5,446 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI سیکشن | مصنوعی ذہانت</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans Urdu'; }
-        body { background: #e8f5e9; direction: rtl; }
-        header { background: linear-gradient(135deg, #00C853, #00B248); color: white; padding: 2rem; text-align: center; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .back-btn { background: #00C853; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; display: inline-block; margin: 2rem 0; }
-        .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
-        .ai-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        footer { background: #00B248; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #00C853 0%, #00B248 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #C8E6C9;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #00B248;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #00B248;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #00B248;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #00C853;
+        }
+        
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .ai-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .ai-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .ai-card i {
+            font-size: 3rem;
+            color: #00C853;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ai-card h3 {
+            color: #00B248;
+            margin-bottom: 1rem;
+        }
+        
+        .ai-card ul {
+            list-style: none;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .ai-card li {
+            margin-bottom: 0.5rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .ai-card li::before {
+            content: '🤖';
+            position: absolute;
+            right: 0;
+        }
+        
+        .ai-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #00C853;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .ai-btn:hover {
+            background: #00B248;
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #00C853;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #00B248;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #00B248;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .ai-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1><i class="fas fa-robot"></i> AI سیکشن</h1>
-        <p>مصنوعی ذہانت کے کورسز، ٹولز اور پروجیکٹس</p>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-robot"></i> AI سیکشن</a>
+        </div>
+        <p>مصنوعی ذہانت، مشین لرننگ اور ڈیپ لرننگ</p>
     </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#courses"><i class="fas fa-graduation-cap"></i> کورسز</a>
+            <a href="#tools"><i class="fas fa-tools"></i> ٹولز</a>
+            <a href="#projects"><i class="fas fa-project-diagram"></i> پروجیکٹس</a>
+            <a href="#future"><i class="fas fa-rocket"></i> مستقبل</a>
+        </div>
+    </nav>
+    
     <div class="container">
-        <a href="index.html" class="back-btn">← واپس ہوم پیج</a>
-        <h2>AI کورسز</h2>
-        <div class="ai-grid">
-            <div class="ai-card"><h3>Python for AI</h3><p>بنیادی پروگرامنگ</p></div>
-            <div class="ai-card"><h3>Machine Learning</h3><p>ڈیٹا سائنس</p></div>
-            <div class="ai-card"><h3>Deep Learning</h3><p>نیورل نیٹ ورکس</p></div>
+        <!-- Courses Section -->
+        <section id="courses">
+            <h2 class="section-header"><i class="fas fa-graduation-cap"></i> AI کورسز</h2>
+            
+            <div class="ai-grid">
+                <div class="ai-card">
+                    <i class="fas fa-code"></i>
+                    <h3>بنیادی AI</h3>
+                    <ul>
+                        <li>Python پروگرامنگ</li>
+                        <li>ڈیٹا سائنس</li>
+                        <li>AI کے بنیادی اصول</li>
+                        <li>مشین لرننگ</li>
+                        <li>نمونیہ پروجیکٹس</li>
+                    </ul>
+                    <a href="#" class="ai-btn">شروع کریں</a>
+                </div>
+                
+                <div class="ai-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>ایڈوانسڈ AI</h3>
+                    <ul>
+                        <li>ڈیپ لرننگ</li>
+                        <li>نیورل نیٹ ورکس</li>
+                        <li>نیچرل لینگویج پروسیسنگ</li>
+                        <li>کمپیوٹر ویژن</li>
+                        <li>رین فورسمنٹ لرننگ</li>
+                    </ul>
+                    <a href="#" class="ai-btn">شروع کریں</a>
+                </div>
+                
+                <div class="ai-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>AI ایپلیکیشنز</h3>
+                    <ul>
+                        <li>AI برائے بزنس</li>
+                        <li>ہیلتھ کئیر</li>
+                        <li>فنانس اور بینکنگ</li>
+                        <li>ایڈو ٹیک</li>
+                        <li>ای کامرس</li>
+                    </ul>
+                    <a href="#" class="ai-btn">شروع کریں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tools Section -->
+        <section id="tools">
+            <h2 class="section-header"><i class="fas fa-tools"></i> AI ٹولز</h2>
+            
+            <div class="ai-grid">
+                <div class="ai-card">
+                    <i class="fab fa-python"></i>
+                    <h3>پروگرامنگ ٹولز</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Jupyter Notebook</li>
+                        <li>TensorFlow</li>
+                        <li>PyTorch</li>
+                        <li>Scikit-learn</li>
+                    </ul>
+                    <a href="#" class="ai-btn">ڈاؤنلوڈ</a>
+                </div>
+                
+                <div class="ai-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3>کلاؤڈ سروسز</h3>
+                    <ul>
+                        <li>Google Colab</li>
+                        <li>Azure AI</li>
+                        <li>AWS AI</li>
+                        <li>IBM Watson</li>
+                        <li>Google AI</li>
+                    </ul>
+                    <a href="#" class="ai-btn">استعمال کریں</a>
+                </div>
+                
+                <div class="ai-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI ایپلیکیشنز</h3>
+                    <ul>
+                        <li>ChatGPT</li>
+                        <li>Midjourney</li>
+                        <li>DALL-E</li>
+                        <li>Stable Diffusion</li>
+                        <li>GitHub Copilot</li>
+                    </ul>
+                    <a href="#" class="ai-btn">آزما ئیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-header"><i class="fas fa-project-diagram"></i> AI پروجیکٹس</h2>
+            
+            <div class="ai-grid">
+                <div class="ai-card">
+                    <i class="fas fa-image"></i>
+                    <h3>تصویری پروجیکٹس</h3>
+                    <ul>
+                        <li>تصویر کی درجہ بندی</li>
+                        <li>آبجیکٹ ڈیٹیکشن</li>
+                        <li>چہرہ پہچان</li>
+                        <li>تصویر جنریشن</li>
+                        <li>اسٹائل ٹرانسفر</li>
+                    </ul>
+                    <a href="#" class="ai-btn">دیکھیں</a>
+                </div>
+                
+                <div class="ai-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>ٹیکسٹ پروجیکٹس</h3>
+                    <ul>
+                        <li>چیٹ بوٹ</li>
+                        <li>ٹیکسٹ سممرائزیشن</li>
+                        <li>ترجمہ مشین</li>
+                        <li>سینٹمنٹ اینالسس</li>
+                        <li>ٹیکسٹ جنریشن</li>
+                    </ul>
+                    <a href="#" class="ai-btn">دیکھیں</a>
+                </div>
+                
+                <div class="ai-card">
+                    <i class="fas fa-music"></i>
+                    <h3>آڈیو پروجیکٹس</h3>
+                    <ul>
+                        <li>وائس ریکگنیشن</li>
+                        <li>موسیقی جنریشن</li>
+                        <li>وائس کلوننگ</li>
+                        <li>آڈیو ٹرانسلیشن</li>
+                        <li>وائس असिस्टेंट</li>
+                    </ul>
+                    <a href="#" class="ai-btn">دیکھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Future of AI -->
+        <section id="future">
+            <h2 class="section-header"><i class="fas fa-rocket"></i> AI کا مستقبل</h2>
+            
+            <div class="ai-grid">
+                <div class="ai-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>صنعت میں AI</h3>
+                    <ul>
+                        <li>خودکار کارخانے</li>
+                        <li>پیشگوئی والی بحالی</li>
+                        <li>سپلائی چین مینجمنٹ</li>
+                        <li>کوالٹی کنٹرول</li>
+                        <li>روبوٹکس</li>
+                    </ul>
+                    <a href="#" class="ai-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="ai-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>صحت میں AI</h3>
+                    <ul>
+                        <li>امراض کی تشخیص</li>
+                        <li>ڈرگ ڈسکوری</li>
+                        <li>ذاتی علاج</li>
+                        <li>سرجیکل روبوٹس</li>
+                        <li>ہیلتھ مانیٹرنگ</li>
+                    </ul>
+                    <a href="#" class="ai-btn">مزید جانیں</a>
+                </div>
+                
+                <div class="ai-card">
+                    <i class="fas fa-car"></i>
+                    <h3>ٹرانسپورٹ</h3>
+                    <ul>
+                        <li>خودکار گاڑیاں</li>
+                        <li>ٹریفک مینجمنٹ</li>
+                        <li>ڈرون ڈیلیوری</li>
+                        <li>سمارٹ سٹیز</li>
+                        <li>لو جسٹکس</li>
+                    </ul>
+                    <a href="#" class="ai-btn">مزید جانیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
         </div>
     </div>
-    <footer><p>© 2024 AI سیکشن</p></footer>
+    
+    <footer>
+        <p>© 2024 AI سیکشن | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            AI کی دنیا میں خوش آمدید
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#00B248';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        console.log('AI سیکشن صفحہ لوڈ ہو گیا');
+    </script>
 </body>
 </html>
