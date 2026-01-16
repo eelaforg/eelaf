@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورلڈ ٹور | دنیا بھر کی سیاحت</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3F51B5 0%, #303F9F 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #C5CAE9;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #303F9F;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #303F9F;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #303F9F;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #3F51B5;
+        }
+        
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .destination-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-header {
+            height: 150px;
+            background: linear-gradient(135deg, #3F51B5, #303F9F);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
+        .card-content h3 {
+            color: #303F9F;
+            margin-bottom: 1rem;
+        }
+        
+        .card-content ul {
+            list-style: none;
+            padding-right: 1rem;
+        }
+        
+        .card-content li {
+            margin-bottom: 0.8rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .card-content li::before {
+            content: '📍';
+            position: absolute;
+            right: 0;
+        }
+        
+        .explore-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #3F51B5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .explore-btn:hover {
+            background: #303F9F;
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #3F51B5;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #303F9F;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #303F9F;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .destination-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-plane"></i> ورلڈ ٹور</a>
+        </div>
+        <p>دنیا بھر کے خوبصورت مقامات اور سیاحتی معلومات</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#asia"><i class="fas fa-globe-asia"></i> ایشیا</a>
+            <a href="#europe"><i class="fas fa-landmark"></i> یورپ</a>
+            <a href="#america"><i class="fas fa-mountain"></i> امریکہ</a>
+            <a href="#middleeast"><i class="fas fa-mosque"></i> مشرق وسطی</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Asia Section -->
+        <section id="asia">
+            <h2 class="section-header"><i class="fas fa-globe-asia"></i> ایشیا</h2>
+            
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>پاکستان</h3>
+                        <ul>
+                            <li>ہنزہ وادی</li>
+                            <li>سوات</li>
+                            <li>مقر پور</li>
+                            <li>سیف الملوک جھیل</li>
+                            <li>بادشاہی مسجد</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-torii-gate"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>جاپان</h3>
+                        <ul>
+                            <li>ٹوکیو</li>
+                            <li>کیوٹو</li>
+                            <li>ماؤنٹ فیوجی</li>
+                            <li>اوساکا</li>
+                            <li>ہیروشیما</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>تھائی لینڈ</h3>
+                        <ul>
+                            <li>بینکاک</li>
+                            <li>پھوکٹ</li>
+                            <li>چیانگ مائی</li>
+                            <li>کھاؤ سوک</li>
+                            <li>پی پی جزائر</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Europe Section -->
+        <section id="europe">
+            <h2 class="section-header"><i class="fas fa-landmark"></i> یورپ</h2>
+            
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-eiffel-tower"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>فرانس</h3>
+                        <ul>
+                            <li>پیرس</li>
+                            <li>آئفل ٹاور</li>
+                            <li>لوور میوزیم</li>
+                            <li>فرنچ روییرا</li>
+                            <li>ورسائیل محل</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-tower"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>برطانیہ</h3>
+                        <ul>
+                            <li>لندن</li>
+                            <li>بگ بین</li>
+                            <li>لندن آئی</li>
+                            <li>بکنگھم پیلس</li>
+                            <li>اسٹون ہینج</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>اطالیہ</h3>
+                        <ul>
+                            <li>روم</li>
+                            <li>وینس</li>
+                            <li>فلورنس</li>
+                            <li>میلان</li>
+                            <li>پیزا ٹاور</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- America Section -->
+        <section id="america">
+            <h2 class="section-header"><i class="fas fa-mountain"></i> امریکہ</h2>
+            
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-flag-usa"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>امریکہ</h3>
+                        <ul>
+                            <li>نیویارک</li>
+                            <li>لاس اینجلس</li>
+                            <li>سان فرانسسکو</li>
+                            <li>لاس ویگاس</li>
+                            <li>گرینڈ کینین</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>کینیڈا</h3>
+                        <ul>
+                            <li>ٹورنٹو</li>
+                            <li>ونکوور</li>
+                            <li>نیا گرا</li>
+                            <li>بانف نیشنل پارک</li>
+                            <li>مونٹریال</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>برازیل</h3>
+                        <ul>
+                            <li>ریو ڈی جینرو</li>
+                            <li>ساؤ پالو</li>
+                            <li>ایمیزون جنگل</li>
+                            <li>ایگوازو آبشار</li>
+                            <li>سالوڈور</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Middle East Section -->
+        <section id="middleeast">
+            <h2 class="section-header"><i class="fas fa-mosque"></i> مشرق وسطی</h2>
+            
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-kaaba"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>سعودی عرب</h3>
+                        <ul>
+                            <li>مکہ مکرمہ</li>
+                            <li>مدینہ منورہ</li>
+                            <li>ریاض</li>
+                            <li>جدہ</li>
+                            <li>الطائف</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>متحدہ عرب امارات</h3>
+                        <ul>
+                            <li>دبئی</li>
+                            <li>ابوظہبی</li>
+                            <li>برج خلیفہ</li>
+                            <li>پام جمیرہ</li>
+                            <li>شیخ زاید مسجد</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>مصر</h3>
+                        <ul>
+                            <li>قاہرہ</li>
+                            <li>اہرام مصر</li>
+                            <li>دریائے نیل</li>
+                            <li>شرم الشیخ</li>
+                            <li>الاقصر</li>
+                        </ul>
+                        <a href="#" class="explore-btn">مزید معلومات</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Travel Tips -->
+        <section id="tips">
+            <h2 class="section-header"><i class="fas fa-lightbulb"></i> سفر کے نکات</h2>
+            
+            <div class="destination-grid">
+                <div class="destination-card">
+                    <div class="card-header" style="background: linear-gradient(135deg, #4CAF50, #388E3C);">
+                        <i class="fas fa-suitcase"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>سامان تیاری</h3>
+                        <ul>
+                            <li>ضروری دستاویزات</li>
+                            <li>مناسب کپڑے</li>
+                            <li>دوائیں</li>
+                            <li>بینک کارڈز</li>
+                            <li>چارجرز</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>بجٹ بناوٹ</h3>
+                        <ul>
+                            <li>ٹکٹ کی قیمت</li>
+                            <li>ہوٹل کا خرچ</li>
+                            <li>کھانے کا خرچ</li>
+                            <li>ٹرانسپورٹ</li>
+                            <li>ایمرجنسی فنڈ</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="card-header" style="background: linear-gradient(135deg, #FF9800, #F57C00);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>سیفٹی ٹپس</h3>
+                        <ul>
+                            <li>اصل دستاویزات محفوظ</li>
+                            <li>ہنگامی نمبرز</li>
+                            <li>علاقے کا علم</li>
+                            <li>لوکل قوانین</li>
+                            <li>انشورنس</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 ورلڈ ٹور | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            200+ ممالک کی تفصیلی معلومات
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#303F9F';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        // Smooth scroll
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        console.log('ورلڈ ٹور صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
