@@ -3,32 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اسکالرشپس | مالی امداد</title>
+    <title>اسکالرشپس | دنیا بھر میں تعلیم کے مواقع</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans Urdu'; }
-        body { background: #e0f2f1; direction: rtl; }
-        header { background: linear-gradient(135deg, #009688, #00796B); color: white; padding: 2rem; text-align: center; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .back-btn { background: #009688; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; display: inline-block; margin: 2rem 0; }
-        .scholarship-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
-        .scholarship-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        footer { background: #00796B; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #009688 0%, #00796B 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #B2DFDB;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #00796B;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #00796B;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #00796B;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #009688;
+        }
+        
+        .scholarship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .scholarship-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .scholarship-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .scholarship-card i {
+            font-size: 2.5rem;
+            color: #009688;
+            margin-bottom: 1rem;
+        }
+        
+        .scholarship-card h3 {
+            color: #00796B;
+            margin-bottom: 1rem;
+        }
+        
+        .scholarship-card p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .apply-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #009688;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .apply-btn:hover {
+            background: #00796B;
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #009688;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #00796B;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #00796B;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .scholarship-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1><i class="fas fa-award"></i> اسکالرشپس</h1>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-award"></i> اسکالرشپس</a>
+        </div>
         <p>دنیا بھر میں تعلیم کے لیے مالی امداد</p>
     </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#international"><i class="fas fa-globe"></i> بین الاقوامی</a>
+            <a href="#government"><i class="fas fa-landmark"></i> حکومتی</a>
+            <a href="#university"><i class="fas fa-university"></i> یونیورسٹی</a>
+            <a href="#private"><i class="fas fa-building"></i> پرائیویٹ</a>
+        </div>
+    </nav>
+    
     <div class="container">
-        <a href="index.html" class="back-btn">← واپس ہوم پیج</a>
-        <h2>اسکالرشپ کی اقسام</h2>
-        <div class="scholarship-grid">
-            <div class="scholarship-card"><h3>بین الاقوامی</h3><p>دنیا بھر کی یونیورسٹیاں</p></div>
-            <div class="scholarship-card"><h3>حکومتی</h3><p>سرکاری اسکالرشپس</p></div>
-            <div class="scholarship-card"><h3>پرائیویٹ</h3><p>نجی اداروں کی طرف سے</p></div>
+        <!-- International Scholarships -->
+        <section id="international">
+            <h2 class="section-header"><i class="fas fa-globe"></i> بین الاقوامی اسکالرشپس</h2>
+            
+            <div class="scholarship-grid">
+                <div class="scholarship-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>چیون شپ پروگرام</h3>
+                    <p><strong>ملک:</strong> چین</p>
+                    <p><strong>سطح:</strong> بیچلر، ماسٹرز، پی ایچ ڈی</p>
+                    <p><strong>شعبے:</strong> تمام</p>
+                    <p><strong>آخری تاریخ:</strong> 30 اپریل 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+                
+                <div class="scholarship-card">
+                    <i class="fas fa-university"></i>
+                    <h3>فول برائٹ</h3>
+                    <p><strong>ملک:</strong> امریکہ</p>
+                    <p><strong>سطح:</strong> ماسٹرز، پی ایچ ڈی</p>
+                    <p><strong>شعبے:</strong> تحقیق و تعلیم</p>
+                    <p><strong>آخری تاریخ:</strong> 15 مئی 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+                
+                <div class="scholarship-card">
+                    <i class="fas fa-school"></i>
+                    <h3>ایراسمس</h3>
+                    <p><strong>ملک:</strong> یورپ</p>
+                    <p><strong>سطح:</strong> بیچلر، ماسٹرز</p>
+                    <p><strong>شعبے:</strong> تمام</p>
+                    <p><strong>آخری تاریخ:</strong> 31 مارچ 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Government Scholarships -->
+        <section id="government">
+            <h2 class="section-header"><i class="fas fa-landmark"></i> حکومتی اسکالرشپس</h2>
+            
+            <div class="scholarship-grid">
+                <div class="scholarship-card">
+                    <i class="fas fa-star"></i>
+                    <h3>HEC اسکالرشپس</h3>
+                    <p><strong>ادارہ:</strong> HEC پاکستان</p>
+                    <p><strong>سطح:</strong> پی ایچ ڈی، پوسٹ ڈاک</p>
+                    <p><strong>شعبے:</strong> STEM</p>
+                    <p><strong>آخری تاریخ:</strong> 25 مارچ 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+                
+                <div class="scholarship-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>پرائمری ٹیچر</h3>
+                    <p><strong>ادارہ:</strong> صوبائی حکومت</p>
+                    <p><strong>سطح:</strong> بی ایڈ، ایم ایڈ</p>
+                    <p><strong>شعبے:</strong> تعلیم</p>
+                    <p><strong>آخری تاریخ:</strong> 10 اپریل 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+                
+                <div class="scholarship-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>سائنس اسکالرشپ</h3>
+                    <p><strong>ادارہ:</strong> وزارت سائنس</p>
+                    <p><strong>سطح:</strong> بی ایس سی، ایم ایس سی</p>
+                    <p><strong>شعبے:</strong> سائنس</p>
+                    <p><strong>آخری تاریخ:</strong> 20 اپریل 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- University Scholarships -->
+        <section id="university">
+            <h2 class="section-header"><i class="fas fa-university"></i> یونیورسٹی اسکالرشپس</h2>
+            
+            <div class="scholarship-grid">
+                <div class="scholarship-card">
+                    <i class="fas fa-atom"></i>
+                    <h3>LUMS اسکالرشپ</h3>
+                    <p><strong>یونیورسٹی:</strong> LUMS</p>
+                    <p><strong>سطح:</strong> انڈرگریجویٹ</p>
+                    <p><strong>شعبے:</strong> بزنس، انجینئرنگ</p>
+                    <p><strong>آخری تاریخ:</strong> 5 مئی 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+                
+                <div class="scholarship-card">
+                    <i class="fas fa-book-medical"></i>
+                    <h3>AKU اسکالرشپ</h3>
+                    <p><strong>یونیورسٹی:</strong> آغا خان یونیورسٹی</p>
+                    <p><strong>سطح:</strong> میڈیکل</p>
+                    <p><strong>شعبے:</strong> MBBS، BDS</p>
+                    <p><strong>آخری تاریخ:</strong> 15 اپریل 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+                
+                <div class="scholarship-card">
+                    <i class="fas fa-code"></i>
+                    <h3>FAST اسکالرشپ</h3>
+                    <p><strong>یونیورسٹی:</strong> FAST</p>
+                    <p><strong>سطح:</strong> بیچلر</p>
+                    <p><strong>شعبے:</strong> کمپیوٹر سائنس</p>
+                    <p><strong>آخری تاریخ:</strong> 30 اپریل 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Private Scholarships -->
+        <section id="private">
+            <h2 class="section-header"><i class="fas fa-building"></i> پرائیویٹ اسکالرشپس</h2>
+            
+            <div class="scholarship-grid">
+                <div class="scholarship-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>ٹی سی ایف</h3>
+                    <p><strong>ادارہ:</strong> The Citizens Foundation</p>
+                    <p><strong>سطح:</strong> بیچلر</p>
+                    <p><strong>شعبے:</strong> تمام</p>
+                    <p><strong>آخری تاریخ:</strong> 25 مارچ 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+                
+                <div class="scholarship-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>انجینئرنگ اسکالرشپ</h3>
+                    <p><strong>ادارہ:</strong> انگرو کارپوریشن</p>
+                    <p><strong>سطح:</strong> بی ایس سی انجینئرنگ</p>
+                    <p><strong>شعبے:</strong> انجینئرنگ</p>
+                    <p><strong>آخری تاریخ:</strong> 10 مئی 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+                
+                <div class="scholarship-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>بزنس اسکالرشپ</h3>
+                    <p><strong>ادارہ:</strong> ہبل بینک</p>
+                    <p><strong>سطح:</strong> MBA</p>
+                    <p><strong>شعبے:</strong> بزنس ایڈمنسٹریشن</p>
+                    <p><strong>آخری تاریخ:</strong> 20 اپریل 2024</p>
+                    <a href="#" class="apply-btn">درخواست دیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
         </div>
     </div>
-    <footer><p>© 2024 اسکالرشپس سیکشن</p></footer>
+    
+    <footer>
+        <p>© 2024 اسکالرشپس | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            500+ اسکالرشپس | روزانہ اپ ڈیٹ
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#00796B';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        console.log('اسکالرشپس صفحہ لوڈ ہو گیا');
+    </script>
 </body>
 </html>
