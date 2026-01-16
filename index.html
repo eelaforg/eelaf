@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مکمل آن لائن پورٹل | تعلیم سے لے کر سفر تک سب کچھ</title>
+    <title>مکمل آن لائن پورٹل | ہر ضرورت کا ایک اسٹاپ سولوشن</title>
     <style>
-        /* Complete Updated CSS */
+        /* Complete CSS with ALL Sections */
         * {
             margin: 0;
             padding: 0;
@@ -32,17 +32,6 @@
             overflow: hidden;
         }
         
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
-            background-size: cover;
-        }
-        
         .logo {
             font-size: 3rem;
             margin-bottom: 0.5rem;
@@ -63,20 +52,20 @@
             opacity: 0.95;
             margin-bottom: 1.8rem;
             position: relative;
-            max-width: 800px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.8;
         }
         
-        /* Navigation */
+        /* Navigation - Updated with more items */
         nav {
             margin-top: 1.8rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            max-width: 1400px;
+            gap: 0.7rem;
+            max-width: 1600px;
             margin-left: auto;
             margin-right: auto;
             position: relative;
@@ -85,29 +74,30 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 0.9rem 2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 50px;
             background: rgba(255,255,255,0.08);
             transition: all 0.4s ease;
             border: 2px solid rgba(255,255,255,0.15);
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 1rem;
             backdrop-filter: blur(5px);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            white-space: nowrap;
         }
         
         nav a:hover {
             background: rgba(255,255,255,0.2);
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
             border-color: rgba(255,255,255,0.3);
         }
         
         /* Main Container */
         .container {
-            max-width: 1600px;
+            max-width: 1800px;
             margin: 3rem auto;
             padding: 0 2rem;
         }
@@ -137,7 +127,7 @@
             background: linear-gradient(135deg, #00dbde 0%, #fc00ff 100%);
             color: white;
             border: none;
-            padding: 0 3rem;
+            padding: 0 2.5rem;
             cursor: pointer;
             font-size: 1.2rem;
             font-weight: bold;
@@ -146,11 +136,6 @@
             align-items: center;
             gap: 10px;
             white-space: nowrap;
-        }
-        
-        .search-box button:hover {
-            opacity: 0.9;
-            transform: scale(1.03);
         }
         
         /* Section Headers */
@@ -162,10 +147,10 @@
         }
         
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: #1a1a2e;
             display: inline-block;
-            padding: 0 3rem;
+            padding: 0 2.5rem;
             position: relative;
         }
         
@@ -175,13 +160,13 @@
             bottom: -15px;
             right: 50%;
             transform: translateX(50%);
-            width: 100px;
+            width: 80px;
             height: 4px;
             background: linear-gradient(90deg, #00dbde, #fc00ff);
             border-radius: 2px;
         }
         
-        /* Categories Grid */
+        /* Categories Grid - 3 columns */
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -189,25 +174,26 @@
             margin: 2.5rem 0;
         }
         
+        /* Category Cards */
         .category-card {
             background: white;
-            border-radius: 25px;
-            padding: 2.5rem;
+            border-radius: 20px;
+            padding: 2.2rem;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             transition: all 0.5s ease;
             border: 1px solid rgba(0,0,0,0.05);
             position: relative;
             overflow: hidden;
-            min-height: 320px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
         
         .category-card:hover {
-            transform: translateY(-20px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
         
         .category-card::before {
@@ -216,42 +202,36 @@
             top: 0;
             right: 0;
             width: 100%;
-            height: 8px;
+            height: 6px;
             background: linear-gradient(90deg, var(--color), transparent);
         }
         
         .category-icon {
-            font-size: 4rem;
-            margin-bottom: 1.8rem;
-            height: 90px;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-        }
-        
-        .category-icon i {
-            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.2));
         }
         
         .category-card h3 {
-            font-size: 2rem;
-            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             color: #333;
-            position: relative;
         }
         
         .category-card p {
             color: #666;
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
-            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            line-height: 1.7;
             flex-grow: 1;
         }
         
         .category-btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 0.9rem 2.2rem;
             background: linear-gradient(135deg, var(--color), var(--color-dark));
             color: white;
             text-decoration: none;
@@ -260,34 +240,16 @@
             transition: all 0.3s ease;
             border: 2px solid var(--color);
             font-size: 1.1rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .category-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0%;
-            height: 100%;
-            background: white;
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-        
-        .category-btn:hover::before {
-            width: 100%;
         }
         
         .category-btn:hover {
+            background: white;
             color: var(--color);
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         
-        /* Color Classes for All Categories */
+        /* Color Classes for ALL Categories */
         .business { --color: #4CAF50; --color-dark: #388E3C; }
         .jobs { --color: #2196F3; --color-dark: #1976D2; }
         .education { --color: #FF9800; --color-dark: #F57C00; }
@@ -302,43 +264,7 @@
         .travel { --color: #3F51B5; --color-dark: #303F9F; }
         .health { --color: #8BC34A; --color-dark: #689F38; }
         .marketplace { --color: #FF9800; --color-dark: #F57C00; }
-        
-        /* Featured Content */
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .featured-item {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: transform 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .featured-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        /* Coming Soon Badge */
-        .coming-soon {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: linear-gradient(135deg, #FF9800, #FF5722);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            z-index: 2;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+        .volunteer { --color: #795548; --color-dark: #5D4037; }
         
         /* Footer */
         footer {
@@ -348,26 +274,14 @@
             margin-top: 6rem;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #00dbde, #fc00ff);
         }
         
         .footer-links {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 3rem;
+            gap: 2rem;
             margin: 2.5rem 0;
-            position: relative;
         }
         
         .footer-links a {
@@ -375,74 +289,46 @@
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         
         .footer-links a:hover {
             color: #00dbde;
-            transform: translateY(-3px);
         }
         
         .social-icons {
-            margin: 2.5rem 0;
+            margin: 2rem 0;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         
         .social-icons a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             background: rgba(255,255,255,0.08);
             color: white;
             border-radius: 50%;
-            transition: all 0.4s ease;
-            font-size: 1.4rem;
-            border: 2px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
         }
         
         .social-icons a:hover {
             background: linear-gradient(135deg, #00dbde, #fc00ff);
-            transform: translateY(-8px) rotate(10deg);
-            border-color: transparent;
+            transform: translateY(-5px);
         }
         
-        /* Statistics Section */
-        .stats-section {
-            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
-            padding: 4rem 2rem;
-            border-radius: 30px;
-            margin: 5rem 0;
-            text-align: center;
-            color: white;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        
-        .stat-item h3 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, #00dbde, #fc00ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-        }
-        
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 1200px) {
             .categories-grid {
                 grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            nav a {
+                padding: 0.7rem 1.3rem;
+                font-size: 0.95rem;
             }
         }
         
@@ -455,13 +341,13 @@
                 font-size: 2.5rem;
             }
             
-            nav a {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
+            .section-header h2 {
+                font-size: 2rem;
             }
             
-            .section-header h2 {
-                font-size: 2.2rem;
+            .categories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2rem;
             }
         }
         
@@ -478,9 +364,9 @@
             
             nav a {
                 width: 100%;
-                max-width: 400px;
+                max-width: 350px;
                 justify-content: center;
-                margin-bottom: 0.8rem;
+                margin-bottom: 0.7rem;
             }
             
             .search-box {
@@ -500,11 +386,6 @@
                 gap: 1.5rem;
                 align-items: center;
             }
-            
-            .category-card {
-                min-height: 300px;
-                padding: 2rem;
-            }
         }
         
         @media (max-width: 480px) {
@@ -517,40 +398,18 @@
             }
             
             .section-header h2 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
                 padding: 0 1.5rem;
             }
             
-            .category-card h3 {
-                font-size: 1.7rem;
+            .category-card {
+                padding: 1.8rem;
             }
             
-            .category-card p {
-                font-size: 1.1rem;
+            .category-card h3 {
+                font-size: 1.6rem;
             }
         }
-        
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .category-card {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-        
-        .category-card:nth-child(2) { animation-delay: 0.1s; }
-        .category-card:nth-child(3) { animation-delay: 0.2s; }
-        .category-card:nth-child(4) { animation-delay: 0.3s; }
-        .category-card:nth-child(5) { animation-delay: 0.4s; }
-        .category-card:nth-child(6) { animation-delay: 0.5s; }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -559,24 +418,27 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <i class="fas fa-globe-asia"></i> مکمل <span>آن لائن پورٹل</span>
+            <i class="fas fa-compass"></i> جامع <span>آن لائن پورٹل</span>
         </div>
         <p class="tagline">
-            تعلیم سے لے کر سفر تک - بزنس سے لے کر رشتوں تک<br>
+            بزنس آئیڈیاز سے لے کر ویزہ تک، بچوں کے کارٹونز سے لے کر AI تک<br>
             ہر عمر اور ہر ضرورت کے لیے مکمل پلیٹ فارم
         </p>
         
         <nav>
-            <a href="#home"><i class="fas fa-home"></i> ہوم پیج</a>
+            <a href="#home"><i class="fas fa-home"></i> ہوم</a>
             <a href="#business"><i class="fas fa-lightbulb"></i> بزنس آئیڈیاز</a>
             <a href="#jobs"><i class="fas fa-briefcase"></i> جاب بینک</a>
-            <a href="#education"><i class="fas fa-graduation-cap"></i> تعلیم و ہنر</a>
+            <a href="#education"><i class="fas fa-graduation-cap"></i> تعلیمی مواد</a>
+            <a href="#skills"><i class="fas fa-tools"></i> ہنر سیکھیں</a>
             <a href="#ai"><i class="fas fa-robot"></i> AI سیکشن</a>
+            <a href="#kids"><i class="fas fa-child"></i> بچوں کا کونہ</a>
+            <a href="#library"><i class="fas fa-book"></i> ڈیجیٹل لائبریری</a>
+            <a href="#videos"><i class="fas fa-video"></i> ویڈیو لائبریری</a>
+            <a href="#relationships"><i class="fas fa-heart"></i> رشتوں کا سیکشن</a>
             <a href="#scholarships"><i class="fas fa-award"></i> اسکالرشپس</a>
             <a href="#visa"><i class="fas fa-passport"></i> ویزہ سیکشن</a>
             <a href="#travel"><i class="fas fa-plane"></i> ورلڈ ٹور</a>
-            <a href="#kids"><i class="fas fa-child"></i> بچوں کا کونہ</a>
-            <a href="#more"><i class="fas fa-ellipsis-h"></i> مزید</a>
         </nav>
     </header>
 
@@ -584,11 +446,11 @@
     <div class="container" id="home">
         <!-- Search Box -->
         <div class="search-box">
-            <input type="text" placeholder="تلاش کریں: مثال - AI کورسز، اسکالرشپ، ویزہ، سفر">
+            <input type="text" placeholder="تلاش کریں: بزنس آئیڈیاز، نوکری، AI کورسز، اسکالرشپ، ویزہ">
             <button><i class="fas fa-search"></i> تلاش کریں</button>
         </div>
 
-        <!-- Business Ideas Section -->
+        <!-- 1. Business Ideas Section -->
         <div class="section-header" id="business">
             <h2><i class="fas fa-chart-line"></i> بزنس آئیڈیاز سیکشن</h2>
         </div>
@@ -598,8 +460,8 @@
                     <i class="fas fa-laptop-code"></i>
                 </div>
                 <h3>آن لائن بزنس</h3>
-                <p>ڈیجیٹل مارکیٹنگ، ای کامرس، آن لائن سروسز</p>
-                <a href="#" class="category-btn">500+ آئیڈیاز</a>
+                <p>500+ آن لائن کاروبار کے آئیڈیاز، کم سرمایہ، زیادہ منافع</p>
+                <a href="#" class="category-btn">آئیڈیاز دیکھیں</a>
             </div>
             
             <div class="category-card business">
@@ -607,21 +469,21 @@
                     <i class="fas fa-store"></i>
                 </div>
                 <h3>چھوٹا کاروبار</h3>
-                <p>گھر بیٹھے شروع کرنے والے کاروبار</p>
+                <p>گھر بیٹھے شروع کیے جانے والے کاروبار، کم سرمایہ</p>
                 <a href="#" class="category-btn">300+ آئیڈیاز</a>
             </div>
             
             <div class="category-card business">
                 <div class="category-icon">
-                    <i class="fas fa-industry"></i>
+                    <i class="fas fa-handshake"></i>
                 </div>
-                <h3>صنعتی منصوبے</h3>
-                <p>درمیانے اور بڑے پیمانے کے منصوبے</p>
-                <a href="#" class="category-btn">150+ آئیڈیاز</a>
+                <h3>فرنچائز</h3>
+                <p>مشہور برانڈز کے ساتھ کام کرنے کے مواقع</p>
+                <a href="#" class="category-btn">150+ آپشنز</a>
             </div>
         </div>
 
-        <!-- Job Bank Section -->
+        <!-- 2. Job Bank Section -->
         <div class="section-header" id="jobs">
             <h2><i class="fas fa-briefcase"></i> جاب بینک سیکشن</h2>
         </div>
@@ -630,33 +492,66 @@
                 <div class="category-icon">
                     <i class="fas fa-user-tie"></i>
                 </div>
-                <h3>فُل ٹائم نوکریاں</h3>
-                <p>ملازمت کے تمام مواقع، ہر شعبے میں</p>
+                <h3>فی ٹائم نوکریاں</h3>
+                <p>تمام شہروں میں فی ٹائم ملازمت کے مواقع</p>
                 <a href="#" class="category-btn">1000+ نوکریاں</a>
+            </div>
+            
+            <div class="category-card jobs">
+                <div class="category-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>پارٹ ٹائم کام</h3>
+                <p>طلباء اور گھریلو خواتین کے لیے مواقع</p>
+                <a href="#" class="category-btn">500+ کام</a>
             </div>
             
             <div class="category-card jobs">
                 <div class="category-icon">
                     <i class="fas fa-laptop-house"></i>
                 </div>
-                <h3>فری لانس کام</h3>
-                <p>آزاد پیشہ ورانہ خدمات</p>
-                <a href="#" class="category-btn">500+ مواقع</a>
-            </div>
-            
-            <div class="category-card jobs">
-                <div class="category-icon">
-                    <i class="fas fa-user-graduate"></i>
-                </div>
-                <h3>انٹرن شپس</h3>
-                <p>طلباء کے لیے تربیتی مواقع</p>
-                <a href="#" class="category-btn">200+ انٹرن شپس</a>
+                <h3>فری لانس / ریموٹ</h3>
+                <p>گھر بیٹھے آن لائن کام کے مواقع</p>
+                <a href="#" class="category-btn">300+ مواقع</a>
             </div>
         </div>
 
-        <!-- Education & Skills Section -->
+        <!-- 3. Educational Materials Section -->
         <div class="section-header" id="education">
-            <h2><i class="fas fa-graduation-cap"></i> تعلیم و ہنر سیکھیں</h2>
+            <h2><i class="fas fa-graduation-cap"></i> تعلیمی مواد سیکشن</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card education">
+                <div class="category-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>درسی کتب</h3>
+                <p>تمام جماعتوں کی نصابی کتب PDF میں</p>
+                <a href="#" class="category-btn">کتب ڈاؤنلوڈ</a>
+            </div>
+            
+            <div class="category-card education">
+                <div class="category-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>لکچرز</h3>
+                <p>اساتذہ کے لیکچرز اور پریزنٹیشنز</p>
+                <a href="#" class="category-btn">لیکچرز دیکھیں</a>
+            </div>
+            
+            <div class="category-card education">
+                <div class="category-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <h3>نوٹس</h3>
+                <p>مضامین کے مکمل نوٹس اور خلاصے</p>
+                <a href="#" class="category-btn">نوٹس حاصل کریں</a>
+            </div>
+        </div>
+
+        <!-- 4. Skills Learning Section -->
+        <div class="section-header" id="skills">
+            <h2><i class="fas fa-tools"></i> ہنر سیکھیں سیکشن</h2>
         </div>
         <div class="categories-grid">
             <div class="category-card skills">
@@ -664,7 +559,7 @@
                     <i class="fas fa-code"></i>
                 </div>
                 <h3>ٹیکنیکل ہنر</h3>
-                <p>پروگرامنگ، ویب ڈویلپمنٹ، AI/ML</p>
+                <p>پروگرامنگ، ویب ڈویلپمنٹ، موبائل ایپس</p>
                 <a href="#" class="category-btn">50+ کورسز</a>
             </div>
             
@@ -673,7 +568,7 @@
                     <i class="fas fa-chart-bar"></i>
                 </div>
                 <h3>بزنس ہنر</h3>
-                <p>مارکیٹنگ، مینجمنٹ، فنانس</p>
+                <p>مارکیٹنگ، مینجمنٹ، فنانس، سیلز</p>
                 <a href="#" class="category-btn">40+ کورسز</a>
             </div>
             
@@ -685,18 +580,9 @@
                 <p>گرافکس ڈیزائن، فوٹوگرافی، ویڈیو ایڈیٹنگ</p>
                 <a href="#" class="category-btn">30+ کورسز</a>
             </div>
-            
-            <div class="category-card skills">
-                <div class="category-icon">
-                    <i class="fas fa-language"></i>
-                </div>
-                <h3>زبان سیکھیں</h3>
-                <p>انگریزی، عربی، چینی، دیگر زبانیں</p>
-                <a href="#" class="category-btn">20+ کورسز</a>
-            </div>
         </div>
 
-        <!-- AI Section -->
+        <!-- 5. AI Section -->
         <div class="section-header" id="ai">
             <h2><i class="fas fa-robot"></i> مصنوعی ذہانت (AI) سیکشن</h2>
         </div>
@@ -727,144 +613,9 @@
                 <p>عملی AI منصوبے اور ٹیوٹوریلز</p>
                 <a href="#" class="category-btn">50+ پروجیکٹس</a>
             </div>
-            
-            <div class="category-card ai">
-                <div class="category-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <h3>AI کمیونٹی</h3>
-                <p>AI کے شوقین افراد کا نیٹ ورک</p>
-                <a href="#" class="category-btn">شامل ہوں</a>
-            </div>
         </div>
 
-        <!-- Scholarships Section -->
-        <div class="section-header" id="scholarships">
-            <h2><i class="fas fa-award"></i> اسکالرشپس سیکشن</h2>
-        </div>
-        <div class="categories-grid">
-            <div class="category-card scholarships">
-                <div class="category-icon">
-                    <i class="fas fa-university"></i>
-                </div>
-                <h3>بین الاقوامی اسکالرشپس</h3>
-                <p>دنیا بھر کی یونیورسٹیوں میں موقع</p>
-                <a href="#" class="category-btn">500+ اسکالرشپس</a>
-            </div>
-            
-            <div class="category-card scholarships">
-                <div class="category-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>ماسٹرز/پی ایچ ڈی</h3>
-                <p>اعلیٰ تعلیم کے لیے فنڈنگ</p>
-                <a href="#" class="category-btn">300+ مواقع</a>
-            </div>
-            
-            <div class="category-card scholarships">
-                <div class="category-icon">
-                    <i class="fas fa-school"></i>
-                </div>
-                <h3>انڈرگریجویٹ</h3>
-                <p>بیچلر ڈگری کے لیے اسکالرشپس</p>
-                <a href="#" class="category-btn">400+ مواقع</a>
-            </div>
-            
-            <div class="category-card scholarships">
-                <div class="category-icon">
-                    <i class="fas fa-medal"></i>
-                </div>
-                <h3>میڈیکل/انجینئرنگ</h3>
-                <p>پیشہ ورانہ تعلیم کے مواقع</p>
-                <a href="#" class="category-btn">200+ اسکالرشپس</a>
-            </div>
-        </div>
-
-        <!-- Visa Section -->
-        <div class="section-header" id="visa">
-            <h2><i class="fas fa-passport"></i> ویزہ سیکشن</h2>
-        </div>
-        <div class="categories-grid">
-            <div class="category-card visa">
-                <div class="category-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>طالب علم ویزہ</h3>
-                <p>تعلیم کے لیے ویزہ معلومات</p>
-                <a href="#" class="category-btn">50+ ممالک</a>
-            </div>
-            
-            <div class="category-card visa">
-                <div class="category-icon">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <h3>کام کا ویزہ</h3>
-                <pملازمت کے لیے ویزہ گائیڈ</p>
-                <a href="#" class="category-btn">30+ ممالک</a>
-            </div>
-            
-            <div class="category-card visa">
-                <div class="category-icon">
-                    <i class="fas fa-plane"></i>
-                </div>
-                <h3>سیاحتی ویزہ</h3>
-                <p>سفر اور سیاحت کے لیے ویزہ</p>
-                <a href="#" class="category-btn">80+ ممالک</a>
-            </div>
-            
-            <div class="category-card visa">
-                <div class="category-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3>خاندانی ویزہ</h3>
-                <p>خاندان کے ساتھ رہائش کے لیے</p>
-                <a href="#" class="category-btn">20+ ممالک</a>
-            </div>
-        </div>
-
-        <!-- World Tour Section -->
-        <div class="section-header" id="travel">
-            <h2><i class="fas fa-plane"></i> ورلڈ ٹور سیکشن</h2>
-        </div>
-        <div class="categories-grid">
-            <div class="category-card travel">
-                <div class="category-icon">
-                    <i class="fas fa-map-marked-alt"></i>
-                </div>
-                <h3>ممالک کا تعارف</h3>
-                <p>دنیا بھر کے ممالک کی مکمل معلومات</p>
-                <a href="#" class="category-btn">200+ ممالک</a>
-            </div>
-            
-            <div class="category-card travel">
-                <div class="category-icon">
-                    <i class="fas fa-landmark"></i>
-                </div>
-                <h3>سیاحتی مقامات</h3>
-                <p>دنیا کے خوبصورت ترین مقامات</p>
-                <a href="#" class="category-btn">1000+ مقامات</a>
-            </div>
-            
-            <div class="category-card travel">
-                <div class="category-icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <h3>ثقافت اور کھانا</h3>
-                <p>مختلف ممالک کی ثقافت اور کھانوں</p>
-                <a href="#" class="category-btn">150+ ثقافتیں</a>
-            </div>
-            
-            <div class="category-card travel">
-                <div class="category-icon">
-                    <i class="fas fa-suitcase-rolling"></i>
-                </div>
-                <h3>سفر کی تیاری</h3>
-                <p>سفر کا بجٹ، ضروری تیاریاں</p>
-                <a href="#" class="category-btn">مکمل گائیڈ</a>
-            </div>
-        </div>
-
-        <!-- Kids Section -->
+        <!-- 6. Kids Corner Section -->
         <div class="section-header" id="kids">
             <h2><i class="fas fa-child"></i> بچوں کا کونہ</h2>
         </div>
@@ -897,64 +648,236 @@
             </div>
         </div>
 
-        <!-- Coming Soon Sections -->
-        <div class="section-header" id="more">
-            <h2><i class="fas fa-plus-circle"></i> آنے والے سیکشنز</h2>
+        <!-- 7. Digital Library Section -->
+        <div class="section-header" id="library">
+            <h2><i class="fas fa-book"></i> ڈیجیٹل لائبریری</h2>
         </div>
         <div class="categories-grid">
-            <div class="category-card health">
-                <span class="coming-soon">جلد آرہا ہے</span>
+            <div class="category-card library">
                 <div class="category-icon">
-                    <i class="fas fa-heartbeat"></i>
+                    <i class="fas fa-quran"></i>
                 </div>
-                <h3>صحت و تندرستی</h3>
-                <p>صحت، علاج، ڈاکٹرز سے رابطہ</p>
-                <a href="#" class="category-btn">تیار ہو رہا ہے</a>
+                <h3>مذہبی کتب</h3>
+                <p>قرآن، حدیث، سیرت اور دینی کتب</p>
+                <a href="#" class="category-btn">500+ کتب</a>
             </div>
             
-            <div class="category-card marketplace">
-                <span class="coming-soon">جلد آرہا ہے</span>
+            <div class="category-card library">
                 <div class="category-icon">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-book-reader"></i>
                 </div>
-                <h3>مارکیٹ پلیس</h3>
-                <p>مصنوعات کی خرید و فروخت</p>
-                <a href="#" class="category-btn">تیار ہو رہا ہے</a>
+                <h3>اردو ادب</h3>
+                <p>ناول، افسانے، شاعری، تنقید</p>
+                <a href="#" class="category-btn">1000+ کتب</a>
+            </div>
+            
+            <div class="category-card library">
+                <div class="category-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>انگریزی کتب</h3>
+                <p>انگریزی سیکھنے اور ادب کی کتب</p>
+                <a href="#" class="category-btn">800+ کتب</a>
+            </div>
+        </div>
+
+        <!-- 8. Video Library Section -->
+        <div class="section-header" id="videos">
+            <h2><i class="fas fa-video"></i> ویڈیو لائبریری</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card videos">
+                <div class="category-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>تعلیمی لیکچرز</h3>
+                <p>اسکول، کالج، یونیورسٹی لیکچرز</p>
+                <a href="#" class="category-btn">500+ ویڈیوز</a>
+            </div>
+            
+            <div class="category-card videos">
+                <div class="category-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>ہنر سیکھیں</h3>
+                <p>ککنگ، سلائی، کرافٹ، دیگر ہنر</p>
+                <a href="#" class="category-btn">300+ ویڈیوز</a>
+            </div>
+            
+            <div class="category-card videos">
+                <div class="category-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>صحت و تندرستی</h3>
+                <p>ورزش، یوگا، صحت مند زندگی</p>
+                <a href="#" class="category-btn">200+ ویڈیوز</a>
+            </div>
+        </div>
+
+        <!-- 9. Relationships Section -->
+        <div class="section-header" id="relationships">
+            <h2><i class="fas fa-heart"></i> رشتوں کا سیکشن</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card relationships">
+                <div class="category-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <h3>شادی بیاہ</h3>
+                <p>رشتوں کے لیے پلیٹ فارم</p>
+                <a href="#" class="category-btn">رابطہ کریں</a>
             </div>
             
             <div class="category-card relationships">
-                <span class="coming-soon">جلد آرہا ہے</span>
+                <div class="category-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>مشاورت</h3>
+                <p>خاندانی اور ازدواجی مشاورت</p>
+                <a href="#" class="category-btn">مشورہ حاصل کریں</a>
+            </div>
+            
+            <div class="category-card relationships">
                 <div class="category-icon">
                     <i class="fas fa-hands-helping"></i>
                 </div>
-                <h3>رضاکارانہ خدمات</h3>
-                <p>معاشرتی خدمت کے مواقع</p>
-                <a href="#" class="category-btn">تیار ہو رہا ہے</a>
+                <h3>رابطہ نیٹ ورک</h3>
+                <p>پیشہ ور افراد سے رابطہ</p>
+                <a href="#" class="category-btn">شامل ہوں</a>
+            </div>
+        </div>
+
+        <!-- 10. Scholarships Section -->
+        <div class="section-header" id="scholarships">
+            <h2><i class="fas fa-award"></i> اسکالرشپس سیکشن</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card scholarships">
+                <div class="category-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h3>بین الاقوامی اسکالرشپس</h3>
+                <p>دنیا بھر کی یونیورسٹیوں میں موقع</p>
+                <a href="#" class="category-btn">500+ اسکالرشپس</a>
+            </div>
+            
+            <div class="category-card scholarships">
+                <div class="category-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>ماسٹرز/پی ایچ ڈی</h3>
+                <p>اعلیٰ تعلیم کے لیے فنڈنگ</p>
+                <a href="#" class="category-btn">300+ مواقع</a>
+            </div>
+            
+            <div class="category-card scholarships">
+                <div class="category-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <h3>انڈرگریجویٹ</h3>
+                <p>بیچلر ڈگری کے لیے اسکالرشپس</p>
+                <a href="#" class="category-btn">400+ مواقع</a>
+            </div>
+        </div>
+
+        <!-- 11. Visa Section -->
+        <div class="section-header" id="visa">
+            <h2><i class="fas fa-passport"></i> ویزہ سیکشن</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card visa">
+                <div class="category-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>طالب علم ویزہ</h3>
+                <p>تعلیم کے لیے ویزہ معلومات</p>
+                <a href="#" class="category-btn">50+ ممالک</a>
+            </div>
+            
+            <div class="category-card visa">
+                <div class="category-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>کام کا ویزہ</h3>
+                <p>ملازمت کے لیے ویزہ گائیڈ</p>
+                <a href="#" class="category-btn">30+ ممالک</a>
+            </div>
+            
+            <div class="category-card visa">
+                <div class="category-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <h3>سیاحتی ویزہ</h3>
+                <p>سفر اور سیاحت کے لیے ویزہ</p>
+                <a href="#" class="category-btn">80+ ممالک</a>
+            </div>
+        </div>
+
+        <!-- 12. World Tour Section -->
+        <div class="section-header" id="travel">
+            <h2><i class="fas fa-plane"></i> ورلڈ ٹور سیکشن</h2>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card travel">
+                <div class="category-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3>ممالک کا تعارف</h3>
+                <p>دنیا بھر کے ممالک کی مکمل معلومات</p>
+                <a href="#" class="category-btn">200+ ممالک</a>
+            </div>
+            
+            <div class="category-card travel">
+                <div class="category-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>سیاحتی مقامات</h3>
+                <p>دنیا کے خوبصورت ترین مقامات</p>
+                <a href="#" class="category-btn">1000+ مقامات</a>
+            </div>
+            
+            <div class="category-card travel">
+                <div class="category-icon">
+                    <i class="fas fa-suitcase-rolling"></i>
+                </div>
+                <h3>سفر کی تیاری</h3>
+                <p>سفر کا بجٹ، ضروری تیاریاں</p>
+                <a href="#" class="category-btn">مکمل گائیڈ</a>
             </div>
         </div>
 
         <!-- Statistics Section -->
-        <div class="stats-section">
-            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1rem;">ہمارے پورٹل کا جائزہ</h2>
-            <p style="color: #ddd; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+        <div style="
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            margin: 5rem 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        ">
+            <h2 style="color: white; font-size: 2.3rem; margin-bottom: 1.5rem;">
+                <i class="fas fa-chart-bar"></i> ہمارے پورٹل کا جائزہ
+            </h2>
+            <p style="color: #ddd; font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem;">
                 12 مکمل سیکشنز، 5000+ سے زیادہ مفید مواد کے ذرائع، مکمل طور پر مفت
             </p>
             
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>12+</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem;">
+                <div>
+                    <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: #00dbde;">12+</h3>
                     <p style="color: #ddd; font-size: 1.3rem;">مکمل سیکشنز</p>
                 </div>
-                <div class="stat-item">
-                    <h3>5000+</h3>
+                <div>
+                    <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: #00dbde;">5000+</h3>
                     <p style="color: #ddd; font-size: 1.3rem;">مواد کے ذرائع</p>
                 </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
+                <div>
+                    <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: #00dbde;">100%</h3>
                     <p style="color: #ddd; font-size: 1.3rem;">مفت رسائی</p>
                 </div>
-                <div class="stat-item">
-                    <h3>24/7</h3>
+                <div>
+                    <h3 style="font-size: 3rem; margin-bottom: 0.5rem; color: #00dbde;">24/7</h3>
                     <p style="color: #ddd; font-size: 1.3rem;">دستیابی</p>
                 </div>
             </div>
@@ -965,10 +888,11 @@
     <footer>
         <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
             <h3 style="color: #00dbde; margin-bottom: 1.5rem; font-size: 2rem;">
-                <i class="fas fa-globe-asia"></i> مکمل آن لائن پورٹل
+                <i class="fas fa-compass"></i> جامع آن لائن پورٹل
             </h3>
-            <p style="color: #ddd; font-size: 1.3rem; max-width: 900px; margin: 0 auto 2rem; line-height: 1.8;">
-                ہمارا ویژن: ہر عمر، ہر شعبے اور ہر ضرورت کے لیے ایک جامع پلیٹ فارم فراہم کرنا جہاں تعلیم، مواقع، تفریح اور رہنمائی سب کچھ ایک جگہ ملے۔
+            <p style="color: #ddd; font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; line-height: 1.7;">
+                ہمارا ویژن: ہر عمر، ہر شعبے اور ہر ضرورت کے لیے ایک جامع پلیٹ فارم فراہم کرنا 
+                جہاں تعلیم، مواقع، تفریح اور رہنمائی سب کچھ ایک جگہ ملے۔
             </p>
             
             <div class="footer-links">
@@ -976,7 +900,7 @@
                 <a href="#"><i class="fas fa-envelope"></i> رابطہ کریں</a>
                 <a href="#"><i class="fas fa-shield-alt"></i> پرائیویسی پالیسی</a>
                 <a href="#"><i class="fas fa-file-contract"></i> شرائط و ضوابط</a>
-                <a href="#"><i class="fas fa-question-circle"></i> FAQs</a>
+                <a href="#"><i class="fas fa-question-circle"></i> سوالات</a>
                 <a href="#"><i class="fas fa-hands-helping"></i> تعاون کریں</a>
             </div>
             
@@ -986,38 +910,35 @@
                 <a href="#"><i class="fab fa-youtube"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-telegram-plane"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
             </div>
             
-            <p style="margin-top: 3rem; color: #aaa; font-size: 1rem; line-height: 1.6;">
-                © 2024 مکمل آن لائن پورٹل. تمام حقوق محفوظ ہیں۔<br>
-                یہ پورٹل مکمل طور پر مفت وسائل سے بنایا گیا ہے۔ GitHub Pages پر ہوسٹ کیا گیا ہے۔<br>
-                ڈیزائن: جدید ترین ریسپانسیو ڈیزائن | مواد: مسلسل اپ ڈیٹ ہوتا رہتا ہے
+            <p style="margin-top: 3rem; color: #aaa; font-size: 0.95rem; line-height: 1.6;">
+                © 2024 جامع آن لائن پورٹل. تمام حقوق محفوظ ہیں۔<br>
+                یہ پورٹل مکمل طور پر مفت وسائل سے بنایا گیا ہے۔ GitHub Pages پر ہوسٹ کیا گیا ہے۔
             </p>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // Enhanced JavaScript for Interactivity
-        
         // Search Functionality
-        const searchBtn = document.querySelector('.search-box button');
-        const searchInput = document.querySelector('.search-box input');
-        
-        searchBtn.addEventListener('click', function() {
-            const searchTerm = searchInput.value.trim();
+        document.querySelector('.search-box button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-box input').value.trim();
             if(searchTerm) {
                 const sections = {
+                    'کاروبار': 'بزنس آئیڈیاز سیکشن',
+                    'نوکری': 'جاب بینک سیکشن',
+                    'تعلیم': 'تعلیمی مواد سیکشن',
+                    'ہنر': 'ہنر سیکھیں سیکشن',
                     'ai': 'AI سیکشن',
+                    'بچے': 'بچوں کا کونہ',
+                    'کتاب': 'ڈیجیٹل لائبریری',
+                    'ویڈیو': 'ویڈیو لائبریری',
+                    'رشتہ': 'رشتوں کا سیکشن',
                     'اسکالرشپ': 'اسکالرشپس سیکشن',
                     'ویزہ': 'ویزہ سیکشن',
-                    'سفر': 'ورلڈ ٹور سیکشن',
-                    'تعلیم': 'تعلیم و ہنر سیکشن',
-                    'نوکری': 'جاب بینک',
-                    'کاروبار': 'بزنس آئیڈیاز'
+                    'سفر': 'ورلڈ ٹور سیکشن'
                 };
                 
                 let foundSection = '';
@@ -1035,70 +956,22 @@
                 }
             } else {
                 alert('براہ کرم تلاش کے لیے کچھ لکھیں۔');
-                searchInput.focus();
             }
         });
         
-        // Enter key support for search
-        searchInput.addEventListener('keypress', function(e) {
+        // Enter key for search
+        document.querySelector('.search-box input').addEventListener('keypress', function(e) {
             if(e.key === 'Enter') {
-                searchBtn.click();
+                document.querySelector('.search-box button').click();
             }
         });
         
-        // Category Cards Click Handler
+        // Category Cards Click
         document.querySelectorAll('.category-card').forEach(card => {
             card.addEventListener('click', function(e) {
-                if(!e.target.classList.contains('category-btn') && 
-                   !e.target.closest('.category-btn') &&
-                   !e.target.classList.contains('coming-soon')) {
-                    
+                if(!e.target.classList.contains('category-btn') && !e.target.closest('.category-btn')) {
                     const categoryTitle = this.querySelector('h3').textContent;
-                    const categoryDesc = this.querySelector('p').textContent;
-                    
-                    const modal = document.createElement('div');
-                    modal.style.cssText = `
-                        position: fixed;
-                        top: 0;
-                        right: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(0,0,0,0.8);
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        z-index: 1000;
-                    `;
-                    
-                    modal.innerHTML = `
-                        <div style="background: white; padding: 3rem; border-radius: 25px; max-width: 600px; width: 90%; text-align: center;">
-                            <h3 style="color: #1a1a2e; margin-bottom: 1.5rem; font-size: 2.2rem;">${categoryTitle}</h3>
-                            <p style="color: #666; margin-bottom: 2rem; font-size: 1.3rem; line-height: 1.8;">${categoryDesc}</p>
-                            <p style="color: #888; margin-bottom: 2rem; font-size: 1.1rem;">
-                                یہ سیکشن جلد مکمل طور پر فعال ہو جائے گا۔<br>
-                                تمام مواد موضوع وار ترتیب دیا جائے گا۔
-                            </p>
-                            <button onclick="this.closest('div').remove()" style="
-                                background: linear-gradient(135deg, #00dbde 0%, #fc00ff 100%);
-                                color: white;
-                                border: none;
-                                padding: 1rem 3rem;
-                                border-radius: 50px;
-                                font-size: 1.2rem;
-                                cursor: pointer;
-                                transition: all 0.3s ease;
-                            ">ٹھیک ہے</button>
-                        </div>
-                    `;
-                    
-                    document.body.appendChild(modal);
-                    
-                    // Close modal when clicking outside
-                    modal.addEventListener('click', function(e) {
-                        if(e.target === modal) {
-                            modal.remove();
-                        }
-                    });
+                    alert(`سیکشن: ${categoryTitle}\n\nیہ سیکشن جلد مکمل طور پر فعال ہو جائے گا۔\nتمام مواد موضوع وار ترتیب دیا جائے گا۔`);
                 }
             });
         });
@@ -1120,38 +993,10 @@
             });
         });
         
-        // Add scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe category cards
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-        
         // Initialize
-        console.log('مکمل آن لائن پورٹل لوڈ ہو گیا ہے!');
-        console.log('ویب سائٹ: ' + window.location.href);
+        console.log('جامع آن لائن پورٹل تمام سیکشنز کے ساتھ لوڈ ہو گیا!');
         console.log('سیکشنز کی تعداد: 12');
-        
-        // Auto-focus search on page load
-        window.addEventListener('load', function() {
-            searchInput.placeholder = 'تلاش کریں: AI کورسز، اسکالرشپ، ویزہ، سفر، نوکری...';
-        });
+        console.log('ویب سائٹ: ' + window.location.href);
     </script>
 </body>
 </html>
