@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ویڈیو لائبریری | تعلیمی ویڈیوز مفت</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #B2EBF2;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #0097A7;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #0097A7;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #0097A7;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #00BCD4;
+        }
+        
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .video-card i {
+            font-size: 3rem;
+            color: #00BCD4;
+            margin-bottom: 1.5rem;
+        }
+        
+        .video-card h3 {
+            color: #0097A7;
+            margin-bottom: 1rem;
+        }
+        
+        .video-card ul {
+            list-style: none;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .video-card li {
+            margin-bottom: 0.5rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .video-card li::before {
+            content: '▶️';
+            position: absolute;
+            right: 0;
+        }
+        
+        .watch-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #00BCD4;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .watch-btn:hover {
+            background: #0097A7;
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #00BCD4;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #0097A7;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #0097A7;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-video"></i> ویڈیو لائبریری</a>
+        </div>
+        <p>1000+ تعلیمی ویڈیوز | ہر موضوع پر</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#lectures"><i class="fas fa-chalkboard-teacher"></i> لیکچرز</a>
+            <a href="#skills"><i class="fas fa-tools"></i> ہنر سیکھیں</a>
+            <a href="#health"><i class="fas fa-heartbeat"></i> صحت</a>
+            <a href="#cooking"><i class="fas fa-utensils"></i> کھانا پکانا</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Lectures Section -->
+        <section id="lectures">
+            <h2 class="section-header"><i class="fas fa-chalkboard-teacher"></i> تعلیمی لیکچرز</h2>
+            
+            <div class="videos-grid">
+                <div class="video-card">
+                    <i class="fas fa-school"></i>
+                    <h3>اسکول سطح</h3>
+                    <ul>
+                        <li>ریاضی کے لیکچرز</li>
+                        <li>سائنس کے اسباق</li>
+                        <li>انگلش گرامر</li>
+                        <li>کمپیوٹر سائنس</li>
+                        <li>اسلامیات</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+                
+                <div class="video-card">
+                    <i class="fas fa-university"></i>
+                    <h3>کالج سطح</h3>
+                    <ul>
+                        <li>فزکس لیکچرز</li>
+                        <li>کیمسٹری اسباق</li>
+                        <li>بیالوجی</li>
+                        <li>ریاضی انجینئرنگ</li>
+                        <li>اکاؤنٹنگ</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+                
+                <div class="video-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>یونیورسٹی سطح</h3>
+                    <ul>
+                        <li>انجینئرنگ کورسز</li>
+                        <li>میڈیکل لیکچرز</li>
+                        <li>بزنس ایڈمن</li>
+                        <li>کمپیوٹر سائنس</li>
+                        <li>لا اینڈ ایڈمن</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-header"><i class="fas fa-tools"></i> ہنر سیکھیں</h2>
+            
+            <div class="videos-grid">
+                <div class="video-card">
+                    <i class="fas fa-code"></i>
+                    <h3>ٹیکنیکل ہنر</h3>
+                    <ul>
+                        <li>پروگرامنگ</li>
+                        <li>ویب ڈویلپمنٹ</li>
+                        <li>موبیل ایپس</li>
+                        <li>ڈیٹا سائنس</li>
+                        <li>AI/ML</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+                
+                <div class="video-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>تخلیقی ہنر</h3>
+                    <ul>
+                        <li>گرافکس ڈیزائن</li>
+                        <li>فوٹوگرافی</li>
+                        <li>ویڈیو ایڈیٹنگ</li>
+                        <li>اینیمیشن</li>
+                        <li>ڈرائنگ</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+                
+                <div class="video-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>بزنس ہنر</h3>
+                    <ul>
+                        <li>مارکیٹنگ</li>
+                        <li>سیلز</li>
+                        <li>مینیجمنٹ</li>
+                        <li>فنانس</li>
+                        <li>ای کامرس</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Health Section -->
+        <section id="health">
+            <h2 class="section-header"><i class="fas fa-heartbeat"></i> صحت و تندرستی</h2>
+            
+            <div class="videos-grid">
+                <div class="video-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>ورزش</h3>
+                    <ul>
+                        <li>گھر میں ورزش</li>
+                        <li>یوگا</li>
+                        <li>کارڈیو</li>
+                        <li>ویٹ لفٹنگ</li>
+                        <li>مراقبہ</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+                
+                <div class="video-card">
+                    <i class="fas fa-apple-alt"></i>
+                    <h3>غذا و غذائیت</h3>
+                    <ul>
+                        <li>متوازن غذا</li>
+                        <li>ویٹ لوس</li>
+                        <li>ویسٹ گین</li>
+                        <li>صحت مند کھانا</li>
+                        <li>وٹامنز</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+                
+                <div class="video-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>ذہنی صحت</h3>
+                    <ul>
+                        <li>تناؤ کا انتظام</li>
+                        <li>اینگزائٹی</li>
+                        <li>ڈپریشن</li>
+                        <li>نیند کے مسائل</li>
+                        <li>خوش رہنے کے طریقے</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Cooking Section -->
+        <section id="cooking">
+            <h2 class="section-header"><i class="fas fa-utensils"></i> کھانا پکانا</h2>
+            
+            <div class="videos-grid">
+                <div class="video-card">
+                    <i class="fas fa-drumstick-bite"></i>
+                    <h3>مرغی کے کھانے</h3>
+                    <ul>
+                        <li>مرغی بریانی</li>
+                        <li>چکن تکہ</li>
+                        <li>چکن کڑاہی</li>
+                        <li>چکن چپس</li>
+                        <li>چکن سوپ</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+                
+                <div class="video-card">
+                    <i class="fas fa-carrot"></i>
+                    <h3>سبزی کے کھانے</h3>
+                    <ul>
+                        <li>آلو گوشت</li>
+                        <li>سبزی پلاؤ</li>
+                        <li>دال ماش</li>
+                        <li>سبزی کڑاہی</li>
+                        <li>مٹر پلاؤ</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+                
+                <div class="video-card">
+                    <i class="fas fa-bread-slice"></i>
+                    <h3>ناشتہ</h3>
+                    <ul>
+                        <li>پرانا</li>
+                        <li>حلیم</li>
+                        <li>انڈے</li>
+                        <li>پراٹھے</li>
+                        <li>سینڈوچ</li>
+                    </ul>
+                    <a href="#" class="watch-btn">دیکھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 ویڈیو لائبریری | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            1000+ ویڈیوز | روزانہ نئی ویڈیوز
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#0097A7';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        console.log('ویڈیو لائبریری صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
