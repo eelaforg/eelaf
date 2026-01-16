@@ -1100,231 +1100,217 @@
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        // Search Functionality
-        document.querySelector('.search-box button').addEventListener('click', function() {
-            const searchTerm = document.querySelector('.search-box input').value.trim();
-            if(searchTerm) {
-                const sections = {
-                    'خواتین': 'خواتین کا سیکشن',
-                    'کھانا': 'کھانا پکانا',
-                    'بیوٹی': 'بیوٹی اینڈ سکن کئیر',
-                    'کاروبار': 'بزنس آئیڈیاز',
-                    'نوکری': 'جاب بینک',
-                    'تعلیم': 'تعلیمی مواد',
-                    'طلباء': 'طلباء کے لیے',
-                    'اسکالرشپ': 'اسکالرشپس',
-                    'ویزہ': 'ویزہ سیکشن',
-                    'سفر': 'ورلڈ ٹور',
-                    'بچے': 'بچوں کا کونہ',
-                    'کتاب': 'ڈیجیٹل لائبریری',
-                    'ویڈیو': 'ویڈیو لائبریری',
-                    'مالیات': 'مالیاتی منصوبہ بندی',
-                    'صحت': 'صحت و تندرستی'
-                };
-                
-                let foundSection = '';
-                for(const [key, value] of Object.entries(sections)) {
-                    if(searchTerm.toLowerCase().includes(key.toLowerCase())) {
-                        foundSection = value;
-                        break;
-                    }
-                }
-                
-                if(foundSection) {
-                    alert(`تلاش: "${searchTerm}"\n\nمشورہ: آپ "${foundSection}" میں جائیں۔`);
-                } else {
-                    alert(`تلاش: "${searchTerm}"\n\nآپ کی تلاش ریکارڈ کی گئی ہے۔\nہم جلد ہی متعلقہ مواد شامل کریں گے۔`);
-                }
-            } else {
-                alert('براہ کرم تلاش کے لیے کچھ لکھیں۔');
+   <script>
+    // ==================== FIXED NAVIGATION LINKS ====================
+    
+    // 1. Fix Navigation Menu Links
+    document.addEventListener('DOMContentLoaded', function() {
+        // Update main navigation links
+        const navLinks = document.querySelectorAll('.main-nav a');
+        navLinks.forEach(link => {
+            const linkText = link.textContent.toLowerCase();
+            
+            if(linkText.includes('خواتین')) {
+                link.href = 'women.html';
+                link.removeAttribute('href');
+                link.setAttribute('onclick', "window.location.href='women.html'");
+            }
+            else if(linkText.includes('بزنس') || linkText.includes('کاروبار')) {
+                link.href = 'business.html';
+                link.removeAttribute('href');
+                link.setAttribute('onclick', "window.location.href='business.html'");
+            }
+            else if(linkText.includes('نوکری') || linkText.includes('جاب')) {
+                link.href = 'jobs.html';
+                link.removeAttribute('href');
+                link.setAttribute('onclick', "window.location.href='jobs.html'");
+            }
+            else if(linkText.includes('تعلیم')) {
+                link.href = 'education.html';
+                link.removeAttribute('href');
+                link.setAttribute('onclick', "window.location.href='education.html'");
+            }
+            else if(linkText.includes('طلباء')) {
+                link.href = 'students.html';
+                link.removeAttribute('href');
+                link.setAttribute('onclick', "window.location.href='students.html'");
+            }
+            else if(linkText.includes('مالیات')) {
+                link.href = 'finance.html';
+                link.removeAttribute('href');
+                link.setAttribute('onclick', "window.location.href='finance.html'");
+            }
+            else if(linkText.includes('صحت')) {
+                link.href = 'health.html';
+                link.removeAttribute('href');
+                link.setAttribute('onclick', "window.location.href='health.html'");
             }
         });
-        
-        // Quick Access Tags
-        document.querySelectorAll('.quick-access .tag').forEach(tag => {
-            tag.addEventListener('click', function() {
-                const tagText = this.textContent;
-                document.querySelector('.search-box input').value = tagText;
-                document.querySelector('.search-box button').click();
-            });
-        });
-        
-        // Category Cards Click
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                if(!e.target.classList.contains('category-btn') && !e.target.closest('.category-btn')) {
-                    const categoryTitle = this.querySelector('h3').textContent;
-                    const categoryDesc = this.querySelector('p').textContent;
-                    
-                    const modal = document.createElement('div');
-                    modal.style.cssText = `
-                        position: fixed;
-                        top: 0;
-                        right: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(0,0,0,0.8);
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        z-index: 1000;
-                    `;
-                    
-                    modal.innerHTML = `
-                        <div style="background: white; padding: 3rem; border-radius: 25px; max-width: 500px; width: 90%; text-align: center;">
-                            <h3 style="color: #1a1a2e; margin-bottom: 1.5rem; font-size: 2rem;">${categoryTitle}</h3>
-                            <p style="color: #666; margin-bottom: 2rem; font-size: 1.2rem; line-height: 1.8;">${categoryDesc}</p>
-                            <p style="color: #888; margin-bottom: 2rem; font-size: 1.1rem;">
-                                یہ سیکشن جلد مکمل طور پر فعال ہو جائے گا۔<br>
-                                تمام مواد موضوع وار ترتیب دیا جائے گا۔
-                            </p>
-                            <button onclick="this.closest('div').remove()" style="
-                                background: linear-gradient(135deg, #00dbde 0%, #fc00ff 100%);
-                                color: white;
-                                border: none;
-                                padding: 1rem 3rem;
-                                border-radius: 50px;
-                                font-size: 1.1rem;
-                                cursor: pointer;
-                            ">ٹھیک ہے</button>
-                        </div>
-                    `;
-                    
-                    document.body.appendChild(modal);
-                    
-                    modal.addEventListener('click', function(e) {
-                        if(e.target === modal) {
-                            modal.remove();
-                        }
-                    });
-                }
-            });
-        });
-        
-        // Smooth Scroll
-        document.querySelectorAll('nav a, .main-nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId.startsWith('#')) {
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-        
-        // Initialize
-        console.log('جامع آن لائن پورٹل (خواتین سیکشن کے ساتھ) لوڈ ہو گیا!');
-        console.log('سیکشنز کی تعداد: 18+');
-        // Category Cards Click Handler - Updated with links
-document.querySelectorAll('.category-card').forEach(card => {
-    const button = card.querySelector('.category-btn');
-    if(button) {
-        const categoryTitle = card.querySelector('h3').textContent.toLowerCase();
-        
-        // Map categories to pages
-        const pageMap = {
-            'خواتین': 'women.html',
-            'کھانا پکانا': 'women.html#cooking',
-            'بیوٹی اینڈ سکن کئیر': 'women.html#beauty',
-            'خواتین کا بزنس': 'women.html#business',
-            'سلائی کڑھائی': 'women.html#sewing',
-            'بچوں کی پرورش': 'women.html#kids',
-            
-            'آن لائن بزنس': 'business.html',
-            'چھوٹا کاروبار': 'business.html',
-            'فرنچائز': 'business.html',
-            
-            'فی ٹائم نوکریاں': 'jobs.html',
-            'پارٹ ٹائم کام': 'jobs.html',
-            'فری لانس کام': 'jobs.html',
-            
-            'درسی کتب': 'education.html',
-            'لکچرز': 'education.html',
-            'نوٹس': 'education.html',
-            
-            'ٹیکنیکل ہنر': 'skills.html',
-            'بزنس ہنر': 'skills.html',
-            'تخلیقی ہنر': 'skills.html',
-            
-            'ai/ml کورسز': 'ai.html',
-            'ai ٹولز': 'ai.html',
-            'ai پروجیکٹس': 'ai.html',
-            
-            'کارٹونز': 'kids.html',
-            'نظمیں اور ترانے': 'kids.html',
-            'تعلیمی کھیل': 'kids.html',
-            
-            'مذہبی کتب': 'library.html',
-            'اردو ادب': 'library.html',
-            'انگریزی کتب': 'library.html',
-            
-            'تعلیمی لیکچرز': 'videos.html',
-            'ہنر سیکھیں': 'videos.html',
-            'صحت و تندرستی': 'videos.html',
-            
-            'بین الاقوامی اسکالرشپس': 'scholarships.html',
-            'ماسٹرز/پی ایچ ڈی': 'scholarships.html',
-            'انڈرگریجویٹ': 'scholarships.html',
-            
-            'طالب علم ویزہ': 'visa.html',
-            'کام کا ویزہ': 'visa.html',
-            'سیاحتی ویزہ': 'visa.html',
-            
-            'ممالک کا تعارف': 'travel.html',
-            'سیاحتی مقامات': 'travel.html',
-            'سفر کی تیاری': 'travel.html'
-        };
-        
-        // Find matching page
-        let targetPage = 'coming-soon.html';
-        for(const [key, value] of Object.entries(pageMap)) {
-            if(categoryTitle.includes(key.toLowerCase()) || card.querySelector('h3').textContent.includes(key)) {
-                targetPage = value;
-                break;
-            }
-        }
-        
-        // Update button link
-        button.href = targetPage;
-    }
-});
+    });
 
-// Also update navigation links in header
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.main-nav a');
-    navLinks.forEach(link => {
-        const linkText = link.textContent.toLowerCase();
-        
-        const navMap = {
-            'خواتین': 'women.html',
-            'بزنس': 'business.html',
-            'نوکری': 'jobs.html',
-            'تعلیم': 'education.html',
-            'ہنر': 'skills.html',
-            'ai': 'ai.html',
-            'بچوں': 'kids.html',
-            'کتاب': 'library.html',
-            'ویڈیو': 'videos.html',
-            'اسکالرشپ': 'scholarships.html',
-            'ویزہ': 'visa.html',
-            'سفر': 'travel.html'
-        };
-        
-        for(const [key, value] of Object.entries(navMap)) {
-            if(linkText.includes(key.toLowerCase())) {
-                link.href = value;
-                break;
+    // 2. Fix Category Card Buttons
+    document.querySelectorAll('.category-card').forEach(card => {
+        const button = card.querySelector('.category-btn');
+        if(button) {
+            const cardTitle = card.querySelector('h3').textContent.toLowerCase();
+            const cardText = card.textContent.toLowerCase();
+            
+            // Women Section Cards
+            if(cardText.includes('خواتین') || cardText.includes('کھانا') || 
+               cardText.includes('بیوٹی') || cardText.includes('گھریلو') ||
+               cardText.includes('سلائی') || cardText.includes('بچوں')) {
+                button.href = 'women.html';
+                button.onclick = function(e) {
+                    e.preventDefault();
+                    window.location.href = 'women.html';
+                };
+            }
+            
+            // Business Section Cards
+            else if(cardText.includes('کاروبار') || cardText.includes('بزنس') || 
+                    cardText.includes('آن لائن') || cardText.includes('چھوٹا') ||
+                    cardText.includes('فرنچائز')) {
+                button.href = 'business.html';
+                button.onclick = function(e) {
+                    e.preventDefault();
+                    window.location.href = 'business.html';
+                };
+            }
+            
+            // Jobs Section Cards
+            else if(cardText.includes('نوکری') || cardText.includes('جاب') || 
+                    cardText.includes('ملازمت') || cardText.includes('فری لانس')) {
+                button.href = 'jobs.html';
+                button.onclick = function(e) {
+                    e.preventDefault();
+                    window.location.href = 'jobs.html';
+                };
+            }
+            
+            // Education Section Cards
+            else if(cardText.includes('تعلیم') || cardText.includes('کتب') || 
+                    cardText.includes('نوٹس') || cardText.includes('لیکچر')) {
+                button.href = 'education.html';
+                button.onclick = function(e) {
+                    e.preventDefault();
+                    window.location.href = 'education.html';
+                };
+            }
+            
+            // Add more sections as needed...
+            else {
+                button.href = 'coming-soon.html';
+                button.onclick = function(e) {
+                    e.preventDefault();
+                    window.location.href = 'coming-soon.html';
+                };
             }
         }
     });
-});
-    </script>
+
+    // 3. Fix Quick Access Tags
+    document.querySelectorAll('.quick-access .tag').forEach(tag => {
+        tag.addEventListener('click', function() {
+            const tagText = this.textContent.toLowerCase();
+            
+            if(tagText.includes('خواتین') || tagText.includes('کھانا') || 
+               tagText.includes('بیوٹی') || tagText.includes('گھریلو')) {
+                window.location.href = 'women.html';
+            }
+            else if(tagText.includes('کاروبار') || tagText.includes('بزنس')) {
+                window.location.href = 'business.html';
+            }
+            else if(tagText.includes('نوکری') || tagText.includes('جاب')) {
+                window.location.href = 'jobs.html';
+            }
+            else if(tagText.includes('تعلیم') || tagText.includes('کتاب')) {
+                window.location.href = 'education.html';
+            }
+            else {
+                document.querySelector('.search-box input').value = tagText;
+                document.querySelector('.search-box button').click();
+            }
+        });
+    });
+
+    // ==================== SEARCH FUNCTIONALITY ====================
+    document.querySelector('.search-box button').addEventListener('click', function() {
+        const searchTerm = document.querySelector('.search-box input').value.trim();
+        if(searchTerm) {
+            const searchMap = {
+                'خواتین': 'women.html',
+                'کھانا': 'women.html#cooking',
+                'بیوٹی': 'women.html#beauty',
+                'گھریلو': 'women.html#home',
+                'کاروبار': 'business.html',
+                'بزنس': 'business.html',
+                'نوکری': 'jobs.html',
+                'جاب': 'jobs.html',
+                'تعلیم': 'education.html',
+                'کتاب': 'library.html',
+                'ویڈیو': 'videos.html',
+                'طلباء': 'students.html',
+                'مالیات': 'finance.html',
+                'صحت': 'health.html',
+                'ai': 'ai.html',
+                'اسکالرشپ': 'scholarships.html',
+                'ویزہ': 'visa.html',
+                'سفر': 'travel.html',
+                'بچوں': 'kids.html'
+            };
+            
+            let foundPage = '';
+            for(const [key, value] of Object.entries(searchMap)) {
+                if(searchTerm.toLowerCase().includes(key.toLowerCase())) {
+                    foundPage = value;
+                    break;
+                }
+            }
+            
+            if(foundPage) {
+                alert(`تلاش: "${searchTerm}"\n\nآپ کو "${foundPage}" پر redirect کیا جا رہا ہے۔`);
+                setTimeout(() => {
+                    window.location.href = foundPage;
+                }, 1000);
+            } else {
+                alert(`تلاش: "${searchTerm}"\n\nمزید معلومات جلد شامل کی جائیں گی۔`);
+            }
+        } else {
+            alert('براہ کرم تلاش کے لیے کچھ لکھیں۔');
+        }
+    });
+
+    // Enter key for search
+    document.querySelector('.search-box input').addEventListener('keypress', function(e) {
+        if(e.key === 'Enter') {
+            document.querySelector('.search-box button').click();
+        }
+    });
+
+    // ==================== SMOOTH SCROLL ====================
+    document.querySelectorAll('nav a, .main-nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            // Only prevent default if it's a hash link
+            if(this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            // External links will work normally
+        });
+    });
+
+    // ==================== INITIALIZE ====================
+    console.log('جامع آن لائن پورٹل (فکسڈ لنکس کے ساتھ) لوڈ ہو گیا!');
+    console.log('صفحات کی تعداد: 15');
+    console.log('فکس شدہ لنکس: خواتین, بزنس, جاب, تعلیم, وغیرہ');
+</script>
 </body>
 </html>
