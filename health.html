@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صحت و تندرستی | صحت مند زندگی کے گُر</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8BC34A 0%, #689F38 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #DCEDC8;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #689F38;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #689F38;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #689F38;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #8BC34A;
+        }
+        
+        .health-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .health-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .health-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .health-card i {
+            font-size: 3rem;
+            color: #8BC34A;
+            margin-bottom: 1.5rem;
+        }
+        
+        .health-card h3 {
+            color: #689F38;
+            margin-bottom: 1rem;
+        }
+        
+        .health-card ul {
+            list-style: none;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .health-card li {
+            margin-bottom: 0.5rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .health-card li::before {
+            content: '🌿';
+            position: absolute;
+            right: 0;
+        }
+        
+        .read-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #8BC34A;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .read-btn:hover {
+            background: #689F38;
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #8BC34A;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #689F38;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #689F38;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .health-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-heartbeat"></i> صحت و تندرستی</a>
+        </div>
+        <p>صحت مند زندگی، غذا، ورزش اور ذہنی صحت</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#fitness"><i class="fas fa-dumbbell"></i> ورزش</a>
+            <a href="#nutrition"><i class="fas fa-apple-alt"></i> غذائیت</a>
+            <a href="#mental"><i class="fas fa-brain"></i> ذہنی صحت</a>
+            <a href="#home"><i class="fas fa-home"></i> گھریلو علاج</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Fitness Section -->
+        <section id="fitness">
+            <h2 class="section-header"><i class="fas fa-dumbbell"></i> ورزش اور فٹنس</h2>
+            
+            <div class="health-grid">
+                <div class="health-card">
+                    <i class="fas fa-running"></i>
+                    <h3>گھر میں ورزش</h3>
+                    <ul>
+                        <li>صبح کی ورزش</li>
+                        <li>یوگا اور مراقبہ</li>
+                        <li>کارڈیو ورزشیں</li>
+                        <li>وزن میں کمی</li>
+                        <li>مضبوط پٹھے</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+                
+                <div class="health-card">
+                    <i class="fas fa-swimmer"></i>
+                    <h3>باہر کی ورزش</h3>
+                    <ul>
+                        <liواکنگ اور جاگنگ</li>
+                        <li>سائیکلنگ</li>
+                        <li>تیراکی</li>
+                        <li>پارک میں ورزش</li>
+                        <li>گروپ فٹنس</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+                
+                <div class="health-card">
+                    <i class="fas fa-user-injured"></i>
+                    <h3>انجری سے بچاؤ</h3>
+                    <ul>
+                        <li>ورزش سے پہلے وارم اپ</li>
+                        <li>صحیح تکنیک</li>
+                        <li>آرام کا دورانیہ</li>
+                        <li>پانی کا استعمال</li>
+                        <li>سٹریچنگ</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Nutrition Section -->
+        <section id="nutrition">
+            <h2 class="section-header"><i class="fas fa-apple-alt"></i> غذا اور غذائیت</h2>
+            
+            <div class="health-grid">
+                <div class="health-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>متوازن غذا</h3>
+                    <ul>
+                        <li>کاربوہائیڈریٹ</li>
+                        <li>پروٹین</li>
+                        <li>چکنائیاں</li>
+                        <li>وٹامنز</li>
+                        <li>معدنیات</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+                
+                <div class="health-card">
+                    <i class="fas fa-weight"></i>
+                    <h3>وزن کا انتظام</h3>
+                    <ul>
+                        <li>وزن میں کمی</li>
+                        <li>وزن میں اضافہ</li>
+                        <li>صحتمند ڈائٹ پلان</li>
+                        <li>کیلوری کاؤنٹ</li>
+                        <li>وقت پر کھانا</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+                
+                <div class="health-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>صحت بخش اجزاء</h3>
+                    <ul>
+                        <li>سبزیاں اور پھل</li>
+                        <li>سوپ اور سلاد</li>
+                        <li>خشک میوہ جات</li>
+                        <li>دالیں</li>
+                        <li>مچھلی</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mental Health Section -->
+        <section id="mental">
+            <h2 class="section-header"><i class="fas fa-brain"></i> ذہنی صحت</h2>
+            
+            <div class="health-grid">
+                <div class="health-card">
+                    <i class="fas fa-stress"></i>
+                    <h3>تناؤ کا انتظام</h3>
+                    <ul>
+                        <li>گہری سانس لینا</li>
+                        <li>مراقبہ</li>
+                        <li>تناؤ سے بچاؤ</li>
+                        <li>پرامید رہنا</li>
+                        <li>ہوبیز</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+                
+                <div class="health-card">
+                    <i class="fas fa-bed"></i>
+                    <h3>نیند</h3>
+                    <ul>
+                        <li>نیند کا معیار</li>
+                        <li>نیند کی کمی</li>
+                        <li>بے خوابی</li>
+                        <li>نیند کی عادات</li>
+                        <li>نیند کے مسائل</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+                
+                <div class="health-card">
+                    <i class="fas fa-smile"></i>
+                    <h3>خوش رہنے کے طریقے</h3>
+                    <ul>
+                        <li>مثبت سوچ</li>
+                        <li>شکرگزاری</li>
+                        <li>سماجی تعلقات</li>
+                        <li>مقصد زندگی</li>
+                        <li>خود اعتمادی</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Home Remedies -->
+        <section id="home">
+            <h2 class="section-header"><i class="fas fa-home"></i> گھریلو علاج</h2>
+            
+            <div class="health-grid">
+                <div class="health-card">
+                    <i class="fas fa-head-side-cough"></i>
+                    <h3>سردی زکام</h3>
+                    <ul>
+                        <li>ادرک کی چائے</li>
+                        <li>شہد اور لیموں</li>
+                        <li>بھاپ لینا</li>
+                        <li>ہلدی دودھ</li>
+                        <li>لہسن</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+                
+                <div class="health-card">
+                    <i class="fas fa-tooth"></i>
+                    <h3>دانتوں کا درد</h3>
+                    <ul>
+                        <li>لونگ کا تیل</li>
+                        <li>نمکین پانی</li>
+                        <li>برف سے سکائی</li>
+                        <li>لہسن</li>
+                        <li>پیپرمنٹ</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+                
+                <div class="health-card">
+                    <i class="fas fa-allergies"></i>
+                    <h3>جلد کے مسائل</h3>
+                    <ul>
+                        <li>چہرے کے دانے</li>
+                        <li>خشک جلد</li>
+                        <li>خارش</li>
+                        <li>سن برن</li>
+                        <li>جلدی انفیکشن</li>
+                    </ul>
+                    <a href="#" class="read-btn">مزید پڑھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 صحت و تندرستی | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            روزانہ صحت کے نئے ٹپس
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#689F38';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        console.log('صحت و تندرستی صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
