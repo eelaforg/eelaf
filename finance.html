@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مالیات | بچت اور سرمایہ کاری</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #FFE0B2;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #F57C00;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #F57C00;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #F57C00;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #FF9800;
+        }
+        
+        .finance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .finance-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .finance-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .finance-card i {
+            font-size: 3rem;
+            color: #FF9800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .finance-card h3 {
+            color: #F57C00;
+            margin-bottom: 1rem;
+        }
+        
+        .finance-card ul {
+            list-style: none;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .finance-card li {
+            margin-bottom: 0.5rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .finance-card li::before {
+            content: '💰';
+            position: absolute;
+            right: 0;
+        }
+        
+        .learn-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #FF9800;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .learn-btn:hover {
+            background: #F57C00;
+            transform: scale(1.05);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #FF9800;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #F57C00;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #F57C00;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .finance-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-money-bill-wave"></i> مالیات</a>
+        </div>
+        <p>بچت، سرمایہ کاری اور مالیاتی منصوبہ بندی</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#saving"><i class="fas fa-piggy-bank"></i> بچت</a>
+            <a href="#investment"><i class="fas fa-chart-line"></i> سرمایہ کاری</a>
+            <a href="#budget"><i class="fas fa-calculator"></i> بجٹ</a>
+            <a href="#debt"><i class="fas fa-hand-holding-usd"></i> قرض</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Saving Section -->
+        <section id="saving">
+            <h2 class="section-header"><i class="fas fa-piggy-bank"></i> بچت کے طریقے</h2>
+            
+            <div class="finance-grid">
+                <div class="finance-card">
+                    <i class="fas fa-home"></i>
+                    <h3>گھریلو بچت</h3>
+                    <ul>
+                        <li>بجلی کی بچت</li>
+                        <li>پانی کا مناسب استعمال</li>
+                        <li>خریدیاری میں بچت</li>
+                        <li>کھانے کا ضیاع کم</li>
+                        <li>گھریلو اشیاء کی مرمت</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+                
+                <div class="finance-card">
+                    <i class="fas fa-wallet"></i>
+                    <h3>آمدنی کا انتظام</h3>
+                    <ul>
+                        <li>مہینے کا بجٹ</li>
+                        <li>ضروری اخراجات</li>
+                        <li>غیر ضروری اخراجات</li>
+                        <li>ہنگامی فنڈ</li>
+                        <li>سیونگ پلان</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+                
+                <div class="finance-card">
+                    <i class="fas fa-university"></i>
+                    <h3>بینکنگ سروسز</h3>
+                    <ul>
+                        <li>سیونگ اکاؤنٹ</li>
+                        <li>فکسڈ ڈپازٹ</li>
+                        <li>روزانہ بچت اکاؤنٹ</li>
+                        <li>آن لائن بینکنگ</li>
+                        <li>موبائل بینکنگ</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Investment Section -->
+        <section id="investment">
+            <h2 class="section-header"><i class="fas fa-chart-line"></i> سرمایہ کاری</h2>
+            
+            <div class="finance-grid">
+                <div class="finance-card">
+                    <i class="fas fa-building"></i>
+                    <h3>پراپرٹی</h3>
+                    <ul>
+                        <li>گھر کی خریداری</li>
+                        <li>کمرشل پراپرٹی</li>
+                        <li>زمین کی خریداری</li>
+                        <li>کرایہ کی آمدنی</li>
+                        <li>پراپرٹی مارکیٹ</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+                
+                <div class="finance-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>اسٹاک مارکیٹ</h3>
+                    <ul>
+                        <li>شیئرز کی خریداری</li>
+                        <li>بنیادی تجزیہ</li>
+                        <li>ٹیکنیکل تجزیہ</li>
+                        <li>ڈیویڈنڈ</li>
+                        <li>رسک مینجمنٹ</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+                
+                <div class="finance-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>متبادل سرمایہ کاری</h3>
+                    <ul>
+                        <li>سونے چاندی</li>
+                        <li>مضاربہ</li>
+                        <li>کمپنی شپس</li>
+                        <li>آن لائن بزنس</li>
+                        <li>فری لانس</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Budget Section -->
+        <section id="budget">
+            <h2 class="section-header"><i class="fas fa-calculator"></i> بجٹ بنانا</h2>
+            
+            <div class="finance-grid">
+                <div class="finance-card">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>ماہانہ بجٹ</h3>
+                    <ul>
+                        <li>آمدنی کا حساب</li>
+                        <li>ضروری اخراجات</li>
+                        <li>غیر ضروری اخراجات</li>
+                        <li>بچت کا تعین</li>
+                        <li>ہنگامی فنڈ</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+                
+                <div class="finance-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>سالانہ بجٹ</h3>
+                    <ul>
+                        <li>سالانہ اہداف</li>
+                        <li>بڑے اخراجات</li>
+                        <li>ٹیکس پلاننگ</li>
+                        <li>تعطیلات کا بجٹ</li>
+                        <li>تحفے اور تہوار</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+                
+                <div class="finance-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>خرچے کا تجزیہ</h3>
+                    <ul>
+                        <li>خرچے کی اقسام</li>
+                        <li>ضروری خرچے</li>
+                        <li>اختیاری خرچے</li>
+                        <li>بچت کے مواقع</li>
+                        <li>خرچے میں کمی</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Debt Management -->
+        <section id="debt">
+            <h2 class="section-header"><i class="fas fa-hand-holding-usd"></i> قرض کا انتظام</h2>
+            
+            <div class="finance-grid">
+                <div class="finance-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>قرض کی اقسام</h3>
+                    <ul>
+                        <li>بینک قرض</li>
+                        <li>کریڈٹ کارڈ</li>
+                        <li>پرائیویٹ قرض</li>
+                        <li>کار قرض</li>
+                        <li>گھر کا قرض</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+                
+                <div class="finance-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>قرض کی ادائیگی</h3>
+                    <ul>
+                        <li>قرض کی منصوبہ بندی</li>
+                        <li>سود سے بچاؤ</li>
+                        <li>جلد ادائیگی</li>
+                        <li>قرض کی ترمیم</li>
+                        <li>قرض کی معافی</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+                
+                <div class="finance-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>قرض سے بچاؤ</h3>
+                    <ul>
+                        <li>قرض کی ضرورت</li>
+                        <li>متبادل ذرائع</li>
+                        <li>بچت کی عادت</li>
+                        <li>ہنگامی فنڈ</li>
+                        <li>مالیاتی تعلیم</li>
+                    </ul>
+                    <a href="#" class="learn-btn">سیکھیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 مالیات | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            روزانہ مالیاتی معلومات اور ٹپس
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#F57C00';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        console.log('مالیات صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
