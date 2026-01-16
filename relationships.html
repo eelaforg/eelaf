@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رشتوں کا سیکشن | شادی بیاہ، مشاورت، رابطہ نیٹ ورک</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Urdu', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: #FFCCBC;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #E64A19;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        nav a:hover {
+            background: #E64A19;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: #E64A19;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: #FF5722;
+        }
+        
+        .relationships-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .relationship-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .relationship-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .relationship-card i {
+            font-size: 3rem;
+            color: #FF5722;
+            margin-bottom: 1.5rem;
+        }
+        
+        .relationship-card h3 {
+            color: #E64A19;
+            margin-bottom: 1rem;
+        }
+        
+        .relationship-card ul {
+            list-style: none;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .relationship-card li {
+            margin-bottom: 0.8rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .relationship-card li::before {
+            content: '💖';
+            position: absolute;
+            right: 0;
+        }
+        
+        .action-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #FF5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: #E64A19;
+            transform: scale(1.05);
+        }
+        
+        /* Forms Section */
+        .form-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #E64A19;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #FFCCBC;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF5722;
+            box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #FF5722, #E64A19);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 2rem auto 0;
+        }
+        
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 3rem 0;
+            padding: 1rem 2rem;
+            background: #FF5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .back-btn:hover {
+            background: #E64A19;
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: #E64A19;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        /* Success Message */
+        .success-message {
+            background: #4CAF50;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .relationships-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .form-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-heart"></i> رشتوں کا سیکشن</a>
+        </div>
+        <p>شادی بیاہ، خاندانی مشاورت، رابطہ نیٹ ورک - ایک محفوظ پلیٹ فارم</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#marriage"><i class="fas fa-ring"></i> شادی بیاہ</a>
+            <a href="#consultation"><i class="fas fa-comments"></i> مشاورت</a>
+            <a href="#network"><i class="fas fa-hands-helping"></i> رابطہ نیٹ ورک</a>
+            <a href="#register"><i class="fas fa-user-plus"></i> رجسٹر کریں</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Marriage Section -->
+        <section id="marriage">
+            <h2 class="section-header"><i class="fas fa-ring"></i> شادی بیاہ</h2>
+            
+            <div class="relationships-grid">
+                <div class="relationship-card">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>رشتوں کی تلاش</h3>
+                    <ul>
+                        <li>برائے لڑکے</li>
+                        <li>برائے لڑکیاں</li>
+                        <li>ثانی شادی</li>
+                        <li>بین الاقوامی رشتے</li>
+                        <li>خاندانی پس منظر</li>
+                    </ul>
+                    <a href="#register" class="action-btn">رجسٹر کریں</a>
+                </div>
+                
+                <div class="relationship-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>نیک ارادے</h3>
+                    <ul>
+                        <li>دینی ذمہ داری</li>
+                        <li>اخلاقی اقدار</li>
+                        <li>خاندانی احترام</li>
+                        <li>معاشرتی روایات</li>
+                        <li>قانونی تقاضے</li>
+                    </ul>
+                    <a href="#register" class="action-btn">مزید معلومات</a>
+                </div>
+                
+                <div class="relationship-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>تحفظ اور رازداری</h3>
+                    <ul>
+                        <li>مکمل رازداری</li>
+                        <li>تحفظ کی ضمانت</li>
+                        <li>جائز ذرائع</li>
+                        <li>خاندانی تصدیق</li>
+                        <li>محفوظ رابطہ</li>
+                    </ul>
+                    <a href="#register" class="action-btn">حفاظتی اقدامات</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Consultation Section -->
+        <section id="consultation">
+            <h2 class="section-header"><i class="fas fa-comments"></i> خاندانی مشاورت</h2>
+            
+            <div class="relationships-grid">
+                <div class="relationship-card">
+                    <i class="fas fa-home"></i>
+                    <h3>ازدواجی مشاورت</h3>
+                    <ul>
+                        <li>نئے جوڑے</li>
+                        <li>خاندانی مسائل</li>
+                        <li>گھریلو تنازعات</li>
+                        <li>باہمی تفہیم</li>
+                        <li>رابطہ بہتر بنانا</li>
+                    </ul>
+                    <a href="#consultation-form" class="action-btn">مشورہ حاصل کریں</a>
+                </div>
+                
+                <div class="relationship-card">
+                    <i class="fas fa-child"></i>
+                    <h3>بچوں کی تربیت</h3>
+                    <ul>
+                        <li>تعلیمی رہنمائی</li>
+                        <li>اخلاقی تربیت</li>
+                        <li>نفسیاتی مسائل</li>
+                        <li>عمر کے مطابق تربیت</li>
+                        <li>والدین کا کردار</li>
+                    </ul>
+                    <a href="#consultation-form" class="action-btn">رہنمائی طلب کریں</a>
+                </div>
+                
+                <div class="relationship-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>خاندانی تعلقات</h3>
+                    <ul>
+                        <li>سسرالی تعلقات</li>
+                        <li>بہن بھائی</li>
+                        <li>رشتہ داروں سے تعلقات</li>
+                        <li>سماجی تعلقات</li>
+                        <li>دوستی اور رفاقت</li>
+                    </ul>
+                    <a href="#consultation-form" class="action-btn">مشورہ لیں</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Network Section -->
+        <section id="network">
+            <h2 class="section-header"><i class="fas fa-hands-helping"></i> رابطہ نیٹ ورک</h2>
+            
+            <div class="relationships-grid">
+                <div class="relationship-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>پیشہ ورانہ رابطے</h3>
+                    <ul>
+                        <li>کاروباری شراکت</li>
+                        <li>ملازمت کے مواقع</li>
+                        <li>ہنر کا تبادلہ</li>
+                        <li>کاروباری مشورے</li>
+                        <li>نیٹ ورکنگ ایونٹس</li>
+                    </ul>
+                    <a href="#network-form" class="action-btn">شامل ہوں</a>
+                </div>
+                
+                <div class="relationship-card">
+                    <i class="fas fa-users"></i>
+                    <h3>سماجی رابطے</h3>
+                    <ul>
+                        <li>ہم خیال افراد</li>
+                        <li>ثقافتی تبادلہ</li>
+                        <li>مشترکہ دلچسپیاں</li>
+                        <li>رضاکارانہ خدمات</li>
+                        <li>معاشرتی سرگرمیاں</li>
+                    </ul>
+                    <a href="#network-form" class="action-btn">نیٹ ورک میں شامل ہوں</a>
+                </div>
+                
+                <div class="relationship-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>تعلیمی رابطے</h3>
+                    <ul>
+                        <li>اساتذہ سے رابطہ</li>
+                        <li>طلباء کا نیٹ ورک</li>
+                        <li>تعلیمی مشاورت</li>
+                        <li>تحقیقی شراکت</li>
+                        <li>علم کا تبادلہ</li>
+                    </ul>
+                    <a href="#network-form" class="action-btn">تعلیمی نیٹ ورک</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Registration Form -->
+        <section id="register">
+            <h2 class="section-header"><i class="fas fa-user-plus"></i> رجسٹریشن فارم</h2>
+            
+            <div class="form-section">
+                <div id="successMessage" class="success-message">
+                    <i class="fas fa-check-circle"></i> آپ کی درخواست موصول ہو گئی ہے! ہم جلد آپ سے رابطہ کریں گے۔
+                </div>
+                
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="fullName"><i class="fas fa-user"></i> مکمل نام</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="اپنا مکمل نام درج کریں">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> ای میل</label>
+                        <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> فون نمبر</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="03XX-XXXXXXX">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender"><i class="fas fa-venus-mars"></i> جنس</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">-- منتخب کریں --</option>
+                            <option value="male">مرد</option>
+                            <option value="female">خاتون</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service"><i class="fas fa-concierge-bell"></i> مطلوبہ خدمت</label>
+                        <select id="service" name="service" required>
+                            <option value="">-- منتخب کریں --</option>
+                            <option value="marriage">شادی بیاہ</option>
+                            <option value="consultation">مشاورت</option>
+                            <option value="network">رابطہ نیٹ ورک</option>
+                            <option value="all">تمام خدمات</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment"></i> اضافی معلومات</label>
+                        <textarea id="message" name="message" rows="4" placeholder="اپنی ضروریات اور توقعات کے بارے میں مزید بتائیں..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> درخواست جمع کروائیں
+                    </button>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Consultation Form -->
+        <section id="consultation-form">
+            <h2 class="section-header"><i class="fas fa-comments"></i> مشاورتی فارم</h2>
+            
+            <div class="form-section">
+                <form id="consultationForm">
+                    <div class="form-group">
+                        <label for="consultType"><i class="fas fa-question-circle"></i> مشاورت کی قسم</label>
+                        <select id="consultType" name="consultType" required>
+                            <option value="">-- منتخب کریں --</option>
+                            <option value="marriage">ازدواجی مشاورت</option>
+                            <option value="family">خاندانی مشاورت</option>
+                            <option value="children">بچوں کی تربیت</option>
+                            <option value="relationship">تعلقات کی مشاورت</option>
+                            <option value="other">دیگر</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="consultDetails"><i class="fas fa-edit"></i> مسئلہ کی تفصیل</label>
+                        <textarea id="consultDetails" name="consultDetails" rows="6" required placeholder="براہ کرم اپنے مسئلہ کی مکمل تفصیل درج کریں..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="preferredTime"><i class="fas fa-clock"></i> ترجیحی وقت</label>
+                        <input type="text" id="preferredTime" name="preferredTime" placeholder="مثال: ہفتہ دن 10 بجے سے 12 بجے تک">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactMethod"><i class="fas fa-phone-alt"></i> رابطے کا طریقہ</label>
+                        <select id="contactMethod" name="contactMethod" required>
+                            <option value="">-- منتخب کریں --</option>
+                            <option value="phone">فون کال</option>
+                            <option value="whatsapp">واٹس ایپ</option>
+                            <option value="video">ویڈیو کال</option>
+                            <option value="email">ای میل</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-headset"></i> مشاورت کی درخواست کریں
+                    </button>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> واپس ہوم پیج پر جائیں
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 رشتوں کا سیکشن | تمام حقوق محفوظ ہیں</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            ایک محفوظ، رازدارانہ اور معتبر پلیٹ فارم برائے خاندانی تعلقات
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #FFCCBC;">
+            <i class="fas fa-shield-alt"></i> تمام معلومات محفوظ اور رازدارانہ رکھی جاتی ہیں
+        </p>
+    </footer>
+    
+    <script>
+        // Navigation
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            links.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.style.background = '#E64A19';
+                    link.style.color = 'white';
+                }
+            });
+        });
+        
+        // Smooth scroll
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if(targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form Handling
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+            
+            console.log('رجسٹریشن فارم جمع کروایا گیا');
+        });
+        
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            alert('آپ کی مشاورتی درخواست موصول ہو گئی ہے۔ ہمارا نمائندہ جلد آپ سے رابطہ کرے گا۔');
+            
+            // Reset form
+            this.reset();
+            
+            console.log('مشاورتی فارم جمع کروایا گیا');
+        });
+        
+        console.log('رشتوں کا سیکشن صفحہ لوڈ ہو گیا');
+    </script>
+</body>
+</html>
