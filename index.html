@@ -1212,490 +1212,1272 @@
 </div>
 
     <!-- ==================== CMS CONTROL PANEL ==================== -->
-    <!-- Login Modal -->
-    <div id="loginModal" class="cms-modal">
-        <div class="cms-modal-content">
-            <h2 style="color: #333; margin-bottom: 1.5rem;">
-                <i class="fas fa-user-shield"></i> ایڈمن لاگ ان
-            </h2>
-            
-            <div style="margin-bottom: 1.5rem;">
-                <input type="password" id="adminPassword" placeholder="پاس ورڈ درج کریں" style="
-                    width: 100%;
-                    padding: 1rem;
-                    font-size: 1.1rem;
-                    border: 2px solid #ddd;
-                    border-radius: 10px;
-                    margin-bottom: 1rem;
-                ">
-                
-                <button onclick="loginAdmin()" style="
-                    width: 100%;
-                    padding: 1rem;
-                    background: linear-gradient(135deg, #4CAF50, #2E7D32);
-                    color: white;
-                    border: none;
-                    border-radius: 10px;
-                    font-size: 1.1rem;
-                    font-weight: bold;
-                    cursor: pointer;
-                ">
-                    <i class="fas fa-sign-in-alt"></i> لاگ ان
-                </button>
-            </div>
-            
-            <p style="color: #666; font-size: 0.9rem;">
-                 <code></code> 
-            </p>
-            
-            <button onclick="hideLogin()" style="
-                margin-top: 1.5rem;
-                background: transparent;
-                border: none;
-                color: #f44336;
-                cursor: pointer;
-                font-size: 0.9rem;
-            ">
-                <i class="fas fa-times"></i> بند کریں
-            </button>
-        </div>
-    </div>
-
-    <!-- Floating Admin Button -->
-    <div id="floatingAdminBtn" class="floating-admin-btn">
-        <button onclick="openControlPanel()">
-            <i class="fas fa-cogs"></i>
-        </button>
-    </div>
-
     <!-- Control Panel Modal -->
-    <div id="controlPanel" class="control-panel">
+<div id="controlPanel" class="control-panel">
+    <div style="
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+    ">
+        <!-- Panel Header -->
         <div style="
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         ">
-            <!-- Panel Header -->
-            <div style="
-                background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
-                color: white;
-                padding: 2rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            ">
-                <div>
-                    <h2 style="color: white; margin: 0;">
-                        <i class="fas fa-tachometer-alt"></i> جامع پورٹل کنٹرول پینل
-                    </h2>
-                    <p style="color: #ddd; margin: 0.5rem 0 0 0;">
-                        تمام سیکشنز میں مواد مینج کریں
-                    </p>
-                </div>
-                
-                <div>
-                    <button onclick="closeControlPanel()" style="
-                        background: rgba(255,255,255,0.2);
-                        color: white;
-                        border: 1px solid rgba(255,255,255,0.3);
-                        padding: 0.8rem 1.5rem;
-                        border-radius: 50px;
-                        cursor: pointer;
-                        font-weight: bold;
-                    ">
-                        <i class="fas fa-times"></i> بند کریں
-                    </button>
-                </div>
+            <div>
+                <h2 style="color: white; margin: 0;">
+                    <i class="fas fa-tachometer-alt"></i> جامع پورٹل کنٹرول پینل
+                </h2>
+                <p style="color: #ddd; margin: 0.5rem 0 0 0;">
+                    تمام 18 سیکشنز میں مواد مینج کریں
+                </p>
             </div>
             
-            <!-- Panel Content -->
-            <div style="padding: 2rem;">
-                <!-- Quick Stats -->
-                <div style="
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                    gap: 1.5rem;
-                    margin-bottom: 3rem;
-                ">
-                    <div class="stat-card">
-                        <h3 style="font-size: 2.5rem; margin: 0;">0</h3>
-                        <p style="margin: 0.5rem 0 0 0;">کل پوسٹس</p>
-                    </div>
-                    
-                    <div class="stat-card" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
-                        <h3 style="font-size: 2.5rem; margin: 0;">18</h3>
-                        <p style="margin: 0.5rem 0 0 0;">سیکشنز</p>
-                    </div>
-                    
-                    <div class="stat-card" style="background: linear-gradient(135deg, #FF9800, #F57C00);">
-                        <h3 style="font-size: 2.5rem; margin: 0;">0</h3>
-                        <p style="margin: 0.5rem 0 0 0;">آج کی پوسٹس</p>
-                    </div>
-                </div>
-                
-                <!-- Sections Grid -->
-                <h3 style="color: #333; margin-bottom: 1.5rem;">
-                    <i class="fas fa-th-large"></i> سیکشنز منتخب کریں
-                </h3>
-                
-                <div style="
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                    gap: 1.5rem;
-                    margin-bottom: 3rem;
-                ">
-                    <!-- Women Section -->
-                    <div class="section-card" onclick="openEditor('women')">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
-                            <div style="
-                                background: #E91E63;
-                                color: white;
-                                width: 50px;
-                                height: 50px;
-                                border-radius: 12px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-size: 1.5rem;
-                            ">
-                                <i class="fas fa-female"></i>
-                            </div>
-                            <h4 style="margin: 0; color: #333;">خواتین کا سیکشن</h4>
-                        </div>
-                        <p style="color: #666; margin: 0;">
-                            کھانا پکانا، بیوٹی ٹپس، گھریلو کام
-                        </p>
-                        <div style="margin-top: 1rem; color: #E91E63; font-weight: bold;">
-                            <i class="fas fa-plus-circle"></i> نیا مواد شامل کریں
-                        </div>
-                    </div>
-                    
-                    <!-- Business Section -->
-                    <div class="section-card" onclick="openEditor('business')" style="border-color: #4CAF50;">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
-                            <div style="
-                                background: #4CAF50;
-                                color: white;
-                                width: 50px;
-                                height: 50px;
-                                border-radius: 12px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-size: 1.5rem;
-                            ">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <h4 style="margin: 0; color: #333;">کاروبار</h4>
-                        </div>
-                        <p style="color: #666; margin: 0;">
-                            بزنس آئیڈیاز، آن لائن کاروبار
-                        </p>
-                        <div style="margin-top: 1rem; color: #4CAF50; font-weight: bold;">
-                            <i class="fas fa-plus-circle"></i> نیا مواد شامل کریں
-                        </div>
-                    </div>
-                    
-                    <!-- Jobs Section -->
-                    <div class="section-card" onclick="openEditor('jobs')" style="border-color: #2196F3;">
-                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
-                            <div style="
-                                background: #2196F3;
-                                color: white;
-                                width: 50px;
-                                height: 50px;
-                                border-radius: 12px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-size: 1.5rem;
-                            ">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <h4 style="margin: 0; color: #333;">نوکریاں</h4>
-                        </div>
-                        <p style="color: #666; margin: 0;">
-                            جابز، پارٹ ٹائم، فری لانس
-                        </p>
-                        <div style="margin-top: 1rem; color: #2196F3; font-weight: bold;">
-                            <i class="fas fa-plus-circle"></i> نیا مواد شامل کریں
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Post Editor Modal -->
-    <div id="postEditor" class="post-editor">
-        <div style="
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-        ">
-            <!-- Editor Header -->
-            <div style="
-                background: linear-gradient(135deg, #00dbde, #fc00ff);
-                color: white;
-                padding: 1.5rem 2rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            ">
-                <h3 style="color: white; margin: 0;" id="editorTitle">
-                    <i class="fas fa-edit"></i> نیا مواد لکھیں
-                </h3>
-                <button onclick="closeEditor()" style="
+            <div>
+                <button onclick="closeControlPanel()" style="
                     background: rgba(255,255,255,0.2);
                     color: white;
                     border: 1px solid rgba(255,255,255,0.3);
-                    padding: 0.5rem 1rem;
+                    padding: 0.8rem 1.5rem;
                     border-radius: 50px;
                     cursor: pointer;
+                    font-weight: bold;
                 ">
-                    <i class="fas fa-times"></i>
+                    <i class="fas fa-times"></i> بند کریں
                 </button>
             </div>
+        </div>
+        
+        <!-- Panel Content -->
+        <div style="padding: 2rem;">
+            <!-- Quick Stats -->
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            ">
+                <div class="stat-card" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
+                    <h3 style="font-size: 2.5rem; margin: 0;" id="totalPosts">0</h3>
+                    <p style="margin: 0.5rem 0 0 0;">کل پوسٹس</p>
+                </div>
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
+                    <h3 style="font-size: 2.5rem; margin: 0;">18</h3>
+                    <p style="margin: 0.5rem 0 0 0;">سیکشنز</p>
+                </div>
+                
+                <div class="stat-card" style="background: linear-gradient(135deg, #FF9800, #F57C00);">
+                    <h3 style="font-size: 2.5rem; margin: 0;" id="todayPosts">0</h3>
+                    <p style="margin: 0.5rem 0 0 0;">آج کی پوسٹس</p>
+                </div>
+            </div>
             
-            <!-- Editor Content -->
-            <div style="padding: 2rem;">
-                <div style="margin-bottom: 2rem;">
-                    <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
-                        <i class="fas fa-heading"></i> عنوان
-                    </label>
-                    <input type="text" id="postTitle" placeholder="مواد کا عنوان درج کریں" style="
-                        width: 100%;
-                        padding: 1rem;
-                        font-size: 1.2rem;
-                        border: 2px solid #ddd;
-                        border-radius: 10px;
-                    ">
+            <!-- Sections Grid -->
+            <h3 style="color: #333; margin-bottom: 1.5rem;">
+                <i class="fas fa-th-large"></i> تمام سیکشنز
+            </h3>
+            
+            <!-- Row 1: Women, Business, Jobs, Education -->
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 1.5rem;
+            ">
+                <!-- Women Section -->
+                <div class="section-card" onclick="openEditor('women')" style="border-color: #E91E63;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #E91E63;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">خواتین کا سیکشن</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        کھانا پکانا، بیوٹی ٹپس، گھریلو کام
+                    </p>
+                    <div style="margin-top: 1rem; color: #E91E63; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
                 </div>
                 
-                <div style="margin-bottom: 2rem;">
-                    <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
-                        <i class="fas fa-edit"></i> مواد
-                    </label>
-                    <textarea id="postContent" rows="10" placeholder="اپنا مواد یہاں لکھیں..." style="
-                        width: 100%;
-                        padding: 1rem;
-                        font-size: 1.1rem;
-                        border: 2px solid #ddd;
-                        border-radius: 10px;
-                        font-family: inherit;
-                    "></textarea>
+                <!-- Business Section -->
+                <div class="section-card" onclick="openEditor('business')" style="border-color: #4CAF50;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #4CAF50;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">کاروبار</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        بزنس آئیڈیاز، آن لائن کاروبار
+                    </p>
+                    <div style="margin-top: 1rem; color: #4CAF50; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
                 </div>
                 
-                <div style="margin-bottom: 2rem;">
-                    <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
-                        <i class="fas fa-image"></i> تصویر (اختیاری)
-                    </label>
-                    <input type="file" id="postImage" accept="image/*" style="
-                        width: 100%;
-                        padding: 1rem;
-                        border: 2px dashed #ddd;
-                        border-radius: 10px;
-                    ">
+                <!-- Jobs Section -->
+                <div class="section-card" onclick="openEditor('jobs')" style="border-color: #2196F3;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #2196F3;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">نوکریاں</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        جابز، پارٹ ٹائم، فری لانس
+                    </p>
+                    <div style="margin-top: 1rem; color: #2196F3; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
                 </div>
                 
-                <div style="margin-bottom: 2rem;">
-                    <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
-                        <i class="fas fa-tags"></i> زمرہ
-                    </label>
-                    <select id="postCategory" style="
-                        width: 100%;
-                        padding: 1rem;
-                        font-size: 1.1rem;
-                        border: 2px solid #ddd;
-                        border-radius: 10px;
-                    ">
-                        <option value="recipe">کھانا پکانا</option>
-                        <option value="beauty">بیوٹی ٹپس</option>
-                        <option value="business">کاروبار</option>
-                        <option value="job">نوکری</option>
-                        <option value="education">تعلیم</option>
-                        <option value="health">صحت</option>
-                    </select>
+                <!-- Education Section -->
+                <div class="section-card" onclick="openEditor('education')" style="border-color: #FF9800;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #FF9800;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">تعلیم</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        کتب، نوٹس، لیکچرز
+                    </p>
+                    <div style="margin-top: 1rem; color: #FF9800; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Row 2: Students, Scholarships, Skills, AI -->
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 1.5rem;
+            ">
+                <!-- Students Section -->
+                <div class="section-card" onclick="openEditor('students')" style="border-color: #9C27B0;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #9C27B0;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">طلباء</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        کورسز، گائیڈز، معلومات
+                    </p>
+                    <div style="margin-top: 1rem; color: #9C27B0; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
                 </div>
                 
-                <div style="display: flex; gap: 1rem;">
-                    <button onclick="savePost()" style="
-                        flex: 1;
-                        padding: 1.2rem;
-                        background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                <!-- Scholarships Section -->
+                <div class="section-card" onclick="openEditor('scholarships')" style="border-color: #009688;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #009688;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">اسکالرشپس</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        مالی امداد، وظائف
+                    </p>
+                    <div style="margin-top: 1rem; color: #009688; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- Skills Section -->
+                <div class="section-card" onclick="openEditor('skills')" style="border-color: #673AB7;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #673AB7;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">مہارتیں</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        ہنر سیکھیں، ٹریننگ
+                    </p>
+                    <div style="margin-top: 1rem; color: #673AB7; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- AI Section -->
+                <div class="section-card" onclick="openEditor('ai')" style="border-color: #00C853;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #00C853;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">AI ٹیکنالوجی</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        AI/ML، ٹولز، کورسز
+                    </p>
+                    <div style="margin-top: 1rem; color: #00C853; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Row 3: Kids, Library, Videos, Health -->
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 1.5rem;
+            ">
+                <!-- Kids Section -->
+                <div class="section-card" onclick="openEditor('kids')" style="border-color: #E91E63;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #E91E63;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">بچوں کا کونہ</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        کارٹونز، کھیل، نظمیں
+                    </p>
+                    <div style="margin-top: 1rem; color: #E91E63; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- Library Section -->
+                <div class="section-card" onclick="openEditor('library')" style="border-color: #9C27B0;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #9C27B0;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">ڈیجیٹل لائبریری</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        کتب، ادب، مذہبی کتب
+                    </p>
+                    <div style="margin-top: 1rem; color: #9C27B0; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- Videos Section -->
+                <div class="section-card" onclick="openEditor('videos')" style="border-color: #00BCD4;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #00BCD4;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">ویڈیو لائبریری</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        لیکچرز، ہنر، صحت
+                    </p>
+                    <div style="margin-top: 1rem; color: #00BCD4; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- Health Section -->
+                <div class="section-card" onclick="openEditor('health')" style="border-color: #8BC34A;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #8BC34A;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">صحت</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        صحت مند زندگی، غذائیت
+                    </p>
+                    <div style="margin-top: 1rem; color: #8BC34A; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Row 4: Finance, Relationships, Visa, Travel -->
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 1.5rem;
+            ">
+                <!-- Finance Section -->
+                <div class="section-card" onclick="openEditor('finance')" style="border-color: #FF9800;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #FF9800;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">مالیات</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        بچت، سرمایہ کاری، قرض
+                    </p>
+                    <div style="margin-top: 1rem; color: #FF9800; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- Relationships Section -->
+                <div class="section-card" onclick="openEditor('relationships')" style="border-color: #FF5722;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #FF5722;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">رشتے</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        شادی بیاہ، مشاورت
+                    </p>
+                    <div style="margin-top: 1rem; color: #FF5722; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- Visa Section -->
+                <div class="section-card" onclick="openEditor('visa')" style="border-color: #FF4081;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #FF4081;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">ویزہ</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        تعلیمی، کام، سیاحتی ویزہ
+                    </p>
+                    <div style="margin-top: 1rem; color: #FF4081; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- Travel Section -->
+                <div class="section-card" onclick="openEditor('travel')" style="border-color: #3F51B5;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #3F51B5;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">سفر</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        ممالک، سیاحتی مقامات
+                    </p>
+                    <div style="margin-top: 1rem; color: #3F51B5; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Row 5: Technology, Freelance, Language -->
+            <div style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            ">
+                <!-- Technology Section -->
+                <div class="section-card" onclick="openEditor('technology')" style="border-color: #2196F3;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #2196F3;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">ٹیکنالوجی</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        AI ٹولز، سافٹ ویئر
+                    </p>
+                    <div style="margin-top: 1rem; color: #2196F3; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- Freelance Section -->
+                <div class="section-card" onclick="openEditor('freelance')" style="border-color: #9C27B0;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #9C27B0;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-laptop-house"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">فری لانس</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        آن لائن کام، مواقع
+                    </p>
+                    <div style="margin-top: 1rem; color: #9C27B0; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+                
+                <!-- Language Section -->
+                <div class="section-card" onclick="openEditor('language')" style="border-color: #00BCD4;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                        <div style="
+                            background: #00BCD4;
+                            color: white;
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.5rem;
+                        ">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h4 style="margin: 0; color: #333;">زبان</h4>
+                    </div>
+                    <p style="color: #666; margin: 0; font-size: 0.9rem;">
+                        زبان سیکھیں، انگریزی
+                    </p>
+                    <div style="margin-top: 1rem; color: #00BCD4; font-weight: bold;">
+                        <i class="fas fa-plus-circle"></i> مواد شامل کریں
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Posts Section -->
+            <div id="recentPostsSection" style="display: none;">
+                <h3 style="color: #333; margin-bottom: 1.5rem;">
+                    <i class="fas fa-history"></i> حالیہ پوسٹس
+                </h3>
+                <div id="recentPostsList" style="
+                    background: #f8f9fa;
+                    border-radius: 15px;
+                    padding: 1.5rem;
+                    min-height: 200px;
+                ">
+                    <!-- Posts will load here -->
+                </div>
+            </div>
+            
+            <!-- Admin Tools -->
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #eee;">
+                <h3 style="color: #333; margin-bottom: 1.5rem;">
+                    <i class="fas fa-tools"></i> ایڈمن ٹولز
+                </h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button onclick="exportData()" style="
+                        padding: 1rem 2rem;
+                        background: #2196F3;
                         color: white;
                         border: none;
                         border-radius: 10px;
-                        font-size: 1.1rem;
-                        font-weight: bold;
                         cursor: pointer;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 10px;
+                        font-weight: bold;
                     ">
-                        <i class="fas fa-save"></i> محفوظ کریں
+                        <i class="fas fa-download"></i> ڈیٹا ایکسپورٹ
                     </button>
-                    
-                    <button onclick="previewPost()" style="
-                        flex: 1;
-                        padding: 1.2rem;
-                        background: linear-gradient(135deg, #2196F3, #1976D2);
+                    <button onclick="importData()" style="
+                        padding: 1rem 2rem;
+                        background: #4CAF50;
                         color: white;
                         border: none;
                         border-radius: 10px;
-                        font-size: 1.1rem;
-                        font-weight: bold;
                         cursor: pointer;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 10px;
+                        font-weight: bold;
                     ">
-                        <i class="fas fa-eye"></i> پیش نظارہ
+                        <i class="fas fa-upload"></i> ڈیٹا امپورٹ
+                    </button>
+                    <button onclick="clearAllData()" style="
+                        padding: 1rem 2rem;
+                        background: #f44336;
+                        color: white;
+                        border: none;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        font-weight: bold;
+                    ">
+                        <i class="fas fa-trash"></i> تمام ڈیٹا صاف
+                    </button>
+                    <button onclick="logoutAdmin()" style="
+                        padding: 1rem 2rem;
+                        background: #FF9800;
+                        color: white;
+                        border: none;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        font-weight: bold;
+                    ">
+                        <i class="fas fa-sign-out-alt"></i> لاگ آؤٹ
                     </button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- ==================== CMS JavaScript ==================== -->
-    <script>
-    // Admin Password
-    const ADMIN_PASSWORD = "Irfan@22785";
-    
-    // Show/Hide Functions
-    function showLogin() {
-        document.getElementById('loginModal').style.display = 'flex';
+<!-- ==================== UPDATED CMS JavaScript ==================== -->
+<script>
+// All Sections Configuration
+const ALL_SECTIONS = {
+    'women': {
+        name: 'خواتین کا سیکشن',
+        color: '#E91E63',
+        icon: 'fa-female',
+        categories: [
+            {value: 'cooking', label: 'کھانا پکانا'},
+            {value: 'beauty', label: 'بیوٹی ٹپس'},
+            {value: 'home', label: 'گھریلو کام'},
+            {value: 'sewing', label: 'سلائی کڑھائی'},
+            {value: 'children', label: 'بچوں کی پرورش'},
+            {value: 'business', label: 'خواتین کا بزنس'}
+        ]
+    },
+    'business': {
+        name: 'کاروبار',
+        color: '#4CAF50',
+        icon: 'fa-briefcase',
+        categories: [
+            {value: 'online', label: 'آن لائن بزنس'},
+            {value: 'small', label: 'چھوٹا کاروبار'},
+            {value: 'franchise', label: 'فرنچائز'},
+            {value: 'ideas', label: 'بزنس آئیڈیاز'}
+        ]
+    },
+    'jobs': {
+        name: 'نوکریاں',
+        color: '#2196F3',
+        icon: 'fa-user-tie',
+        categories: [
+            {value: 'fulltime', label: 'فُل ٹائم'},
+            {value: 'parttime', label: 'پارٹ ٹائم'},
+            {value: 'freelance', label: 'فری لانس'},
+            {value: 'remote', label: 'ریموٹ'}
+        ]
+    },
+    'education': {
+        name: 'تعلیم',
+        color: '#FF9800',
+        icon: 'fa-graduation-cap',
+        categories: [
+            {value: 'books', label: 'درسی کتب'},
+            {value: 'notes', label: 'نوٹس'},
+            {value: 'lectures', label: 'لکچرز'},
+            {value: 'guides', label: 'گائیڈز'}
+        ]
+    },
+    'students': {
+        name: 'طلباء',
+        color: '#9C27B0',
+        icon: 'fa-user-graduate',
+        categories: [
+            {value: 'courses', label: 'آن لائن کورسز'},
+            {value: 'resources', label: 'تعلیمی وسائل'},
+            {value: 'tips', label: 'ٹپس'},
+            {value: 'career', label: 'کیریئر گائیڈنس'}
+        ]
+    },
+    'scholarships': {
+        name: 'اسکالرشپس',
+        color: '#009688',
+        icon: 'fa-award',
+        categories: [
+            {value: 'local', label: 'مقامی اسکالرشپس'},
+            {value: 'international', label: 'بین الاقوامی'},
+            {value: 'merit', label: 'میرٹ بیسڈ'},
+            {value: 'need', label: 'ضرورت بیسڈ'}
+        ]
+    },
+    'skills': {
+        name: 'مہارتیں',
+        color: '#673AB7',
+        icon: 'fa-tools',
+        categories: [
+            {value: 'technical', label: 'تکنیکی ہنر'},
+            {value: 'soft', label: 'سافٹ اسکلز'},
+            {value: 'language', label: 'زبان'},
+            {value: 'creative', label: 'تخلیقی ہنر'}
+        ]
+    },
+    'ai': {
+        name: 'AI ٹیکنالوجی',
+        color: '#00C853',
+        icon: 'fa-robot',
+        categories: [
+            {value: 'courses', label: 'AI/ML کورسز'},
+            {value: 'tools', label: 'AI ٹولز'},
+            {value: 'projects', label: 'AI پروجیکٹس'},
+            {value: 'tutorials', label: 'ٹیوٹوریلز'}
+        ]
+    },
+    'kids': {
+        name: 'بچوں کا کونہ',
+        color: '#E91E63',
+        icon: 'fa-child',
+        categories: [
+            {value: 'cartoons', label: 'کارٹونز'},
+            {value: 'poems', label: 'نظمیں'},
+            {value: 'games', label: 'کھیل'},
+            {value: 'stories', label: 'کہانیاں'}
+        ]
+    },
+    'library': {
+        name: 'ڈیجیٹل لائبریری',
+        color: '#9C27B0',
+        icon: 'fa-book',
+        categories: [
+            {value: 'religious', label: 'مذہبی کتب'},
+            {value: 'urdu', label: 'اردو ادب'},
+            {value: 'english', label: 'انگریزی کتب'},
+            {value: 'academic', label: 'تعلیمی کتب'}
+        ]
+    },
+    'videos': {
+        name: 'ویڈیو لائبریری',
+        color: '#00BCD4',
+        icon: 'fa-video',
+        categories: [
+            {value: 'lectures', label: 'تعلیمی لیکچرز'},
+            {value: 'skills', label: 'ہنر سیکھیں'},
+            {value: 'health', label: 'صحت و تندرستی'},
+            {value: 'tutorials', label: 'ٹیوٹوریلز'}
+        ]
+    },
+    'health': {
+        name: 'صحت',
+        color: '#8BC34A',
+        icon: 'fa-heartbeat',
+        categories: [
+            {value: 'fitness', label: 'صحت مند زندگی'},
+            {value: 'nutrition', label: 'غذائیت'},
+            {value: 'mental', label: 'ذہنی صحت'},
+            {value: 'tips', label: 'صحت کے ٹپس'}
+        ]
+    },
+    'finance': {
+        name: 'مالیات',
+        color: '#FF9800',
+        icon: 'fa-money-bill-wave',
+        categories: [
+            {value: 'saving', label: 'بچت کے طریقے'},
+            {value: 'investment', label: 'سرمایہ کاری'},
+            {value: 'loan', label: 'قرض و ادائیگی'},
+            {value: 'planning', label: 'مالیاتی منصوبہ بندی'}
+        ]
+    },
+    'relationships': {
+        name: 'رشتے',
+        color: '#FF5722',
+        icon: 'fa-heart',
+        categories: [
+            {value: 'marriage', label: 'شادی بیاہ'},
+            {value: 'consultation', label: 'مشاورت'},
+            {value: 'network', label: 'رابطہ نیٹ ورک'},
+            {value: 'advice', label: 'مشورہ'}
+        ]
+    },
+    'visa': {
+        name: 'ویزہ',
+        color: '#FF4081',
+        icon: 'fa-passport',
+        categories: [
+            {value: 'student', label: 'طالب علم ویزہ'},
+            {value: 'work', label: 'کام کا ویزہ'},
+            {value: 'tourist', label: 'سیاحتی ویزہ'},
+            {value: 'immigration', label: 'امیگریشن'}
+        ]
+    },
+    'travel': {
+        name: 'سفر',
+        color: '#3F51B5',
+        icon: 'fa-plane',
+        categories: [
+            {value: 'countries', label: 'ممالک کا تعارف'},
+            {value: 'places', label: 'سیاحتی مقامات'},
+            {value: 'preparation', label: 'سفر کی تیاری'},
+            {value: 'tips', label: 'سفر کے ٹپس'}
+        ]
+    },
+    'technology': {
+        name: 'ٹیکنالوجی',
+        color: '#2196F3',
+        icon: 'fa-laptop-code',
+        categories: [
+            {value: 'tools', label: 'ٹیکنالوجی ٹولز'},
+            {value: 'software', label: 'سافٹ ویئر'},
+            {value: 'apps', label: 'ایپلیکیشنز'},
+            {value: 'gadgets', label: 'گیجٹس'}
+        ]
+    },
+    'freelance': {
+        name: 'فری لانس',
+        color: '#9C27B0',
+        icon: 'fa-laptop-house',
+        categories: [
+            {value: 'jobs', label: 'فری لانس کام'},
+            {value: 'platforms', label: 'پلیٹ فارمز'},
+            {value: 'tips', label: 'فری لانسنگ ٹپس'},
+            {value: 'earning', label: 'کمائی کے طریقے'}
+        ]
+    },
+    'language': {
+        name: 'زبان',
+        color: '#00BCD4',
+        icon: 'fa-language',
+        categories: [
+            {value: 'english', label: 'انگریزی سیکھیں'},
+            {value: 'urdu', label: 'اردو سیکھیں'},
+            {value: 'other', label: 'دیگر زبانیں'},
+            {value: 'tips', label: 'زبان سیکھنے کے ٹپس'}
+        ]
     }
+};
+
+// Global variable to track current section
+let currentSection = 'women';
+
+// Show/Hide Functions
+function showLogin() {
+    document.getElementById('loginModal').style.display = 'flex';
+}
+
+function hideLogin() {
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+function loginAdmin() {
+    const password = document.getElementById('adminPassword').value;
     
-    function hideLogin() {
+    if(password === ADMIN_PASSWORD) {
+        localStorage.setItem('admin_logged_in', 'true');
         document.getElementById('loginModal').style.display = 'none';
+        document.getElementById('floatingAdminBtn').style.display = 'block';
+        document.getElementById('adminAccessBtn').innerHTML = '<i class="fas fa-user-shield"></i> ایڈمن';
+        alert('کامیابی سے لاگ ان ہو گیا!');
+        loadStats();
+    } else {
+        alert('غلط پاس ورڈ!');
+    }
+}
+
+function logoutAdmin() {
+    if(confirm('کیا آپ واقعی لاگ آؤٹ کرنا چاہتے ہیں؟')) {
+        localStorage.removeItem('admin_logged_in');
+        document.getElementById('floatingAdminBtn').style.display = 'none';
+        document.getElementById('adminAccessBtn').innerHTML = '<i class="fas fa-lock"></i> ایڈمن پینل';
+        closeControlPanel();
+        alert('لاگ آؤٹ ہو گیا!');
+    }
+}
+
+function openControlPanel() {
+    document.getElementById('controlPanel').style.display = 'block';
+    loadStats();
+}
+
+function closeControlPanel() {
+    document.getElementById('controlPanel').style.display = 'none';
+}
+
+function openEditor(section) {
+    currentSection = section;
+    const sectionInfo = ALL_SECTIONS[section];
+    
+    if(!sectionInfo) {
+        alert('سیکشن نہیں ملا!');
+        return;
     }
     
-    function loginAdmin() {
-        const password = document.getElementById('adminPassword').value;
-        
-        if(password === ADMIN_PASSWORD) {
-            localStorage.setItem('admin_logged_in', 'true');
-            document.getElementById('loginModal').style.display = 'none';
-            document.getElementById('floatingAdminBtn').style.display = 'block';
-            document.getElementById('adminAccessBtn').innerHTML = '<i class="fas fa-user-shield"></i> ایڈمن';
-            alert('کامیابی سے لاگ ان ہو گیا!');
-        } else {
-            alert('غلط پاس ورڈ!');
-        }
-    }
+    document.getElementById('postEditor').style.display = 'block';
+    document.getElementById('editorTitle').innerHTML = 
+        `<i class="fas ${sectionInfo.icon}"></i> ${sectionInfo.name} میں نیا مواد`;
     
-    function openControlPanel() {
-        document.getElementById('controlPanel').style.display = 'block';
-    }
+    // Set category options based on section
+    const categorySelect = document.getElementById('postCategory');
+    categorySelect.innerHTML = '';
     
-    function closeControlPanel() {
-        document.getElementById('controlPanel').style.display = 'none';
-    }
-    
-    function openEditor(section) {
-        document.getElementById('postEditor').style.display = 'block';
-        document.getElementById('editorTitle').innerHTML = 
-            `<i class="fas fa-edit"></i> ${getSectionName(section)} میں نیا مواد`;
-        
-        // Set category based on section
-        const categorySelect = document.getElementById('postCategory');
-        if(section === 'women') {
-            categorySelect.innerHTML = `
-                <option value="recipe">کھانا پکانا</option>
-                <option value="beauty">بیوٹی ٹپس</option>
-                <option value="home">گھریلو کام</option>
-                <option value="sewing">سلائی کڑھائی</option>
-                <option value="children">بچوں کی پرورش</option>
-            `;
-        } else if(section === 'business') {
-            categorySelect.innerHTML = `
-                <option value="online">آن لائن بزنس</option>
-                <option value="small">چھوٹا کاروبار</option>
-                <option value="franchise">فرنچائز</option>
-            `;
-        }
-    }
-    
-    function closeEditor() {
-        document.getElementById('postEditor').style.display = 'none';
-        document.getElementById('postTitle').value = '';
-        document.getElementById('postContent').value = '';
-        document.getElementById('postImage').value = '';
-    }
-    
-    function getSectionName(section) {
-        const sections = {
-            'women': 'خواتین کا سیکشن',
-            'business': 'کاروبار',
-            'jobs': 'نوکریاں',
-            'education': 'تعلیم',
-            'health': 'صحت',
-            'relationships': 'رشتے',
-            'travel': 'سفر',
-            'visa': 'ویزا'
-        };
-        return sections[section] || section;
-    }
-    
-    function savePost() {
-        const title = document.getElementById('postTitle').value;
-        const content = document.getElementById('postContent').value;
-        const category = document.getElementById('postCategory').value;
-        
-        if(!title || !content) {
-            alert('براہ کرم عنوان اور مواد لکھیں');
-            return;
-        }
-        
-        // Create post object
-        const post = {
-            id: Date.now(),
-            title: title,
-            content: content,
-            category: category,
-            date: new Date().toLocaleString('ur-PK')
-        };
-        
-        // Save to localStorage
-        savePostToStorage(post);
-        
-        alert('مواد کامیابی سے محفوظ ہو گیا!');
-        closeEditor();
-    }
-    
-    function savePostToStorage(post) {
-        let posts = JSON.parse(localStorage.getItem('portal_posts') || '[]');
-        posts.unshift(post); // Add at beginning
-        localStorage.setItem('portal_posts', JSON.stringify(posts));
-    }
-    
-    function previewPost() {
-        const title = document.getElementById('postTitle').value;
-        const content = document.getElementById('postContent').value;
-        
-        if(!title || !content) {
-            alert('پہلے عنوان اور مواد لکھیں');
-            return;
-        }
-        
-        alert('پیش نظارہ: ' + title + '\n\n' + content.substring(0, 100) + '...');
-    }
-    
-    // Check login status on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        if(localStorage.getItem('admin_logged_in')) {
-            document.getElementById('floatingAdminBtn').style.display = 'block';
-            document.getElementById('adminAccessBtn').innerHTML = '<i class="fas fa-user-shield"></i> ایڈمن';
-        }
+    sectionInfo.categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category.value;
+        option.textContent = category.label;
+        categorySelect.appendChild(option);
     });
-    </script>
+}
+
+function closeEditor() {
+    document.getElementById('postEditor').style.display = 'none';
+    document.getElementById('postTitle').value = '';
+    document.getElementById('postContent').value = '';
+    document.getElementById('postImage').value = '';
+}
+
+function savePost() {
+    const title = document.getElementById('postTitle').value;
+    const content = document.getElementById('postContent').value;
+    const category = document.getElementById('postCategory').value;
+    const imageFile = document.getElementById('postImage').files[0];
+    
+    if(!title || !content) {
+        alert('براہ کرم عنوان اور مواد لکھیں');
+        return;
+    }
+    
+    // Create post object
+    const post = {
+        id: Date.now(),
+        title: title,
+        content: content,
+        category: category,
+        section: currentSection,
+        sectionName: ALL_SECTIONS[currentSection].name,
+        date: new Date().toLocaleString('ur-PK'),
+        image: imageFile ? imageFile.name : null,
+        timestamp: Date.now()
+    };
+    
+    // Save to localStorage
+    savePostToStorage(post);
+    
+    // If image uploaded, save it
+    if(imageFile) {
+        saveImage(imageFile);
+    }
+    
+    alert('مواد کامیابی سے محفوظ ہو گیا!');
+    closeEditor();
+    loadStats();
+}
+
+function savePostToStorage(post) {
+    let posts = JSON.parse(localStorage.getItem('portal_posts') || '[]');
+    posts.unshift(post); // Add at beginning
+    localStorage.setItem('portal_posts', JSON.stringify(posts));
+}
+
+function saveImage(file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const images = JSON.parse(localStorage.getItem('portal_images') || '{}');
+        images[file.name] = e.target.result;
+        localStorage.setItem('portal_images', JSON.stringify(images));
+    };
+    reader.readAsDataURL(file);
+}
+
+function loadStats() {
+    const posts = JSON.parse(localStorage.getItem('portal_posts') || '[]');
+    const today = new Date().toDateString();
+    
+    const todayPosts = posts.filter(post => 
+        new Date(post.timestamp).toDateString() === today
+    ).length;
+    
+    // Update stats
+    document.getElementById('totalPosts').textContent = posts.length;
+    document.getElementById('todayPosts').textContent = todayPosts;
+    
+    // Show recent posts if available
+    if(posts.length > 0) {
+        document.getElementById('recentPostsSection').style.display = 'block';
+        displayRecentPosts(posts.slice(0, 5));
+    } else {
+        document.getElementById('recentPostsSection').style.display = 'none';
+    }
+}
+
+function displayRecentPosts(posts) {
+    const container = document.getElementById('recentPostsList');
+    container.innerHTML = '';
+    
+    if(posts.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: #666;">کوئی پوسٹس نہیں ملیں۔ پہلی پوسٹ بنائیں!</p>';
+        return;
+    }
+    
+    posts.forEach(post => {
+        const sectionInfo = ALL_SECTIONS[post.section] || {name: post.section, color: '#607D8B'};
+        
+        container.innerHTML += `
+            <div style="
+                background: white;
+                padding: 1rem;
+                border-radius: 10px;
+                margin-bottom: 1rem;
+                border-left: 4px solid ${sectionInfo.color};
+            ">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div style="flex: 1;">
+                        <strong>${post.title}</strong>
+                        <div style="color: #666; font-size: 0.9rem; margin-top: 0.3rem;">
+                            <span style="color: ${sectionInfo.color}; font-weight: bold;">${post.sectionName}</span> • 
+                            ${post.category} • ${post.date}
+                        </div>
+                        <div style="color: #777; font-size: 0.9rem; margin-top: 0.5rem;">
+                            ${post.content.substring(0, 100)}...
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button onclick="editPost('${post.id}')" style="
+                            background: #2196F3;
+                            color: white;
+                            border: none;
+                            padding: 0.3rem 0.8rem;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            font-size: 0.8rem;
+                        ">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button onclick="deletePost('${post.id}')" style="
+                            background: #f44336;
+                            color: white;
+                            border: none;
+                            padding: 0.3rem 0.8rem;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            font-size: 0.8rem;
+                        ">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function editPost(postId) {
+    const posts = JSON.parse(localStorage.getItem('portal_posts') || '[]');
+    const post = posts.find(p => p.id == postId);
+    
+    if(post) {
+        currentSection = post.section;
+        openEditor(post.section);
+        
+        // Fill form with post data
+        document.getElementById('postTitle').value = post.title;
+        document.getElementById('postContent').value = post.content;
+        document.getElementById('postCategory').value = post.category;
+        
+        // Remove this post from storage (will be re-added when saved)
+        const updatedPosts = posts.filter(p => p.id != postId);
+        localStorage.setItem('portal_posts', JSON.stringify(updatedPosts));
+        
+        alert('ترمیم کے لیے تیار! تبدیلیاں کر کے Save کریں۔');
+    }
+}
+
+function deletePost(postId) {
+    if(confirm('کیا آپ واقعی یہ پوسٹ حذف کرنا چاہتے ہیں؟')) {
+        let posts = JSON.parse(localStorage.getItem('portal_posts') || '[]');
+        posts = posts.filter(p => p.id != postId);
+        localStorage.setItem('portal_posts', JSON.stringify(posts));
+        loadStats();
+        alert('پوسٹ حذف ہو گئی!');
+    }
+}
+
+function previewPost() {
+    const title = document.getElementById('postTitle').value;
+    const content = document.getElementById('postContent').value;
+    const category = document.getElementById('postCategory').value;
+    const sectionInfo = ALL_SECTIONS[currentSection];
+    
+    if(!title || !content) {
+        alert('پہلے عنوان اور مواد لکھیں');
+        return;
+    }
+    
+    const previewWindow = window.open('', '_blank');
+    previewWindow.document.write(`
+        <!DOCTYPE html>
+        <html dir="rtl" lang="ur">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>${title} - پیش نظارہ</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                       line-height: 1.8; margin: 2rem; background: #f5f5f5; }
+                .preview-container { max-width: 800px; margin: 0 auto; 
+                                    background: white; padding: 2rem; border-radius: 15px; }
+                h1 { color: #333; border-bottom: 3px solid ${sectionInfo?.color || '#E91E63'}; 
+                     padding-bottom: 1rem; }
+                .content { margin-top: 2rem; font-size: 1.1rem; }
+                .meta { color: #666; margin-top: 1rem; padding-top: 1rem; 
+                        border-top: 1px solid #eee; }
+                .section-badge { background: ${sectionInfo?.color || '#607D8B'}; 
+                                color: white; padding: 0.3rem 1rem; 
+                                border-radius: 20px; display: inline-block; 
+                                margin-bottom: 1rem; font-size: 0.9rem; }
+            </style>
+        </head>
+        <body>
+            <div class="preview-container">
+                <div class="section-badge">${sectionInfo?.name || 'سیکشن'}</div>
+                <h1>${title}</h1>
+                <div class="content">${content.replace(/\n/g, '<br>')}</div>
+                <div class="meta">
+                    <strong>سیکشن:</strong> ${sectionInfo?.name || 'نامعلوم'} | 
+                    <strong>زمرہ:</strong> ${category} |
+                    <strong>تاریخ:</strong> ${new Date().toLocaleDateString('ur-PK')}
+                </div>
+            </div>
+        </body>
+        </html>
+    `);
+}
+
+function exportData() {
+    const posts = localStorage.getItem('portal_posts');
+    const images = localStorage.getItem('portal_images');
+    
+    const data = {
+        posts: JSON.parse(posts || '[]'),
+        images: JSON.parse(images || '{}'),
+        exported: new Date().toISOString(),
+        totalSections: Object.keys(ALL_SECTIONS).length
+    };
+    
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `portal-backup-${Date.now()}.json`;
+    a.click();
+    alert('ڈیٹا ایکسپورٹ ہو گیا!');
+}
+
+function importData() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    
+    input.onchange = function(e) {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        
+        reader.onload = function() {
+            try {
+                const data = JSON.parse(reader.result);
+                localStorage.setItem('portal_posts', JSON.stringify(data.posts || []));
+                localStorage.setItem('portal_images', JSON.stringify(data.images || {}));
+                alert('ڈیٹا کامیابی سے درآمد ہو گیا!');
+                loadStats();
+            } catch(error) {
+                alert('فائل پڑھنے میں مسئلہ: ' + error.message);
+            }
+        };
+        
+        reader.readAsText(file);
+    };
+    
+    input.click();
+}
+
+function clearAllData() {
+    if(confirm('کیا آپ واقعی تمام ڈیٹا صاف کرنا چاہتے ہیں؟ یہ عمل واپس نہیں ہو سکتا۔')) {
+        localStorage.removeItem('portal_posts');
+        localStorage.removeItem('portal_images');
+        alert('تمام ڈیٹا صاف ہو گیا!');
+        loadStats();
+    }
+}
+
+// Check login status on page load
+document.addEventListener('DOMContentLoaded', function() {
+    if(localStorage.getItem('admin_logged_in')) {
+        document.getElementById('floatingAdminBtn').style.display = 'block';
+        document.getElementById('adminAccessBtn').innerHTML = '<i class="fas fa-user-shield"></i> ایڈمن';
+    }
+    
+    // Add hover effects to all section cards
+    document.querySelectorAll('.section-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+        });
+    });
+});
+</script>
     <!-- Footer -->
     <footer>
         <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
