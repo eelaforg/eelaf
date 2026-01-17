@@ -1211,404 +1211,491 @@
     </button>
 </div>
 
-<!-- Control Panel Modal -->
-<div id="controlPanel" style="
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    z-index: 9998;
-    overflow-y: auto;
-    padding: 2rem;
-">
-    <div style="
-        max-width: 1200px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 20px;
-        overflow: hidden;
-    ">
-        <!-- Panel Header -->
-        <div style="
-            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
-            color: white;
-            padding: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        ">
-            <div>
-                <h2 style="color: white; margin: 0;">
-                    <i class="fas fa-tachometer-alt"></i> جامع پورٹل کنٹرول پینل
-                </h2>
-                <p style="color: #ddd; margin: 0.5rem 0 0 0;">
-                    تمام سیکشنز میں مواد مینج کریں
-                </p>
+    <!-- ==================== CMS CONTROL PANEL ==================== -->
+    <!-- Login Modal -->
+    <div id="loginModal" class="cms-modal">
+        <div class="cms-modal-content">
+            <h2 style="color: #333; margin-bottom: 1.5rem;">
+                <i class="fas fa-user-shield"></i> ایڈمن لاگ ان
+            </h2>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <input type="password" id="adminPassword" placeholder="پاس ورڈ درج کریں" style="
+                    width: 100%;
+                    padding: 1rem;
+                    font-size: 1.1rem;
+                    border: 2px solid #ddd;
+                    border-radius: 10px;
+                    margin-bottom: 1rem;
+                ">
+                
+                <button onclick="loginAdmin()" style="
+                    width: 100%;
+                    padding: 1rem;
+                    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    cursor: pointer;
+                ">
+                    <i class="fas fa-sign-in-alt"></i> لاگ ان
+                </button>
             </div>
             
-            <div>
-                <button onclick="closeControlPanel()" style="
+            <p style="color: #666; font-size: 0.9rem;">
+                پاس ورڈ: <code>admin123</code> (پہلی بار استعمال کے بعد تبدیل کر لیں)
+            </p>
+            
+            <button onclick="hideLogin()" style="
+                margin-top: 1.5rem;
+                background: transparent;
+                border: none;
+                color: #f44336;
+                cursor: pointer;
+                font-size: 0.9rem;
+            ">
+                <i class="fas fa-times"></i> بند کریں
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Admin Button -->
+    <div id="floatingAdminBtn" class="floating-admin-btn">
+        <button onclick="openControlPanel()">
+            <i class="fas fa-cogs"></i>
+        </button>
+    </div>
+
+    <!-- Control Panel Modal -->
+    <div id="controlPanel" class="control-panel">
+        <div style="
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+        ">
+            <!-- Panel Header -->
+            <div style="
+                background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+                color: white;
+                padding: 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            ">
+                <div>
+                    <h2 style="color: white; margin: 0;">
+                        <i class="fas fa-tachometer-alt"></i> جامع پورٹل کنٹرول پینل
+                    </h2>
+                    <p style="color: #ddd; margin: 0.5rem 0 0 0;">
+                        تمام سیکشنز میں مواد مینج کریں
+                    </p>
+                </div>
+                
+                <div>
+                    <button onclick="closeControlPanel()" style="
+                        background: rgba(255,255,255,0.2);
+                        color: white;
+                        border: 1px solid rgba(255,255,255,0.3);
+                        padding: 0.8rem 1.5rem;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        font-weight: bold;
+                    ">
+                        <i class="fas fa-times"></i> بند کریں
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Panel Content -->
+            <div style="padding: 2rem;">
+                <!-- Quick Stats -->
+                <div style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 1.5rem;
+                    margin-bottom: 3rem;
+                ">
+                    <div class="stat-card">
+                        <h3 style="font-size: 2.5rem; margin: 0;">0</h3>
+                        <p style="margin: 0.5rem 0 0 0;">کل پوسٹس</p>
+                    </div>
+                    
+                    <div class="stat-card" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
+                        <h3 style="font-size: 2.5rem; margin: 0;">18</h3>
+                        <p style="margin: 0.5rem 0 0 0;">سیکشنز</p>
+                    </div>
+                    
+                    <div class="stat-card" style="background: linear-gradient(135deg, #FF9800, #F57C00);">
+                        <h3 style="font-size: 2.5rem; margin: 0;">0</h3>
+                        <p style="margin: 0.5rem 0 0 0;">آج کی پوسٹس</p>
+                    </div>
+                </div>
+                
+                <!-- Sections Grid -->
+                <h3 style="color: #333; margin-bottom: 1.5rem;">
+                    <i class="fas fa-th-large"></i> سیکشنز منتخب کریں
+                </h3>
+                
+                <div style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                    gap: 1.5rem;
+                    margin-bottom: 3rem;
+                ">
+                    <!-- Women Section -->
+                    <div class="section-card" onclick="openEditor('women')">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                            <div style="
+                                background: #E91E63;
+                                color: white;
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 12px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 1.5rem;
+                            ">
+                                <i class="fas fa-female"></i>
+                            </div>
+                            <h4 style="margin: 0; color: #333;">خواتین کا سیکشن</h4>
+                        </div>
+                        <p style="color: #666; margin: 0;">
+                            کھانا پکانا، بیوٹی ٹپس، گھریلو کام
+                        </p>
+                        <div style="margin-top: 1rem; color: #E91E63; font-weight: bold;">
+                            <i class="fas fa-plus-circle"></i> نیا مواد شامل کریں
+                        </div>
+                    </div>
+                    
+                    <!-- Business Section -->
+                    <div class="section-card" onclick="openEditor('business')" style="border-color: #4CAF50;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                            <div style="
+                                background: #4CAF50;
+                                color: white;
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 12px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 1.5rem;
+                            ">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h4 style="margin: 0; color: #333;">کاروبار</h4>
+                        </div>
+                        <p style="color: #666; margin: 0;">
+                            بزنس آئیڈیاز، آن لائن کاروبار
+                        </p>
+                        <div style="margin-top: 1rem; color: #4CAF50; font-weight: bold;">
+                            <i class="fas fa-plus-circle"></i> نیا مواد شامل کریں
+                        </div>
+                    </div>
+                    
+                    <!-- Jobs Section -->
+                    <div class="section-card" onclick="openEditor('jobs')" style="border-color: #2196F3;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+                            <div style="
+                                background: #2196F3;
+                                color: white;
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 12px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 1.5rem;
+                            ">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4 style="margin: 0; color: #333;">نوکریاں</h4>
+                        </div>
+                        <p style="color: #666; margin: 0;">
+                            جابز، پارٹ ٹائم، فری لانس
+                        </p>
+                        <div style="margin-top: 1rem; color: #2196F3; font-weight: bold;">
+                            <i class="fas fa-plus-circle"></i> نیا مواد شامل کریں
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Editor Modal -->
+    <div id="postEditor" class="post-editor">
+        <div style="
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+        ">
+            <!-- Editor Header -->
+            <div style="
+                background: linear-gradient(135deg, #00dbde, #fc00ff);
+                color: white;
+                padding: 1.5rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            ">
+                <h3 style="color: white; margin: 0;" id="editorTitle">
+                    <i class="fas fa-edit"></i> نیا مواد لکھیں
+                </h3>
+                <button onclick="closeEditor()" style="
                     background: rgba(255,255,255,0.2);
                     color: white;
                     border: 1px solid rgba(255,255,255,0.3);
-                    padding: 0.8rem 1.5rem;
+                    padding: 0.5rem 1rem;
                     border-radius: 50px;
                     cursor: pointer;
-                    font-weight: bold;
                 ">
-                    <i class="fas fa-times"></i> بند کریں
+                    <i class="fas fa-times"></i>
                 </button>
             </div>
-        </div>
-        
-        <!-- Panel Content -->
-        <div style="padding: 2rem;">
-            <!-- Quick Stats -->
-            <div style="
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1.5rem;
-                margin-bottom: 3rem;
-            ">
-                <div class="stat-card" style="
-                    background: linear-gradient(135deg, #4CAF50, #2E7D32);
-                    color: white;
-                    padding: 1.5rem;
-                    border-radius: 15px;
-                    text-align: center;
-                ">
-                    <h3 style="font-size: 2.5rem; margin: 0;">0</h3>
-                    <p style="margin: 0.5rem 0 0 0;">کل پوسٹس</p>
-                </div>
-                
-                <div class="stat-card" style="
-                    background: linear-gradient(135deg, #2196F3, #1976D2);
-                    color: white;
-                    padding: 1.5rem;
-                    border-radius: 15px;
-                    text-align: center;
-                ">
-                    <h3 style="font-size: 2.5rem; margin: 0;">18</h3>
-                    <p style="margin: 0.5rem 0 0 0;">سیکشنز</p>
-                </div>
-                
-                <div class="stat-card" style="
-                    background: linear-gradient(135deg, #FF9800, #F57C00);
-                    color: white;
-                    padding: 1.5rem;
-                    border-radius: 15px;
-                    text-align: center;
-                ">
-                    <h3 style="font-size: 2.5rem; margin: 0;">0</h3>
-                    <p style="margin: 0.5rem 0 0 0;">آج کی پوسٹس</p>
-                </div>
-            </div>
             
-            <!-- Sections Grid -->
-            <h3 style="color: #333; margin-bottom: 1.5rem;">
-                <i class="fas fa-th-large"></i> سیکشنز منتخب کریں
-            </h3>
-            
-            <div style="
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 1.5rem;
-                margin-bottom: 3rem;
-            ">
-                <!-- Women Section -->
-                <div class="section-card" onclick="openEditor('women')" style="
-                    background: white;
-                    border: 2px solid #E91E63;
-                    border-radius: 15px;
-                    padding: 1.5rem;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                ">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
-                        <div style="
-                            background: #E91E63;
-                            color: white;
-                            width: 50px;
-                            height: 50px;
-                            border-radius: 12px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 1.5rem;
-                        ">
-                            <i class="fas fa-female"></i>
-                        </div>
-                        <h4 style="margin: 0; color: #333;">خواتین کا سیکشن</h4>
-                    </div>
-                    <p style="color: #666; margin: 0;">
-                        کھانا پکانا، بیوٹی ٹپس، گھریلو کام
-                    </p>
-                    <div style="margin-top: 1rem; color: #E91E63; font-weight: bold;">
-                        <i class="fas fa-plus-circle"></i> نیا مواد شامل کریں
-                    </div>
+            <!-- Editor Content -->
+            <div style="padding: 2rem;">
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
+                        <i class="fas fa-heading"></i> عنوان
+                    </label>
+                    <input type="text" id="postTitle" placeholder="مواد کا عنوان درج کریں" style="
+                        width: 100%;
+                        padding: 1rem;
+                        font-size: 1.2rem;
+                        border: 2px solid #ddd;
+                        border-radius: 10px;
+                    ">
                 </div>
                 
-                <!-- Business Section -->
-                <div class="section-card" onclick="openEditor('business')" style="
-                    background: white;
-                    border: 2px solid #4CAF50;
-                    border-radius: 15px;
-                    padding: 1.5rem;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                ">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
-                        <div style="
-                            background: #4CAF50;
-                            color: white;
-                            width: 50px;
-                            height: 50px;
-                            border-radius: 12px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 1.5rem;
-                        ">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h4 style="margin: 0; color: #333;">کاروبار</h4>
-                    </div>
-                    <p style="color: #666; margin: 0;">
-                        بزنس آئیڈیاز، آن لائن کاروبار
-                    </p>
-                    <div style="margin-top: 1rem; color: #4CAF50; font-weight: bold;">
-                        <i class="fas fa-plus-circle"></i> نیا مواد شامل کریں
-                    </div>
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
+                        <i class="fas fa-edit"></i> مواد
+                    </label>
+                    <textarea id="postContent" rows="10" placeholder="اپنا مواد یہاں لکھیں..." style="
+                        width: 100%;
+                        padding: 1rem;
+                        font-size: 1.1rem;
+                        border: 2px solid #ddd;
+                        border-radius: 10px;
+                        font-family: inherit;
+                    "></textarea>
                 </div>
                 
-                <!-- Jobs Section -->
-                <div class="section-card" onclick="openEditor('jobs')" style="
-                    background: white;
-                    border: 2px solid #2196F3;
-                    border-radius: 15px;
-                    padding: 1.5rem;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                ">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
-                        <div style="
-                            background: #2196F3;
-                            color: white;
-                            width: 50px;
-                            height: 50px;
-                            border-radius: 12px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 1.5rem;
-                        ">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h4 style="margin: 0; color: #333;">نوکریاں</h4>
-                    </div>
-                    <p style="color: #666; margin: 0;">
-                        جابز، پارٹ ٹائم، فری لانس
-                    </p>
-                    <div style="margin-top: 1rem; color: #2196F3; font-weight: bold;">
-                        <i class="fas fa-plus-circle"></i> نیا مواد شامل کریں
-                    </div>
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
+                        <i class="fas fa-image"></i> تصویر (اختیاری)
+                    </label>
+                    <input type="file" id="postImage" accept="image/*" style="
+                        width: 100%;
+                        padding: 1rem;
+                        border: 2px dashed #ddd;
+                        border-radius: 10px;
+                    ">
                 </div>
                 
-                <!-- Add more sections similarly... -->
-                
-                <!-- All Sections Quick Link -->
-                <div class="section-card" onclick="showAllSections()" style="
-                    background: linear-gradient(135deg, #6a11cb, #2575fc);
-                    color: white;
-                    border-radius: 15px;
-                    padding: 1.5rem;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                ">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">
-                        <i class="fas fa-plus-square"></i>
-                    </div>
-                    <h4 style="margin: 0;">نیا سیکشن بنائیں</h4>
-                    <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">
-                        مزید سیکشنز شامل کریں
-                    </p>
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
+                        <i class="fas fa-tags"></i> زمرہ
+                    </label>
+                    <select id="postCategory" style="
+                        width: 100%;
+                        padding: 1rem;
+                        font-size: 1.1rem;
+                        border: 2px solid #ddd;
+                        border-radius: 10px;
+                    ">
+                        <option value="recipe">کھانا پکانا</option>
+                        <option value="beauty">بیوٹی ٹپس</option>
+                        <option value="business">کاروبار</option>
+                        <option value="job">نوکری</option>
+                        <option value="education">تعلیم</option>
+                        <option value="health">صحت</option>
+                    </select>
                 </div>
-            </div>
-            
-            <!-- Recent Posts -->
-            <div id="recentPostsSection" style="display: none;">
-                <h3 style="color: #333; margin-bottom: 1.5rem;">
-                    <i class="fas fa-history"></i> حالیہ پوسٹس
-                </h3>
-                <div id="recentPostsList" style="
-                    background: #f8f9fa;
-                    border-radius: 15px;
-                    padding: 1.5rem;
-                    min-height: 200px;
-                ">
-                    <!-- Posts will load here -->
+                
+                <div style="display: flex; gap: 1rem;">
+                    <button onclick="savePost()" style="
+                        flex: 1;
+                        padding: 1.2rem;
+                        background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                        color: white;
+                        border: none;
+                        border-radius: 10px;
+                        font-size: 1.1rem;
+                        font-weight: bold;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                    ">
+                        <i class="fas fa-save"></i> محفوظ کریں
+                    </button>
+                    
+                    <button onclick="previewPost()" style="
+                        flex: 1;
+                        padding: 1.2rem;
+                        background: linear-gradient(135deg, #2196F3, #1976D2);
+                        color: white;
+                        border: none;
+                        border-radius: 10px;
+                        font-size: 1.1rem;
+                        font-weight: bold;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                    ">
+                        <i class="fas fa-eye"></i> پیش نظارہ
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Post Editor Modal -->
-<div id="postEditor" style="
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 9997;
-    overflow-y: auto;
-    padding: 2rem;
-">
-    <div style="
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 20px;
-        overflow: hidden;
-    ">
-        <!-- Editor Header -->
-        <div style="
-            background: linear-gradient(135deg, #00dbde, #fc00ff);
-            color: white;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        ">
-            <h3 style="color: white; margin: 0;" id="editorTitle">
-                <i class="fas fa-edit"></i> نیا مواد لکھیں
-            </h3>
-            <button onclick="closeEditor()" style="
-                background: rgba(255,255,255,0.2);
-                color: white;
-                border: 1px solid rgba(255,255,255,0.3);
-                padding: 0.5rem 1rem;
-                border-radius: 50px;
-                cursor: pointer;
-            ">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
+    <!-- ==================== CMS JavaScript ==================== -->
+    <script>
+    // Admin Password
+    const ADMIN_PASSWORD = "admin123";
+    
+    // Show/Hide Functions
+    function showLogin() {
+        document.getElementById('loginModal').style.display = 'flex';
+    }
+    
+    function hideLogin() {
+        document.getElementById('loginModal').style.display = 'none';
+    }
+    
+    function loginAdmin() {
+        const password = document.getElementById('adminPassword').value;
         
-        <!-- Editor Content -->
-        <div style="padding: 2rem;">
-            <div style="margin-bottom: 2rem;">
-                <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
-                    <i class="fas fa-heading"></i> عنوان
-                </label>
-                <input type="text" id="postTitle" placeholder="مواد کا عنوان درج کریں" style="
-                    width: 100%;
-                    padding: 1rem;
-                    font-size: 1.2rem;
-                    border: 2px solid #ddd;
-                    border-radius: 10px;
-                ">
-            </div>
-            
-            <div style="margin-bottom: 2rem;">
-                <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
-                    <i class="fas fa-edit"></i> مواد
-                </label>
-                <textarea id="postContent" rows="10" placeholder="اپنا مواد یہاں لکھیں..." style="
-                    width: 100%;
-                    padding: 1rem;
-                    font-size: 1.1rem;
-                    border: 2px solid #ddd;
-                    border-radius: 10px;
-                    font-family: inherit;
-                "></textarea>
-            </div>
-            
-            <div style="margin-bottom: 2rem;">
-                <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
-                    <i class="fas fa-image"></i> تصویر (اختیاری)
-                </label>
-                <input type="file" id="postImage" accept="image/*" style="
-                    width: 100%;
-                    padding: 1rem;
-                    border: 2px dashed #ddd;
-                    border-radius: 10px;
-                ">
-            </div>
-            
-            <div style="margin-bottom: 2rem;">
-                <label style="display: block; margin-bottom: 0.8rem; font-weight: bold; color: #333;">
-                    <i class="fas fa-tags"></i> زمرہ
-                </label>
-                <select id="postCategory" style="
-                    width: 100%;
-                    padding: 1rem;
-                    font-size: 1.1rem;
-                    border: 2px solid #ddd;
-                    border-radius: 10px;
-                ">
-                    <option value="recipe">کھانا پکانا</option>
-                    <option value="beauty">بیوٹی ٹپس</option>
-                    <option value="business">کاروبار</option>
-                    <option value="job">نوکری</option>
-                    <option value="education">تعلیم</option>
-                    <option value="health">صحت</option>
-                </select>
-            </div>
-            
-            <div style="display: flex; gap: 1rem;">
-                <button onclick="savePost()" style="
-                    flex: 1;
-                    padding: 1.2rem;
-                    background: linear-gradient(135deg, #4CAF50, #2E7D32);
-                    color: white;
-                    border: none;
-                    border-radius: 10px;
-                    font-size: 1.1rem;
-                    font-weight: bold;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;
-                ">
-                    <i class="fas fa-save"></i> محفوظ کریں
-                </button>
-                
-                <button onclick="previewPost()" style="
-                    flex: 1;
-                    padding: 1.2rem;
-                    background: linear-gradient(135deg, #2196F3, #1976D2);
-                    color: white;
-                    border: none;
-                    border-radius: 10px;
-                    font-size: 1.1rem;
-                    font-weight: bold;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;
-                ">
-                    <i class="fas fa-eye"></i> پیش نظارہ
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ==================== CMS JavaScript ==================== -->
-
+        if(password === ADMIN_PASSWORD) {
+            localStorage.setItem('admin_logged_in', 'true');
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('floatingAdminBtn').style.display = 'block';
+            document.getElementById('adminAccessBtn').innerHTML = '<i class="fas fa-user-shield"></i> ایڈمن';
+            alert('کامیابی سے لاگ ان ہو گیا!');
+        } else {
+            alert('غلط پاس ورڈ!');
+        }
+    }
+    
+    function openControlPanel() {
+        document.getElementById('controlPanel').style.display = 'block';
+    }
+    
+    function closeControlPanel() {
+        document.getElementById('controlPanel').style.display = 'none';
+    }
+    
+    function openEditor(section) {
+        document.getElementById('postEditor').style.display = 'block';
+        document.getElementById('editorTitle').innerHTML = 
+            `<i class="fas fa-edit"></i> ${getSectionName(section)} میں نیا مواد`;
+        
+        // Set category based on section
+        const categorySelect = document.getElementById('postCategory');
+        if(section === 'women') {
+            categorySelect.innerHTML = `
+                <option value="recipe">کھانا پکانا</option>
+                <option value="beauty">بیوٹی ٹپس</option>
+                <option value="home">گھریلو کام</option>
+                <option value="sewing">سلائی کڑھائی</option>
+                <option value="children">بچوں کی پرورش</option>
+            `;
+        } else if(section === 'business') {
+            categorySelect.innerHTML = `
+                <option value="online">آن لائن بزنس</option>
+                <option value="small">چھوٹا کاروبار</option>
+                <option value="franchise">فرنچائز</option>
+            `;
+        }
+    }
+    
+    function closeEditor() {
+        document.getElementById('postEditor').style.display = 'none';
+        document.getElementById('postTitle').value = '';
+        document.getElementById('postContent').value = '';
+        document.getElementById('postImage').value = '';
+    }
+    
+    function getSectionName(section) {
+        const sections = {
+            'women': 'خواتین کا سیکشن',
+            'business': 'کاروبار',
+            'jobs': 'نوکریاں',
+            'education': 'تعلیم',
+            'health': 'صحت',
+            'relationships': 'رشتے',
+            'travel': 'سفر',
+            'visa': 'ویزا'
+        };
+        return sections[section] || section;
+    }
+    
+    function savePost() {
+        const title = document.getElementById('postTitle').value;
+        const content = document.getElementById('postContent').value;
+        const category = document.getElementById('postCategory').value;
+        
+        if(!title || !content) {
+            alert('براہ کرم عنوان اور مواد لکھیں');
+            return;
+        }
+        
+        // Create post object
+        const post = {
+            id: Date.now(),
+            title: title,
+            content: content,
+            category: category,
+            date: new Date().toLocaleString('ur-PK')
+        };
+        
+        // Save to localStorage
+        savePostToStorage(post);
+        
+        alert('مواد کامیابی سے محفوظ ہو گیا!');
+        closeEditor();
+    }
+    
+    function savePostToStorage(post) {
+        let posts = JSON.parse(localStorage.getItem('portal_posts') || '[]');
+        posts.unshift(post); // Add at beginning
+        localStorage.setItem('portal_posts', JSON.stringify(posts));
+    }
+    
+    function previewPost() {
+        const title = document.getElementById('postTitle').value;
+        const content = document.getElementById('postContent').value;
+        
+        if(!title || !content) {
+            alert('پہلے عنوان اور مواد لکھیں');
+            return;
+        }
+        
+        alert('پیش نظارہ: ' + title + '\n\n' + content.substring(0, 100) + '...');
+    }
+    
+    // Check login status on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        if(localStorage.getItem('admin_logged_in')) {
+            document.getElementById('floatingAdminBtn').style.display = 'block';
+            document.getElementById('adminAccessBtn').innerHTML = '<i class="fas fa-user-shield"></i> ایڈمن';
+        }
+    });
+    </script>
     <!-- Footer -->
     <footer>
         <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
